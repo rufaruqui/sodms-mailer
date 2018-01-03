@@ -43,7 +43,7 @@ gem 'resque-scheduler'
 gem 'resque-web'
 gem 'whenever', require: false
 gem 'axlsx'
-gem 'pg'
+#gem 'pg'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -62,7 +62,7 @@ end
 
 group :production do
   gem 'rails_12factor'
- # gem 'pg'
+  gem 'pg'
   gem 'lograge'
 end
 

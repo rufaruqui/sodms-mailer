@@ -285,3 +285,8 @@ Migrating to CreateEmails (20171206030709)
   [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
   [1m[35m (3.7ms)[0m  [1m[35mSHOW CREATE TABLE `emails`[0m
   [1m[35m (0.6ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'emails'[0m
+  Rendering report_mailer/daily_email_update.html.erb
+  Rendered report_mailer/daily_email_update.html.erb (4.9ms)
+  Rendering report_mailer/daily_email_update.text.erb
+  Rendered report_mailer/daily_email_update.text.erb (0.5ms)
+ReportMailer#daily_email_update: processed outbound mail in 503.6ms

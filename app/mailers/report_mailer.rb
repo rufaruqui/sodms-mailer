@@ -1,5 +1,5 @@
 class ReportMailer < ApplicationMailer
-  include Resque::Mailer
+  #include Resque::Mailer
 
   def daily_email_update(options) 
     puts "Sending daily reports"
