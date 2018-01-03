@@ -17,11 +17,11 @@
 #   runner "AnotherModel.prune_old_records"
 # end
 
-every :day, at: '11:50am' do
+every :day, at: '1:30pm' do
      rake 'send_daily_reports'
 end  
 
-every 5.hours do
+every 2.hours do
      rake 'send_daily_reports'
 end   
 # Learn more: http://github.com/javan/whenever

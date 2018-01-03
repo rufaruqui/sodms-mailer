@@ -3,7 +3,7 @@ class ReportMailer < ApplicationMailer
 
   def daily_email_update(options) 
     puts "Sending daily reports"
-    # mail(to: 'rufaruqui@gmail.com', subject: 'SAPL Report')
+    mail(to: 'rufaruqui@gmail.com', subject: 'SAPL Report')
   end
 
 end
