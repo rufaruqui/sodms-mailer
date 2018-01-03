@@ -17,7 +17,7 @@
 #   runner "AnotherModel.prune_old_records"
 # end
 
-every :day, at: '10pm' do
+every :day, at: '11:50am' do
      rake 'send_daily_reports'
 end  
 
