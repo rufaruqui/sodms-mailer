@@ -38,12 +38,17 @@ gem 'jbuilder', '~> 2.5'
 
 
 gem 'resque' # or a compatible alternative / fork
-gem 'resque_mailer'
+gem 'resque_mailer' 
 gem 'resque-scheduler'
 gem 'resque-web'
 gem 'whenever', require: false
 gem 'axlsx'
-gem 'pg'
+gem 'mail'
+#gem 'pg'
+
+
+##Retriveing data from SODMS Backend###
+gem 'rest-client'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -62,7 +67,7 @@ end
 
 group :production do
   gem 'rails_12factor'
-  #gem 'pg'
+  gem 'pg'
   gem 'lograge'
 end
 

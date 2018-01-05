@@ -1,0 +1,5 @@
+development:
+  sodms_backend_base: http://localhost:5000
+
+test:
+  secret_key_base: f7670a2e2e532da7725724b15b1cdf1a82b9d4a4d85ba08931928de60e66602bbb4ae35240667d8b4ee260f5e91a97ab215adc7b75ded4a894eee9e1365b7b32

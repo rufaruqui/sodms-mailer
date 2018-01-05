@@ -290,3 +290,1447 @@ Migrating to CreateEmails (20171206030709)
   Rendering report_mailer/daily_email_update.text.erb
   Rendered report_mailer/daily_email_update.text.erb (0.5ms)
 ReportMailer#daily_email_update: processed outbound mail in 503.6ms
+  Rendering report_mailer/daily_email_update.html.erb
+  Rendered report_mailer/daily_email_update.html.erb (4.2ms)
+  Rendering report_mailer/daily_email_update.text.erb
+  Rendered report_mailer/daily_email_update.text.erb (0.4ms)
+ReportMailer#daily_email_update: processed outbound mail in 393.2ms
+Sent mail to rufaruqui@gmail.com (2431.2ms)
+Date: Thu, 04 Jan 2018 11:33:10 +0600
+From: sapl.mailer@gmail.com
+To: rufaruqui@gmail.com
+Message-ID: <5a4dbc96450be_6e743fd56503fa1462686@MacBookAir.local.mail>
+Subject: SAPL Report
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5a4dbc963f7f6_6e743fd56503fa146256";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5a4dbc963f7f6_6e743fd56503fa146256
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5a4dbc963f7f6_6e743fd56503fa146256
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    
+  </body>
+</html>
+
+----==_mimepart_5a4dbc963f7f6_6e743fd56503fa146256--
+
+  Rendering report_mailer/daily_email_update.html.erb
+  Rendered report_mailer/daily_email_update.html.erb (1.1ms)
+  Rendering report_mailer/daily_email_update.text.erb
+  Rendered report_mailer/daily_email_update.text.erb (0.4ms)
+ReportMailer#daily_email_update: processed outbound mail in 31.7ms
+Sent mail to rufaruqui@balchal.com (1886.1ms)
+Date: Thu, 04 Jan 2018 11:34:37 +0600
+From: sapl.mailer@gmail.com
+To: rufaruqui@balchal.com
+Message-ID: <5a4dbcedb7d80_6e743fd56503fa1462844@MacBookAir.local.mail>
+Subject: SAPL Report
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5a4dbcedb699e_6e743fd56503fa1462788";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5a4dbcedb699e_6e743fd56503fa1462788
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5a4dbcedb699e_6e743fd56503fa1462788
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    
+  </body>
+</html>
+
+----==_mimepart_5a4dbcedb699e_6e743fd56503fa1462788--
+
+  Rendering report_mailer/daily_email_update.html.erb
+  Rendered report_mailer/daily_email_update.html.erb (0.8ms)
+  Rendering report_mailer/daily_email_update.text.erb
+  Rendered report_mailer/daily_email_update.text.erb (0.7ms)
+ReportMailer#daily_email_update: processed outbound mail in 34.8ms
+Sent mail to rufaruqui@balchal.com (2451.6ms)
+Date: Thu, 04 Jan 2018 11:41:18 +0600
+From: sapl.mailer@gmail.com
+To: rufaruqui@balchal.com
+Message-ID: <5a4dbe7e2f8b5_6e743fd56503fa146306d@MacBookAir.local.mail>
+Subject: SAPL Report
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5a4dbe7e2e38f_6e743fd56503fa14629eb";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5a4dbe7e2e38f_6e743fd56503fa14629eb
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5a4dbe7e2e38f_6e743fd56503fa14629eb
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    
+  </body>
+</html>
+
+----==_mimepart_5a4dbe7e2e38f_6e743fd56503fa14629eb--
+
+  Rendering report_mailer/daily_email_update.html.erb
+  Rendered report_mailer/daily_email_update.html.erb (0.5ms)
+  Rendering report_mailer/daily_email_update.text.erb
+  Rendered report_mailer/daily_email_update.text.erb (1.4ms)
+ReportMailer#daily_email_update: processed outbound mail in 34.4ms
+Sent mail to rufaruqui@gmail.com (2503.4ms)
+Date: Thu, 04 Jan 2018 11:42:25 +0600
+From: sapl.mailer@gmail.com
+To: rufaruqui@gmail.com
+Message-ID: <5a4dbec19b401_6e743fd56503fa14632db@MacBookAir.local.mail>
+Subject: SAPL Report
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5a4dbec19a339_6e743fd56503fa14631e3";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5a4dbec19a339_6e743fd56503fa14631e3
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5a4dbec19a339_6e743fd56503fa14631e3
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    
+  </body>
+</html>
+
+----==_mimepart_5a4dbec19a339_6e743fd56503fa14631e3--
+
+  Rendering report_mailer/daily_email_update.html.erb
+  Rendered report_mailer/daily_email_update.html.erb (0.2ms)
+  Rendering report_mailer/daily_email_update.text.erb
+  Rendered report_mailer/daily_email_update.text.erb (0.2ms)
+ReportMailer#daily_email_update: processed outbound mail in 45.9ms
+Sent mail to rufaruqui@gmail.com (4549.5ms)
+Date: Thu, 04 Jan 2018 11:44:40 +0600
+From: sapl.mailer@gmail.com
+To: rufaruqui@gmail.com
+Message-ID: <5a4dbf48f3de8_6e743fd56503fa146343c@MacBookAir.local.mail>
+Subject: SAPL Report
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5a4dbf48f2460_6e743fd56503fa1463364";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5a4dbf48f2460_6e743fd56503fa1463364
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5a4dbf48f2460_6e743fd56503fa1463364
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    
+  </body>
+</html>
+
+----==_mimepart_5a4dbf48f2460_6e743fd56503fa1463364--
+
+  Rendering report_mailer/daily_email_update.html.erb
+  Rendered report_mailer/daily_email_update.html.erb (1.1ms)
+  Rendering report_mailer/daily_email_update.text.erb
+  Rendered report_mailer/daily_email_update.text.erb (0.2ms)
+ReportMailer#daily_email_update: processed outbound mail in 130.0ms
+Sent mail to rufaruqui@gmail.com (5863.1ms)
+Date: Thu, 04 Jan 2018 11:54:09 +0600
+From: sapl.mailer@gmail.com
+To: rufaruqui@gmail.com
+Message-ID: <5a4dc181c9f4_6e743fd56503fa1463678@MacBookAir.local.mail>
+Subject: SAPL Report
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5a4dc181786f_6e743fd56503fa1463522";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5a4dc181786f_6e743fd56503fa1463522
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5a4dc181786f_6e743fd56503fa1463522
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    
+  </body>
+</html>
+
+----==_mimepart_5a4dc181786f_6e743fd56503fa1463522--
+
+  Rendering report_mailer/daily_email_update.html.erb
+  Rendered report_mailer/daily_email_update.html.erb (5.2ms)
+  Rendering report_mailer/daily_email_update.text.erb
+  Rendered report_mailer/daily_email_update.text.erb (0.7ms)
+ReportMailer#daily_email_update: processed outbound mail in 481.7ms
+Sent mail to rufaruqui@gmail.com (5623.3ms)
+Date: Thu, 04 Jan 2018 12:00:18 +0600
+From: sapl.mailer@gmail.com
+To: rufaruqui@gmail.com
+Message-ID: <5a4dc2f23efd7_74e63ff22dc3fa1484034@MacBookAir.local.mail>
+Subject: SAPL Report with attacment
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5a4dc2f23ae12_74e63ff22dc3fa14839de";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5a4dc2f23ae12_74e63ff22dc3fa14839de
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5a4dc2f23ae12_74e63ff22dc3fa14839de
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    
+  </body>
+</html>
+
+----==_mimepart_5a4dc2f23ae12_74e63ff22dc3fa14839de--
+
+  Rendering report_mailer/daily_email_update.html.erb
+  Rendered report_mailer/daily_email_update.html.erb (2.0ms)
+  Rendering report_mailer/daily_email_update.text.erb
+  Rendered report_mailer/daily_email_update.text.erb (1.0ms)
+ReportMailer#daily_email_update: processed outbound mail in 498.7ms
+Sent mail to rufaruqui@gmail.com (5326.8ms)
+Date: Thu, 04 Jan 2018 12:02:50 +0600
+From: sapl.mailer@gmail.com
+To: rufaruqui@gmail.com
+Message-ID: <5a4dc38a9fbd6_75393fcbb083fa0c144eb@MacBookAir.local.mail>
+Subject: SAPL Report with attacment
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5a4dc38a9bb8f_75393fcbb083fa0c14367";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5a4dc38a9bb8f_75393fcbb083fa0c14367
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5a4dc38a9bb8f_75393fcbb083fa0c14367
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    
+  </body>
+</html>
+
+----==_mimepart_5a4dc38a9bb8f_75393fcbb083fa0c14367--
+
+  Rendering report_mailer/daily_email_update.html.erb
+  Rendered report_mailer/daily_email_update.html.erb (1.4ms)
+  Rendering report_mailer/daily_email_update.text.erb
+  Rendered report_mailer/daily_email_update.text.erb (0.7ms)
+ReportMailer#daily_email_update: processed outbound mail in 73.5ms
+Sent mail to rufaruqui@gmail.com (5387.1ms)
+Date: Thu, 04 Jan 2018 12:10:13 +0600
+From: sapl.mailer@gmail.com
+To: rufaruqui@gmail.com
+Message-ID: <5a4dc54568c39_74e63ff22dc3fa14843b7@MacBookAir.local.mail>
+Subject: SAPL Report with attacment
+Mime-Version: 1.0
+Content-Type: multipart/mixed;
+ boundary="--==_mimepart_5a4dc54565c72_74e63ff22dc3fa1484299";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5a4dc54565c72_74e63ff22dc3fa1484299
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5a4dc54565956_74e63ff22dc3fa1484158";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5a4dc54565956_74e63ff22dc3fa1484158
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5a4dc54565956_74e63ff22dc3fa1484158
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    
+  </body>
+</html>
+
+----==_mimepart_5a4dc54565956_74e63ff22dc3fa1484158--
+
+----==_mimepart_5a4dc54565c72_74e63ff22dc3fa1484299
+Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;
+ filename=simple.xlsx
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment;
+ filename=simple.xlsx
+Content-ID: <5a4dc54569f54_74e63ff22dc3fa14844d8@MacBookAir.local.mail>
+
+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
+ZU2apNOGrlt4nbpWpVk0wbnNN2+2v0Z1lQR1cuPIKU2jE3mXDv0TM9zdX0v8
+5Q9QSwECNAMUAAAACAAAMCHsYzhr1NkAAABBAgAACwAAAAAAAAABAAAApIEA
+AAAAX3JlbHMvLnJlbHNQSwECNAMUAAAACAAAMCHs78qjxMgBAAAJBQAADQAA
+AAAAAAABAAAApIECAQAAeGwvc3R5bGVzLnhtbFBLAQI0AxQAAAAIAAAwIey1
+6exzDgEAAOYBAAARAAAAAAAAAAEAAACkgfUCAABkb2NQcm9wcy9jb3JlLnht
+bFBLAQI0AxQAAAAIAAAwIezQvk+njgAAAOIAAAAQAAAAAAAAAAEAAACkgTIE
+AABkb2NQcm9wcy9hcHAueG1sUEsBAjQDFAAAAAgAADAh7PgcrSW6AAAAlwEA
+ABoAAAAAAAAAAQAAAKSB7gQAAHhsL19yZWxzL3dvcmtib29rLnhtbC5yZWxz
+UEsBAjQDFAAAAAgAADAh7LjAVoFAAQAAeQQAABMAAAAAAAAAAQAAAKSB4AUA
+AFtDb250ZW50X1R5cGVzXS54bWxQSwECNAMUAAAACAAAMCHszJm+vMUAAAAs
+AQAADwAAAAAAAAABAAAApIFRBwAAeGwvd29ya2Jvb2sueG1sUEsBAjQDFAAA
+AAgAADAh7FqeSaGoAAAAEwEAACMAAAAAAAAAAQAAAKSBQwgAAHhsL2RyYXdp
+bmdzL19yZWxzL2RyYXdpbmcxLnhtbC5yZWxzUEsBAjQDFAAAAAgAADAh7G90
+kvRpAQAA1wMAABgAAAAAAAAAAQAAAKSBLAkAAHhsL2RyYXdpbmdzL2RyYXdp
+bmcxLnhtbFBLAQI0AxQAAAAIAAAwIewnA6MRywIAANEHAAAUAAAAAAAAAAEA
+AACkgcsKAAB4bC9jaGFydHMvY2hhcnQxLnhtbFBLAQI0AxQAAAAIAAAwIez1
+aSsbqQAAABoBAAAjAAAAAAAAAAEAAACkgcgNAAB4bC93b3Jrc2hlZXRzL19y
+ZWxzL3NoZWV0MS54bWwucmVsc1BLAQI0AxQAAAAIAAAwIexFCBBw2wIAAI0G
+AAAYAAAAAAAAAAEAAACkgbIOAAB4bC93b3Jrc2hlZXRzL3NoZWV0MS54bWxQ
+SwUGAAAAAAwADAAnAwAAwxEAAAAA
+
+----==_mimepart_5a4dc54565c72_74e63ff22dc3fa1484299--
+
+  Rendering report_mailer/daily_email_update.html.erb
+  Rendered report_mailer/daily_email_update.html.erb (3.2ms)
+  Rendering report_mailer/daily_email_update.text.erb
+  Rendered report_mailer/daily_email_update.text.erb (1.4ms)
+ReportMailer#daily_email_update: processed outbound mail in 657.2ms
+Sent mail to rufaruqui@gmail.com (5412.5ms)
+Date: Thu, 04 Jan 2018 12:10:22 +0600
+From: sapl.mailer@gmail.com
+To: rufaruqui@gmail.com
+Message-ID: <5a4dc54e1f871_756c3fcbb083fa0c1447a@MacBookAir.local.mail>
+Subject: SAPL Report with attacment
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5a4dc54e1bb44_756c3fcbb083fa0c14397";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5a4dc54e1bb44_756c3fcbb083fa0c14397
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5a4dc54e1bb44_756c3fcbb083fa0c14397
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    
+  </body>
+</html>
+
+----==_mimepart_5a4dc54e1bb44_756c3fcbb083fa0c14397--
+
+  Rendering report_mailer/daily_email_update.html.erb
+  Rendered report_mailer/daily_email_update.html.erb (3.2ms)
+  Rendering report_mailer/daily_email_update.text.erb
+  Rendered report_mailer/daily_email_update.text.erb (0.9ms)
+ReportMailer#daily_email_update: processed outbound mail in 593.7ms
+Sent mail to rufaruqui@gmail.com (4155.2ms)
+Date: Thu, 04 Jan 2018 12:11:43 +0600
+From: sapl.mailer@gmail.com
+To: rufaruqui@gmail.com
+Message-ID: <5a4dc59f3a461_75cb3fcbb083fa0c14474@MacBookAir.local.mail>
+Subject: SAPL Report with attacment
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5a4dc59f36546_75cb3fcbb083fa0c14335";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5a4dc59f36546_75cb3fcbb083fa0c14335
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5a4dc59f36546_75cb3fcbb083fa0c14335
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    
+  </body>
+</html>
+
+----==_mimepart_5a4dc59f36546_75cb3fcbb083fa0c14335--
+
+  Rendering report_mailer/daily_email_update.html.erb
+  Rendered report_mailer/daily_email_update.html.erb (2.8ms)
+  Rendering report_mailer/daily_email_update.text.erb
+  Rendered report_mailer/daily_email_update.text.erb (1.1ms)
+ReportMailer#daily_email_update: processed outbound mail in 515.9ms
+Sent mail to rufaruqui@gmail.com (5168.6ms)
+Date: Thu, 04 Jan 2018 12:13:43 +0600
+From: sapl.mailer@gmail.com
+To: rufaruqui@gmail.com
+Message-ID: <5a4dc617cabb_75e03fcbb083fa0c14435@MacBookAir.local.mail>
+Subject: SAPL Report with attacment
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5a4dc6179032_75e03fcbb083fa0c1436d";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5a4dc6179032_75e03fcbb083fa0c1436d
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5a4dc6179032_75e03fcbb083fa0c1436d
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    
+  </body>
+</html>
+
+----==_mimepart_5a4dc6179032_75e03fcbb083fa0c1436d--
+
+  Rendering report_mailer/daily_email_update.html.erb
+  Rendered report_mailer/daily_email_update.html.erb (1.3ms)
+  Rendering report_mailer/daily_email_update.text.erb
+  Rendered report_mailer/daily_email_update.text.erb (0.6ms)
+ReportMailer#daily_email_update: processed outbound mail in 43.9ms
+Sent mail to shimulcse@gmail.com, rufaruqui@gmail.com (6526.9ms)
+Date: Thu, 04 Jan 2018 12:16:32 +0600
+From: sapl.mailer@gmail.com
+To: shimulcse@gmail.com, 
+ rufaruqui@gmail.com
+Message-ID: <5a4dc6c05ec6c_74e63ff22dc3fa1484768@MacBookAir.local.mail>
+Subject: SAPL Report with attacment
+Mime-Version: 1.0
+Content-Type: multipart/mixed;
+ boundary="--==_mimepart_5a4dc6c05cd33_74e63ff22dc3fa14846b0";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5a4dc6c05cd33_74e63ff22dc3fa14846b0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5a4dc6c05c9fc_74e63ff22dc3fa1484591";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5a4dc6c05c9fc_74e63ff22dc3fa1484591
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5a4dc6c05c9fc_74e63ff22dc3fa1484591
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    
+  </body>
+</html>
+
+----==_mimepart_5a4dc6c05c9fc_74e63ff22dc3fa1484591--
+
+----==_mimepart_5a4dc6c05cd33_74e63ff22dc3fa14846b0
+Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;
+ filename=simple.xlsx
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment;
+ filename=simple.xlsx
+Content-ID: <5a4dc6c05fc5a_74e63ff22dc3fa1484854@MacBookAir.local.mail>
+
+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
+ZU2apNOGrlt4nbpWpVk0wbnNN2+2v0Z1lQR1cuPIKU2jE3mXDv0TM9zdX0v8
+5Q9QSwECNAMUAAAACAAAMCHsYzhr1NkAAABBAgAACwAAAAAAAAABAAAApIEA
+AAAAX3JlbHMvLnJlbHNQSwECNAMUAAAACAAAMCHs78qjxMgBAAAJBQAADQAA
+AAAAAAABAAAApIECAQAAeGwvc3R5bGVzLnhtbFBLAQI0AxQAAAAIAAAwIey1
+6exzDgEAAOYBAAARAAAAAAAAAAEAAACkgfUCAABkb2NQcm9wcy9jb3JlLnht
+bFBLAQI0AxQAAAAIAAAwIezQvk+njgAAAOIAAAAQAAAAAAAAAAEAAACkgTIE
+AABkb2NQcm9wcy9hcHAueG1sUEsBAjQDFAAAAAgAADAh7PgcrSW6AAAAlwEA
+ABoAAAAAAAAAAQAAAKSB7gQAAHhsL19yZWxzL3dvcmtib29rLnhtbC5yZWxz
+UEsBAjQDFAAAAAgAADAh7LjAVoFAAQAAeQQAABMAAAAAAAAAAQAAAKSB4AUA
+AFtDb250ZW50X1R5cGVzXS54bWxQSwECNAMUAAAACAAAMCHszJm+vMUAAAAs
+AQAADwAAAAAAAAABAAAApIFRBwAAeGwvd29ya2Jvb2sueG1sUEsBAjQDFAAA
+AAgAADAh7FqeSaGoAAAAEwEAACMAAAAAAAAAAQAAAKSBQwgAAHhsL2RyYXdp
+bmdzL19yZWxzL2RyYXdpbmcxLnhtbC5yZWxzUEsBAjQDFAAAAAgAADAh7G90
+kvRpAQAA1wMAABgAAAAAAAAAAQAAAKSBLAkAAHhsL2RyYXdpbmdzL2RyYXdp
+bmcxLnhtbFBLAQI0AxQAAAAIAAAwIewnA6MRywIAANEHAAAUAAAAAAAAAAEA
+AACkgcsKAAB4bC9jaGFydHMvY2hhcnQxLnhtbFBLAQI0AxQAAAAIAAAwIez1
+aSsbqQAAABoBAAAjAAAAAAAAAAEAAACkgcgNAAB4bC93b3Jrc2hlZXRzL19y
+ZWxzL3NoZWV0MS54bWwucmVsc1BLAQI0AxQAAAAIAAAwIexFCBBw2wIAAI0G
+AAAYAAAAAAAAAAEAAACkgbIOAAB4bC93b3Jrc2hlZXRzL3NoZWV0MS54bWxQ
+SwUGAAAAAAwADAAnAwAAwxEAAAAA
+
+----==_mimepart_5a4dc6c05cd33_74e63ff22dc3fa14846b0--
+
+  Rendering report_mailer/daily_email_update.html.erb
+  Rendered report_mailer/daily_email_update.html.erb (1.2ms)
+  Rendering report_mailer/daily_email_update.text.erb
+  Rendered report_mailer/daily_email_update.text.erb (0.3ms)
+ReportMailer#daily_email_update: processed outbound mail in 580.6ms
+Sent mail to rufaruqui@gmail.com (7117.6ms)
+Date: Thu, 04 Jan 2018 12:25:38 +0600
+From: sapl.mailer@gmail.com
+To: rufaruqui@gmail.com
+Message-ID: <5a4dc8e24eccd_76c93fe5f183d9f49482f@MacBookAir.local.mail>
+Subject: SAPL Report with attacment
+Mime-Version: 1.0
+Content-Type: multipart/mixed;
+ boundary="--==_mimepart_5a4dc8e24b2d5_76c93fe5f183d9f494715";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5a4dc8e24b2d5_76c93fe5f183d9f494715
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5a4dc8e24b072_76c93fe5f183d9f4946f7";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5a4dc8e24b072_76c93fe5f183d9f4946f7
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5a4dc8e24b072_76c93fe5f183d9f4946f7
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    
+  </body>
+</html>
+
+----==_mimepart_5a4dc8e24b072_76c93fe5f183d9f4946f7--
+
+----==_mimepart_5a4dc8e24b2d5_76c93fe5f183d9f494715
+Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;
+ filename=simple.xlsx
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment;
+ filename=simple.xlsx
+Content-ID: <5a4dc8e251727_76c93fe5f183d9f49496d@MacBookAir.local.mail>
+
+UEsDBBQAAAAIAAAwIexjOGvU2QAAAEECAAALAAAAX3JlbHMvLnJlbHOtksFO
+wzAMhu88ReT7mm5ICKFluyCk3RAqD2ASt43axJEToLw9gQNiaAgOO1r2//3f
+wdv9Emb1QpI9RwPrpgVF0bLzcTDw2N2trmG/2z7QjKVe5NGnrGokZgNjKelG
+62xHCpgbThTrpmcJWOoog05oJxxIb9r2Sst3BhwzVYcyUDGwzPqVZXpinpoK
+A9W9JfpPFfe9t3TL9jlQLCcaf1yAOjgDcnBr0L+4OLb3wjVpWejcNoEKOiz4
+CV+l2kNSPOUvr83fXpjSubVoKRQduVNGlx9G+ugVdhfvUEsDBBQAAAAIAAAw
+IezvyqPEyAEAAAkFAAANAAAAeGwvc3R5bGVzLnhtbKVU22rcMBB971cIfUBl
+bZpAF8tQAoZCEwrJQ1+1a3lt0MVIcrDz9RlJri1DQ5bUD6vR2XPOjEZjl87P
+Ujx1Qng0Kakdw533w5EQd+6E4u6rGYSGf1pjFfewtRfiBit444JISXIoijui
+eK9xVepR1co7dDaj9gwfVgil5WfDMC0KjJLdvWkEwzM8RCnSNBiRfwroewLU
+dUeljs5FJVnSV2Vr9FYFxQkAa64EeuGS4R+25xKDxr0mgNKwa7nq5bwgASBJ
+GJfg20u5O10AqnLg3gura9igJX6eB6hUGy2ARTJCMIvLB9KL5TM93L6njgtU
+dDK2EXZXU4IQcFKUIVK0HsUrZ9h38crORhqL7OXEcF0X8UnNDNyqtP2lu1oS
+yVXpzXCtAqihPO+NulaS2NnplgCacRZSPgWXP+3u9qcWJU4YJ7DZZiuOol5D
+6OkSgu3Uwk9umRJk3jef857afZKdBf1/i10V9NuHHnwY5Pw4qpOwdXzNYhV5
+B9bDx1bseruiKLxdDD8GB5m5k7yLYNNMWwOLMN4BgKHhJ/gQJftGtHyU/nmF
+GN7iB9H0o/qO/7J+9y/GL6wt/hVGkd7hLVM4UJYEdtu3r/ryBlBLAwQUAAAA
+CAAAMCHstenscw4BAADmAQAAEQAAAGRvY1Byb3BzL2NvcmUueG1sbZFNT4Qw
+EIbv/grSO5SC8aOB7kGzJ01MxGi8NWVkG2lp2rrgv7d0d5FN9jjzPvN0mqk2
+k+qTPVgnB10jkuUoAS2GVuquRm/NNr1DG1YJQ8Vg4cUOBqyX4JIwph0VpkY7
+7w3F2IkdKO6yQOgQfg1WcR9K22HDxTfvABd5foMVeN5yz/EsTM1iREdlKxal
++bF9FLQCQw8KtHeYZAT/s0r6XwMXJ07hivZglbsIx2QhJycXahzHbCwjF/Yn
++OP56TV+NZXaea4FIFa1ggoL3A+W8al3U4VXner48KEBbRL09LD2KXkvHx6b
+LWJFTm5TUqTFfUMKWpb0uvycXWfz8RwW9nK+GcsrvC5jdX4rdvUHUEsDBBQA
+AAAIAAAwIezQvk+njgAAAOIAAAAQAAAAZG9jUHJvcHMvYXBwLnhtbJ2OsQrC
+MBRFd7+iZG8THURKmy7F2aG6l+S1DZj3QvIs9e+NCLo7Xs7lcJpu8/dihZgc
+YSv2lRIFoCHrcG7FdTiXJ9Hp5hIpQGQHqch/TK1YmEMtZTIL+DFVGWMmE0U/
+cp5xljRNzkBP5uEBWR6UOkrYGNCCLcNXKD7GeuV/pZbMuy/dhmfIPt3IX67e
+vQBQSwMEFAAAAAgAADAh7PgcrSW6AAAAlwEAABoAAAB4bC9fcmVscy93b3Jr
+Ym9vay54bWwucmVsc62QTQvCMAyG7/6KkrvLFBURqxcRdpX5A0qXfeDWlqZ+
+7N9bFURBwYOnEJI8z0uW60vXihN5bqyRMEpSEGS0LRpTSdjn2+Ec1qvljloV
+4gbXjWMRTwxLqENwC0TWNXWKE+vIxElpfadCbH2FTumDqgjHaTpD/8qAd6bI
+la8oSDhbf+CaKDDeyyiJSBB57+gXoS3LRtPG6mNHJnzw4lMAIisk+KyYAH4J
+w6Fvif+d4EF96qc3Pb49eDW4AlBLAwQUAAAACAAAMCHsuMBWgUABAAB5BAAA
+EwAAAFtDb250ZW50X1R5cGVzXS54bWytlE1vwjAMhu/7FVWuUxPYYZomCge2
+HTcO7AdkiUsj8qU4fP37uS1MGpeC4OS68fu8thVlMts7W2whoQm+YmM+YgV4
+FbTxq4p9Lz/KFzabTpaHCFhQqceKNTnHVyFQNeAk8hDB00kdkpOZ0rQSUaq1
+XIF4Go2ehQo+g89lbhlsOnmDWm5sLub9/xZdMRmjNUpm6kJsvT6DlkcgT2C7
+GmxMxEcqYMX7nih993SKTFzgcC5sc9J90R6S0VAsZMqf0pFK6KAWKUQUpOed
+7pq+Q10bBcTYOJJwaC016DISElI20A8x5K1CguvNT0tr1Rc67q3AfLCAN4+K
+MYHU2ABkZ3kPHXDehbT+CWF9b+82cieNH/DXSe7o2uPpY3xzI0fQgK9qKMU+
+3M2TBu+AF+y8WxCKLtzu/3/5f/xTH6J7SqYPv1BLAwQUAAAACAAAMCHszJm+
+vMUAAAAsAQAADwAAAHhsL3dvcmtib29rLnhtbI1PzU7DMAy+8xSR71u6aUJQ
+Nd1hCGm3HeABTOMu0Zq4srPB4xM2Jq6cbH/29+Nu+5UmcyHRyNnBatmAoTyw
+j/no4P3tdfEE2777ZDl9MJ9Mvc7qIJQyt9bqECihLnmmXDcjS8JSRzlanYXQ
+ayAqabLrpnm0CWOGm0Ir/9HgcYwDvfBwTpTLTURowlKzaoizwl+ygxiPhVbP
+zcbBiJMS2L67+utvNRkTOThEMruAUsBc4b2vf4ORNtZG9n7zQ7R3pr0b9A/f
+UEsDBBQAAAAIAAAwIexankmhqAAAABMBAAAjAAAAeGwvZHJhd2luZ3MvX3Jl
+bHMvZHJhd2luZzEueG1sLnJlbHONj8sKwjAQRfd+RZi9SetCijTtRoRupX5A
+SKdJsHmQRNG/N9CNBReuhmHuPYdp+5ddyBNjMt5xqGkFBJ30k3GKw2287Bvo
+u/aKi8glkbQJiZSKSxx0zuHEWJIarUjUB3TlMvtoRS5rVCwIeRcK2aGqjix+
+M2DLJKOICjMHSpnUIua0jpoWIpDxHfAfn59nI/Hs5cOiyz+0KxXIMHGIw9QA
+61q2ea7bfQBQSwMEFAAAAAgAADAh7G90kvRpAQAA1wMAABgAAAB4bC9kcmF3
+aW5ncy9kcmF3aW5nMS54bWydU8tuwyAQvPcrEPcGJ1KryIodVbVS9dLm0J4r
+hNcxkgFrIbHz98UBN+7jkOaCdmeXGfbBat2rhhwArTQ6o/NZQgloYUqpdxl9
+f9vcLimxjuuSN0ZDRo9g6Tpf9SWmnS2Q+Ovapt7NaO1cmzJmRQ2K25lpQfto
+ZVBx513csRJ554lVwxZJcs9si8BLWwO4IkRo5ONXsCkuNQ0vc515hKZ50KI2
+GKAKjQqWME2erNhojthrVU3gwTtF0HT5XYAHc8Qm2dELzlnGmbPc/H96i+Ry
+wVFmh7ytpdggVxAQfXiaYNvYB/Fy2CKRZUb9pLUPZFQ6UB8JZV8J3++xqPQ3
+X1+hL5inpqpIfyI9DicbMOgdEQEUI8qml+KjJ2bBHSd7lFfMX9QcnV8AkZ6s
+uEniaqZIcNFi++qlgMKIvQLtAgtCw53/VbaWraUE06Hp+FwuT234VvHUjy36
+PU/RSM89pI9t/LHmbPyU+c0nUEsDBBQAAAAIAAAwIewnA6MRywIAANEHAAAU
+AAAAeGwvY2hhcnRzL2NoYXJ0MS54bWydVU1v4jAQve+vyEaVOG0doO12EVC1
+Qexlq6Jt9+NqkiGx6tiWPVD497UdBwL9QuVgbM+bN2/GHmd4ta54tAJtmBSj
+uHuaxBGITOZMFKP4z8P022V8NR5mg6ykGu8VzSCyHsIMslFcIqoBISYroaLm
+VCoQ1raQuqJol7oguaZPlqnipJckF8STxIGAfoKgokw0/voYf7lYsAwmMltW
+ILAm0cAp2nRNyZSJXXI5Rej+SM6iFeWjeEG5gZg4g8ENh3q3e1lv+RzcBBly
+8JO1GzXLyvGQDuYy38w0cVNu8N4R+IVyg3YDjmFNK2WJ+4NoxiBKHeWQOIsb
+tR8tnjSspAnC6UYu0euQ9tDsshaXOG2kpYkuUT64xQQ4IOQvMlsxeOpPvHCJ
+/72500863qbsdVCQIVtB20DaXgsupfbZlyx7FGDMvpKt3bAc/lHO38G2IXOa
+PX4Ab0MUl3itgR4URzHoT9LmpFZUb1LJpQ5EqJfN+YLXyPJ1K4Strc5B7+3k
+M3wNaNTMH6mRnOVT5jTZhS7mKQ/+02lif175How0zmRLfhije2yMJHFRPhWj
+d3wMF+WoGBnFunf0b1j4uzLubK955+vJ9UlvYIczf00CMqW2h/3JYSqXAuug
+/VqdwsgKdkX3pzleMG3QX0cfVmEb1A0gA5kU+VuoXkDZK6YPQKQtiOzyINvM
+rDb3J5bV6wneuARvWgla5DbB+nVKZQ7jnyBAU+5hu90PixDtwKM4cIR0zt6u
+yjte3cu3y/Se28WLwu0SJbv6kFAxEvqN7PcnOehiKEDku9lMhq7VdR0+egJ3
+/o71LzN3gm/2GipnRt1wKh7NdaAuqAp9UMqnya85N3eW+pa2G5G0nn6lmcB7
+QLSfJuM2SqD2xZhKiaDr06IF3FJdMGGiefiuOpGn38/jSDcTDJba3e2eu4I7
+lnqx5bLBlqpWcRCctL/N4y/PUEsDBBQAAAAIAAAwIez1aSsbqQAAABoBAAAj
+AAAAeGwvd29ya3NoZWV0cy9fcmVscy9zaGVldDEueG1sLnJlbHONj8sKwjAQ
+Rfd+RZi9SetCRJp2I0K3Uj8gJNM02DxI4uvvzaZgwYW7udyZc5ime9mZPDAm
+4x2HmlZA0EmvjNMcrsN5e4CubS44i1w20mRCIuXEJQ5TzuHIWJITWpGoD+hK
+M/poRS4xahaEvAmNbFdVexa/GbBmkkFEjZkDpUxF8Sz2tAw1LVQgwzvgP04/
+jkbiycu7RZd/qBcukF5xiL2qK2Btw1Y/tpsPUEsDBBQAAAAIAAAwIexFCBBw
+2wIAAI0GAAAYAAAAeGwvd29ya3NoZWV0cy9zaGVldDEueG1slVVRb9owEH7f
+r4jy0qeRAGlLUZKqpWKtxFY02lXam0kuxKpjR7ZD2v76nZ0QQsuq7QE4352/
+z747f4SXLwVztiAVFTxyhwPfdYAnIqV8E7mPD/OvE/cyDmshn1UOoB1M5ypy
+c63LqeepJIeCqIEogWMkE7IgGpdy46lSAkntpoJ5I98/8wpCudsgTOW/YIgs
+ownciKQqgOsGRAIjGg+rcloqizZVJUkgcpFQgdyCG4eWdimdOCzJBlagH0tc
+ZVQ/iCU6IjcjTIHreHHotblxmFJkMXVwJGSRezWcXgeI5XX+FvcXhVr1bKem
+PBX1UgoNibZ1bOE1Wa+AoRPSzqdyUT/lVMOqOXXPfV9pRjmsXou1YOogNMeq
+VIzsnZJucrzNAjJ9kPgbpMAsLavW8bNiIA8cop4JdovNwa73A98kTRfI3zlT
+yEjFtPHjDtGhvAlRrBLC8PRDHwfGTMdaiGdTjDu8qd9LWZkqLcirqGytDoOm
+F3+L/TBzwKxv1yST1Ld3TZjbkcEGr4kCPOkTTXUeuZPuBnjlWzAFwwNPbNcT
+LLD9dgpq5t51CvJif9eg9Jzq3V2TSmlRtIiNq24Ww2DgTy4mk/OzwA+CiyDY
+ATeQoxZy9B+Qp4NRH3F80Uxoc1h71RuiSRxKUTvSnhYJjXWFprK1QhbK7RRp
+icNLcaOOV7QoGThLCs4sJ1KHnkZYE/MS/CBchznaY44+xcyoVO+A7Lbr/jaO
+6ds4CL3tEarxnmr8KZWCRPD0GNf4A9dwcpws2JMFn5LpnMqjXMFHrrN3XF6v
+R9acEZYY4akYM+Y9XwiS7pqOrS0l5fq+tHpmVFhTHP0Zah3InmTkQtI3wfWx
+ED5jlOq9Lmz2j3ivcUYEvxO5ocgim3fgD85PXYdZ+WjstdA4lu1/gBZla2UC
+ZU2apNOGrlt4nbpWpVk0wbnNN2+2v0Z1lQR1cuPIKU2jE3mXDv0TM9zdX0v8
+5Q9QSwECNAMUAAAACAAAMCHsYzhr1NkAAABBAgAACwAAAAAAAAABAAAApIEA
+AAAAX3JlbHMvLnJlbHNQSwECNAMUAAAACAAAMCHs78qjxMgBAAAJBQAADQAA
+AAAAAAABAAAApIECAQAAeGwvc3R5bGVzLnhtbFBLAQI0AxQAAAAIAAAwIey1
+6exzDgEAAOYBAAARAAAAAAAAAAEAAACkgfUCAABkb2NQcm9wcy9jb3JlLnht
+bFBLAQI0AxQAAAAIAAAwIezQvk+njgAAAOIAAAAQAAAAAAAAAAEAAACkgTIE
+AABkb2NQcm9wcy9hcHAueG1sUEsBAjQDFAAAAAgAADAh7PgcrSW6AAAAlwEA
+ABoAAAAAAAAAAQAAAKSB7gQAAHhsL19yZWxzL3dvcmtib29rLnhtbC5yZWxz
+UEsBAjQDFAAAAAgAADAh7LjAVoFAAQAAeQQAABMAAAAAAAAAAQAAAKSB4AUA
+AFtDb250ZW50X1R5cGVzXS54bWxQSwECNAMUAAAACAAAMCHszJm+vMUAAAAs
+AQAADwAAAAAAAAABAAAApIFRBwAAeGwvd29ya2Jvb2sueG1sUEsBAjQDFAAA
+AAgAADAh7FqeSaGoAAAAEwEAACMAAAAAAAAAAQAAAKSBQwgAAHhsL2RyYXdp
+bmdzL19yZWxzL2RyYXdpbmcxLnhtbC5yZWxzUEsBAjQDFAAAAAgAADAh7G90
+kvRpAQAA1wMAABgAAAAAAAAAAQAAAKSBLAkAAHhsL2RyYXdpbmdzL2RyYXdp
+bmcxLnhtbFBLAQI0AxQAAAAIAAAwIewnA6MRywIAANEHAAAUAAAAAAAAAAEA
+AACkgcsKAAB4bC9jaGFydHMvY2hhcnQxLnhtbFBLAQI0AxQAAAAIAAAwIez1
+aSsbqQAAABoBAAAjAAAAAAAAAAEAAACkgcgNAAB4bC93b3Jrc2hlZXRzL19y
+ZWxzL3NoZWV0MS54bWwucmVsc1BLAQI0AxQAAAAIAAAwIexFCBBw2wIAAI0G
+AAAYAAAAAAAAAAEAAACkgbIOAAB4bC93b3Jrc2hlZXRzL3NoZWV0MS54bWxQ
+SwUGAAAAAAwADAAnAwAAwxEAAAAA
+
+----==_mimepart_5a4dc8e24b2d5_76c93fe5f183d9f494715--
+
+  Rendering report_mailer/daily_email_update.html.erb
+  Rendered report_mailer/daily_email_update.html.erb (1.1ms)
+  Rendering report_mailer/daily_email_update.text.erb
+  Rendered report_mailer/daily_email_update.text.erb (0.4ms)
+ReportMailer#daily_email_update: processed outbound mail in 1193.8ms
+Sent mail to rufaruqui@gmail.com (5851.2ms)
+Date: Thu, 04 Jan 2018 12:31:17 +0600
+From: sapl.mailer@gmail.com
+To: rufaruqui@gmail.com
+Message-ID: <5a4dca355010_77903fe5f183d9f4948ec@MacBookAir.local.mail>
+Subject: SAPL Report with attacment
+Mime-Version: 1.0
+Content-Type: multipart/mixed;
+ boundary="--==_mimepart_5a4dca3513f9_77903fe5f183d9f49474c";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5a4dca3513f9_77903fe5f183d9f49474c
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5a4dca351180_77903fe5f183d9f494685";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5a4dca351180_77903fe5f183d9f494685
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5a4dca351180_77903fe5f183d9f494685
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    
+  </body>
+</html>
+
+----==_mimepart_5a4dca351180_77903fe5f183d9f494685--
+
+----==_mimepart_5a4dca3513f9_77903fe5f183d9f49474c
+Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;
+ filename=simple.xlsx
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment;
+ filename=simple.xlsx
+Content-ID: <5a4dca3581ed_77903fe5f183d9f4949ee@MacBookAir.local.mail>
+
+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
+ZU2apNOGrlt4nbpWpVk0wbnNN2+2v0Z1lQR1cuPIKU2jE3mXDv0TM9zdX0v8
+5Q9QSwECNAMUAAAACAAAMCHsYzhr1NkAAABBAgAACwAAAAAAAAABAAAApIEA
+AAAAX3JlbHMvLnJlbHNQSwECNAMUAAAACAAAMCHs78qjxMgBAAAJBQAADQAA
+AAAAAAABAAAApIECAQAAeGwvc3R5bGVzLnhtbFBLAQI0AxQAAAAIAAAwIey1
+6exzDgEAAOYBAAARAAAAAAAAAAEAAACkgfUCAABkb2NQcm9wcy9jb3JlLnht
+bFBLAQI0AxQAAAAIAAAwIezQvk+njgAAAOIAAAAQAAAAAAAAAAEAAACkgTIE
+AABkb2NQcm9wcy9hcHAueG1sUEsBAjQDFAAAAAgAADAh7PgcrSW6AAAAlwEA
+ABoAAAAAAAAAAQAAAKSB7gQAAHhsL19yZWxzL3dvcmtib29rLnhtbC5yZWxz
+UEsBAjQDFAAAAAgAADAh7LjAVoFAAQAAeQQAABMAAAAAAAAAAQAAAKSB4AUA
+AFtDb250ZW50X1R5cGVzXS54bWxQSwECNAMUAAAACAAAMCHszJm+vMUAAAAs
+AQAADwAAAAAAAAABAAAApIFRBwAAeGwvd29ya2Jvb2sueG1sUEsBAjQDFAAA
+AAgAADAh7FqeSaGoAAAAEwEAACMAAAAAAAAAAQAAAKSBQwgAAHhsL2RyYXdp
+bmdzL19yZWxzL2RyYXdpbmcxLnhtbC5yZWxzUEsBAjQDFAAAAAgAADAh7G90
+kvRpAQAA1wMAABgAAAAAAAAAAQAAAKSBLAkAAHhsL2RyYXdpbmdzL2RyYXdp
+bmcxLnhtbFBLAQI0AxQAAAAIAAAwIewnA6MRywIAANEHAAAUAAAAAAAAAAEA
+AACkgcsKAAB4bC9jaGFydHMvY2hhcnQxLnhtbFBLAQI0AxQAAAAIAAAwIez1
+aSsbqQAAABoBAAAjAAAAAAAAAAEAAACkgcgNAAB4bC93b3Jrc2hlZXRzL19y
+ZWxzL3NoZWV0MS54bWwucmVsc1BLAQI0AxQAAAAIAAAwIexFCBBw2wIAAI0G
+AAAYAAAAAAAAAAEAAACkgbIOAAB4bC93b3Jrc2hlZXRzL3NoZWV0MS54bWxQ
+SwUGAAAAAAwADAAnAwAAwxEAAAAA
+
+----==_mimepart_5a4dca3513f9_77903fe5f183d9f49474c--
+
+ReportMailer#daily_email_update: processed outbound mail in 562.4ms
+ReportMailer#daily_email_update: processed outbound mail in 525.5ms
+ReportMailer#daily_email_update: processed outbound mail in 364.0ms
+ReportMailer#daily_email_update: processed outbound mail in 408.9ms
+ReportMailer#daily_email_update: processed outbound mail in 390.8ms
+ReportMailer#daily_email_update: processed outbound mail in 446.4ms
+ReportMailer#daily_email_update: processed outbound mail in 372.6ms
+ReportMailer#daily_email_update: processed outbound mail in 372.0ms
+ReportMailer#daily_email_update: processed outbound mail in 371.2ms
+ReportMailer#daily_email_update: processed outbound mail in 491.4ms
+ReportMailer#daily_email_update: processed outbound mail in 5.2ms
+ReportMailer#daily_email_update: processed outbound mail in 421.6ms
+ReportMailer#daily_email_update: processed outbound mail in 436.1ms
+ReportMailer#daily_email_update: processed outbound mail in 577.6ms
+ReportMailer#daily_email_update: processed outbound mail in 5595.9ms
+ReportMailer#daily_email_update: processed outbound mail in 5097.7ms
+ReportMailer#daily_email_update: processed outbound mail in 589.3ms
+ReportMailer#daily_email_update: processed outbound mail in 553.4ms
+ReportMailer#daily_email_update: processed outbound mail in 570.7ms
+ReportMailer#daily_email_update: processed outbound mail in 5496.4ms
+ReportMailer#daily_email_update: processed outbound mail in 6539.5ms
+ReportMailer#daily_email_update: processed outbound mail in 6125.0ms
+ReportMailer#daily_email_update: processed outbound mail in 5176.2ms
+ReportMailer#daily_email_update: processed outbound mail in 5507.9ms
+ReportMailer#daily_email_update: processed outbound mail in 5193.9ms
+ReportMailer#daily_email_update: processed outbound mail in 6329.4ms
+ReportMailer#daily_email_update: processed outbound mail in 8119.4ms
+ReportMailer#daily_email_update: processed outbound mail in 7705.2ms
+ReportMailer#daily_email_update: processed outbound mail in 6258.1ms
+ReportMailer#daily_email_update: processed outbound mail in 16547.4ms
+ReportMailer#daily_email_update: processed outbound mail in 1.8ms
+ReportMailer#daily_email_update: processed outbound mail in 0.8ms
+ReportMailer#daily_email_update: processed outbound mail in 2.5ms
+  Rendering report_mailer/daily_email_update.html.erb
+  Rendered report_mailer/daily_email_update.html.erb (4.6ms)
+  Rendering report_mailer/daily_email_update.text.erb
+  Rendered report_mailer/daily_email_update.text.erb (0.5ms)
+ReportMailer#daily_email_update: processed outbound mail in 61.7ms
+Sent mail to rufaruqui@gmail.com (7918.5ms)
+Date: Fri, 05 Jan 2018 12:17:06 +0600
+From: sapl.mailer@gmail.com
+To: rufaruqui@gmail.com
+Message-ID: <5a4f1862de457_8f4e3febb543fa0420331@MacBookAir.local.mail>
+Subject: SAPL Report with attacment
+Mime-Version: 1.0
+Content-Type: multipart/mixed;
+ boundary="--==_mimepart_5a4f1862dd43a_8f4e3febb543fa042022b";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5a4f1862dd43a_8f4e3febb543fa042022b
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5a4f1862dd2ba_8f4e3febb543fa04201b5";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5a4f1862dd2ba_8f4e3febb543fa04201b5
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5a4f1862dd2ba_8f4e3febb543fa04201b5
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    
+  </body>
+</html>
+
+----==_mimepart_5a4f1862dd2ba_8f4e3febb543fa04201b5--
+
+----==_mimepart_5a4f1862dd43a_8f4e3febb543fa042022b
+Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;
+ filename=simple.xlsx
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment;
+ filename=simple.xlsx
+Content-ID: <5a4f1862dedcc_8f4e3febb543fa04204de@MacBookAir.local.mail>
+
+UEsDBBQAAAAIAAAwIexjOGvU2QAAAEECAAALAAAAX3JlbHMvLnJlbHOtksFO
+wzAMhu88ReT7mm5ICKFluyCk3RAqD2ASt43axJEToLw9gQNiaAgOO1r2//3f
+wdv9Emb1QpI9RwPrpgVF0bLzcTDw2N2trmG/2z7QjKVe5NGnrGokZgNjKelG
+62xHCpgbThTrpmcJWOoog05oJxxIb9r2Sst3BhwzVYcyUDGwzPqVZXpinpoK
+A9W9JfpPFfe9t3TL9jlQLCcaf1yAOjgDcnBr0L+4OLb3wjVpWejcNoEKOiz4
+CV+l2kNSPOUvr83fXpjSubVoKRQduVNGlx9G+ugVdhfvUEsDBBQAAAAIAAAw
+IezvyqPEyAEAAAkFAAANAAAAeGwvc3R5bGVzLnhtbKVU22rcMBB971cIfUBl
+bZpAF8tQAoZCEwrJQ1+1a3lt0MVIcrDz9RlJri1DQ5bUD6vR2XPOjEZjl87P
+Ujx1Qng0Kakdw533w5EQd+6E4u6rGYSGf1pjFfewtRfiBit444JISXIoijui
+eK9xVepR1co7dDaj9gwfVgil5WfDMC0KjJLdvWkEwzM8RCnSNBiRfwroewLU
+dUeljs5FJVnSV2Vr9FYFxQkAa64EeuGS4R+25xKDxr0mgNKwa7nq5bwgASBJ
+GJfg20u5O10AqnLg3gura9igJX6eB6hUGy2ARTJCMIvLB9KL5TM93L6njgtU
+dDK2EXZXU4IQcFKUIVK0HsUrZ9h38crORhqL7OXEcF0X8UnNDNyqtP2lu1oS
+yVXpzXCtAqihPO+NulaS2NnplgCacRZSPgWXP+3u9qcWJU4YJ7DZZiuOol5D
+6OkSgu3Uwk9umRJk3jef857afZKdBf1/i10V9NuHHnwY5Pw4qpOwdXzNYhV5
+B9bDx1bseruiKLxdDD8GB5m5k7yLYNNMWwOLMN4BgKHhJ/gQJftGtHyU/nmF
+GN7iB9H0o/qO/7J+9y/GL6wt/hVGkd7hLVM4UJYEdtu3r/ryBlBLAwQUAAAA
+CAAAMCHstenscw4BAADmAQAAEQAAAGRvY1Byb3BzL2NvcmUueG1sbZFNT4Qw
+EIbv/grSO5SC8aOB7kGzJ01MxGi8NWVkG2lp2rrgv7d0d5FN9jjzPvN0mqk2
+k+qTPVgnB10jkuUoAS2GVuquRm/NNr1DG1YJQ8Vg4cUOBqyX4JIwph0VpkY7
+7w3F2IkdKO6yQOgQfg1WcR9K22HDxTfvABd5foMVeN5yz/EsTM1iREdlKxal
++bF9FLQCQw8KtHeYZAT/s0r6XwMXJ07hivZglbsIx2QhJycXahzHbCwjF/Yn
++OP56TV+NZXaea4FIFa1ggoL3A+W8al3U4VXner48KEBbRL09LD2KXkvHx6b
+LWJFTm5TUqTFfUMKWpb0uvycXWfz8RwW9nK+GcsrvC5jdX4rdvUHUEsDBBQA
+AAAIAAAwIezQvk+njgAAAOIAAAAQAAAAZG9jUHJvcHMvYXBwLnhtbJ2OsQrC
+MBRFd7+iZG8THURKmy7F2aG6l+S1DZj3QvIs9e+NCLo7Xs7lcJpu8/dihZgc
+YSv2lRIFoCHrcG7FdTiXJ9Hp5hIpQGQHqch/TK1YmEMtZTIL+DFVGWMmE0U/
+cp5xljRNzkBP5uEBWR6UOkrYGNCCLcNXKD7GeuV/pZbMuy/dhmfIPt3IX67e
+vQBQSwMEFAAAAAgAADAh7PgcrSW6AAAAlwEAABoAAAB4bC9fcmVscy93b3Jr
+Ym9vay54bWwucmVsc62QTQvCMAyG7/6KkrvLFBURqxcRdpX5A0qXfeDWlqZ+
+7N9bFURBwYOnEJI8z0uW60vXihN5bqyRMEpSEGS0LRpTSdjn2+Ec1qvljloV
+4gbXjWMRTwxLqENwC0TWNXWKE+vIxElpfadCbH2FTumDqgjHaTpD/8qAd6bI
+la8oSDhbf+CaKDDeyyiJSBB57+gXoS3LRtPG6mNHJnzw4lMAIisk+KyYAH4J
+w6Fvif+d4EF96qc3Pb49eDW4AlBLAwQUAAAACAAAMCHsuMBWgUABAAB5BAAA
+EwAAAFtDb250ZW50X1R5cGVzXS54bWytlE1vwjAMhu/7FVWuUxPYYZomCge2
+HTcO7AdkiUsj8qU4fP37uS1MGpeC4OS68fu8thVlMts7W2whoQm+YmM+YgV4
+FbTxq4p9Lz/KFzabTpaHCFhQqceKNTnHVyFQNeAk8hDB00kdkpOZ0rQSUaq1
+XIF4Go2ehQo+g89lbhlsOnmDWm5sLub9/xZdMRmjNUpm6kJsvT6DlkcgT2C7
+GmxMxEcqYMX7nih993SKTFzgcC5sc9J90R6S0VAsZMqf0pFK6KAWKUQUpOed
+7pq+Q10bBcTYOJJwaC016DISElI20A8x5K1CguvNT0tr1Rc67q3AfLCAN4+K
+MYHU2ABkZ3kPHXDehbT+CWF9b+82cieNH/DXSe7o2uPpY3xzI0fQgK9qKMU+
+3M2TBu+AF+y8WxCKLtzu/3/5f/xTH6J7SqYPv1BLAwQUAAAACAAAMCHszJm+
+vMUAAAAsAQAADwAAAHhsL3dvcmtib29rLnhtbI1PzU7DMAy+8xSR71u6aUJQ
+Nd1hCGm3HeABTOMu0Zq4srPB4xM2Jq6cbH/29+Nu+5UmcyHRyNnBatmAoTyw
+j/no4P3tdfEE2777ZDl9MJ9Mvc7qIJQyt9bqECihLnmmXDcjS8JSRzlanYXQ
+ayAqabLrpnm0CWOGm0Ir/9HgcYwDvfBwTpTLTURowlKzaoizwl+ygxiPhVbP
+zcbBiJMS2L67+utvNRkTOThEMruAUsBc4b2vf4ORNtZG9n7zQ7R3pr0b9A/f
+UEsDBBQAAAAIAAAwIexankmhqAAAABMBAAAjAAAAeGwvZHJhd2luZ3MvX3Jl
+bHMvZHJhd2luZzEueG1sLnJlbHONj8sKwjAQRfd+RZi9SetCijTtRoRupX5A
+SKdJsHmQRNG/N9CNBReuhmHuPYdp+5ddyBNjMt5xqGkFBJ30k3GKw2287Bvo
+u/aKi8glkbQJiZSKSxx0zuHEWJIarUjUB3TlMvtoRS5rVCwIeRcK2aGqjix+
+M2DLJKOICjMHSpnUIua0jpoWIpDxHfAfn59nI/Hs5cOiyz+0KxXIMHGIw9QA
+61q2ea7bfQBQSwMEFAAAAAgAADAh7G90kvRpAQAA1wMAABgAAAB4bC9kcmF3
+aW5ncy9kcmF3aW5nMS54bWydU8tuwyAQvPcrEPcGJ1KryIodVbVS9dLm0J4r
+hNcxkgFrIbHz98UBN+7jkOaCdmeXGfbBat2rhhwArTQ6o/NZQgloYUqpdxl9
+f9vcLimxjuuSN0ZDRo9g6Tpf9SWmnS2Q+Ovapt7NaO1cmzJmRQ2K25lpQfto
+ZVBx513csRJ554lVwxZJcs9si8BLWwO4IkRo5ONXsCkuNQ0vc515hKZ50KI2
+GKAKjQqWME2erNhojthrVU3gwTtF0HT5XYAHc8Qm2dELzlnGmbPc/H96i+Ry
+wVFmh7ytpdggVxAQfXiaYNvYB/Fy2CKRZUb9pLUPZFQ6UB8JZV8J3++xqPQ3
+X1+hL5inpqpIfyI9DicbMOgdEQEUI8qml+KjJ2bBHSd7lFfMX9QcnV8AkZ6s
+uEniaqZIcNFi++qlgMKIvQLtAgtCw53/VbaWraUE06Hp+FwuT234VvHUjy36
+PU/RSM89pI9t/LHmbPyU+c0nUEsDBBQAAAAIAAAwIewnA6MRywIAANEHAAAU
+AAAAeGwvY2hhcnRzL2NoYXJ0MS54bWydVU1v4jAQve+vyEaVOG0doO12EVC1
+Qexlq6Jt9+NqkiGx6tiWPVD497UdBwL9QuVgbM+bN2/GHmd4ta54tAJtmBSj
+uHuaxBGITOZMFKP4z8P022V8NR5mg6ykGu8VzSCyHsIMslFcIqoBISYroaLm
+VCoQ1raQuqJol7oguaZPlqnipJckF8STxIGAfoKgokw0/voYf7lYsAwmMltW
+ILAm0cAp2nRNyZSJXXI5Rej+SM6iFeWjeEG5gZg4g8ENh3q3e1lv+RzcBBly
+8JO1GzXLyvGQDuYy38w0cVNu8N4R+IVyg3YDjmFNK2WJ+4NoxiBKHeWQOIsb
+tR8tnjSspAnC6UYu0euQ9tDsshaXOG2kpYkuUT64xQQ4IOQvMlsxeOpPvHCJ
+/72500863qbsdVCQIVtB20DaXgsupfbZlyx7FGDMvpKt3bAc/lHO38G2IXOa
+PX4Ab0MUl3itgR4URzHoT9LmpFZUb1LJpQ5EqJfN+YLXyPJ1K4Strc5B7+3k
+M3wNaNTMH6mRnOVT5jTZhS7mKQ/+02lif175How0zmRLfhije2yMJHFRPhWj
+d3wMF+WoGBnFunf0b1j4uzLubK955+vJ9UlvYIczf00CMqW2h/3JYSqXAuug
+/VqdwsgKdkX3pzleMG3QX0cfVmEb1A0gA5kU+VuoXkDZK6YPQKQtiOzyINvM
+rDb3J5bV6wneuARvWgla5DbB+nVKZQ7jnyBAU+5hu90PixDtwKM4cIR0zt6u
+yjte3cu3y/Se28WLwu0SJbv6kFAxEvqN7PcnOehiKEDku9lMhq7VdR0+egJ3
+/o71LzN3gm/2GipnRt1wKh7NdaAuqAp9UMqnya85N3eW+pa2G5G0nn6lmcB7
+QLSfJuM2SqD2xZhKiaDr06IF3FJdMGGiefiuOpGn38/jSDcTDJba3e2eu4I7
+lnqx5bLBlqpWcRCctL/N4y/PUEsDBBQAAAAIAAAwIez1aSsbqQAAABoBAAAj
+AAAAeGwvd29ya3NoZWV0cy9fcmVscy9zaGVldDEueG1sLnJlbHONj8sKwjAQ
+Rfd+RZi9SetCRJp2I0K3Uj8gJNM02DxI4uvvzaZgwYW7udyZc5ime9mZPDAm
+4x2HmlZA0EmvjNMcrsN5e4CubS44i1w20mRCIuXEJQ5TzuHIWJITWpGoD+hK
+M/poRS4xahaEvAmNbFdVexa/GbBmkkFEjZkDpUxF8Sz2tAw1LVQgwzvgP04/
+jkbiycu7RZd/qBcukF5xiL2qK2Btw1Y/tpsPUEsDBBQAAAAIAAAwIexFCBBw
+2wIAAI0GAAAYAAAAeGwvd29ya3NoZWV0cy9zaGVldDEueG1slVVRb9owEH7f
+r4jy0qeRAGlLUZKqpWKtxFY02lXam0kuxKpjR7ZD2v76nZ0QQsuq7QE4352/
+z747f4SXLwVztiAVFTxyhwPfdYAnIqV8E7mPD/OvE/cyDmshn1UOoB1M5ypy
+c63LqeepJIeCqIEogWMkE7IgGpdy46lSAkntpoJ5I98/8wpCudsgTOW/YIgs
+ownciKQqgOsGRAIjGg+rcloqizZVJUkgcpFQgdyCG4eWdimdOCzJBlagH0tc
+ZVQ/iCU6IjcjTIHreHHotblxmFJkMXVwJGSRezWcXgeI5XX+FvcXhVr1bKem
+PBX1UgoNibZ1bOE1Wa+AoRPSzqdyUT/lVMOqOXXPfV9pRjmsXou1YOogNMeq
+VIzsnZJucrzNAjJ9kPgbpMAsLavW8bNiIA8cop4JdovNwa73A98kTRfI3zlT
+yEjFtPHjDtGhvAlRrBLC8PRDHwfGTMdaiGdTjDu8qd9LWZkqLcirqGytDoOm
+F3+L/TBzwKxv1yST1Ld3TZjbkcEGr4kCPOkTTXUeuZPuBnjlWzAFwwNPbNcT
+LLD9dgpq5t51CvJif9eg9Jzq3V2TSmlRtIiNq24Ww2DgTy4mk/OzwA+CiyDY
+ATeQoxZy9B+Qp4NRH3F80Uxoc1h71RuiSRxKUTvSnhYJjXWFprK1QhbK7RRp
+icNLcaOOV7QoGThLCs4sJ1KHnkZYE/MS/CBchznaY44+xcyoVO+A7Lbr/jaO
+6ds4CL3tEarxnmr8KZWCRPD0GNf4A9dwcpws2JMFn5LpnMqjXMFHrrN3XF6v
+R9acEZYY4akYM+Y9XwiS7pqOrS0l5fq+tHpmVFhTHP0Zah3InmTkQtI3wfWx
+ED5jlOq9Lmz2j3ivcUYEvxO5ocgim3fgD85PXYdZ+WjstdA4lu1/gBZla2UC
+ZU2apNOGrlt4nbpWpVk0wbnNN2+2v0Z1lQR1cuPIKU2jE3mXDv0TM9zdX0v8
+5Q9QSwECNAMUAAAACAAAMCHsYzhr1NkAAABBAgAACwAAAAAAAAABAAAApIEA
+AAAAX3JlbHMvLnJlbHNQSwECNAMUAAAACAAAMCHs78qjxMgBAAAJBQAADQAA
+AAAAAAABAAAApIECAQAAeGwvc3R5bGVzLnhtbFBLAQI0AxQAAAAIAAAwIey1
+6exzDgEAAOYBAAARAAAAAAAAAAEAAACkgfUCAABkb2NQcm9wcy9jb3JlLnht
+bFBLAQI0AxQAAAAIAAAwIezQvk+njgAAAOIAAAAQAAAAAAAAAAEAAACkgTIE
+AABkb2NQcm9wcy9hcHAueG1sUEsBAjQDFAAAAAgAADAh7PgcrSW6AAAAlwEA
+ABoAAAAAAAAAAQAAAKSB7gQAAHhsL19yZWxzL3dvcmtib29rLnhtbC5yZWxz
+UEsBAjQDFAAAAAgAADAh7LjAVoFAAQAAeQQAABMAAAAAAAAAAQAAAKSB4AUA
+AFtDb250ZW50X1R5cGVzXS54bWxQSwECNAMUAAAACAAAMCHszJm+vMUAAAAs
+AQAADwAAAAAAAAABAAAApIFRBwAAeGwvd29ya2Jvb2sueG1sUEsBAjQDFAAA
+AAgAADAh7FqeSaGoAAAAEwEAACMAAAAAAAAAAQAAAKSBQwgAAHhsL2RyYXdp
+bmdzL19yZWxzL2RyYXdpbmcxLnhtbC5yZWxzUEsBAjQDFAAAAAgAADAh7G90
+kvRpAQAA1wMAABgAAAAAAAAAAQAAAKSBLAkAAHhsL2RyYXdpbmdzL2RyYXdp
+bmcxLnhtbFBLAQI0AxQAAAAIAAAwIewnA6MRywIAANEHAAAUAAAAAAAAAAEA
+AACkgcsKAAB4bC9jaGFydHMvY2hhcnQxLnhtbFBLAQI0AxQAAAAIAAAwIez1
+aSsbqQAAABoBAAAjAAAAAAAAAAEAAACkgcgNAAB4bC93b3Jrc2hlZXRzL19y
+ZWxzL3NoZWV0MS54bWwucmVsc1BLAQI0AxQAAAAIAAAwIexFCBBw2wIAAI0G
+AAAYAAAAAAAAAAEAAACkgbIOAAB4bC93b3Jrc2hlZXRzL3NoZWV0MS54bWxQ
+SwUGAAAAAAwADAAnAwAAwxEAAAAA
+
+----==_mimepart_5a4f1862dd43a_8f4e3febb543fa042022b--
+
