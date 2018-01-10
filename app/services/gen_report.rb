@@ -3,24 +3,48 @@ class GenReport
 
   def self.perform(options={})  
     
-    Rails.logger.info '########  Retrive Stock Data from Sodms Backend ##########'
-    puts '########  Retrive Stock Data from Sodms Backend ##########'
 
-    stockinfo = RetrieveStockInfo.perform
+    Rails.logger.info '########  Retrive Mail Delivery Settings ##########'
+    puts '########  Retrive Mail Delivery Settings ##########'
     
-    Rails.logger.info '########  Generate Excel Sheet                  ##########'
-    puts '########  Generate Excel Sheet                  ##########'
-    options = Hash.new
-    options[:stockinfo] = stockinfo
-    options[:filename]  = 'stockreport'+Time.now.to_s+'.xlsx'
-    GenStockReportXls.perform(options)
-    
-    Rails.logger.info '########  Send mail with excel reports as attacment######'
-    puts '########  Send mail with excel reports as attacment######'
+    mailsdeliveryinfo = RetrieveMailDeliveryInfo.perform
 
-    Rails.logger.info Time.now
+    mailsdeliveryinfo.each do |info|
+       recipents = info[:mailDeliveryContacts].pluck(:contactEmail).join(';')
     
-    ReportMailer.daily_email_update(options)
+
+      Rails.logger.info '########  Retrive Stock Data from Sodms Backend ##########'
+      puts '########  Retrive Stock Data from Sodms Backend ##########'
+       
+       
+
+      h = Hash.new
+      h[:mailDeliverySettingId]=info[:id]
+      stockinfo = RetrieveStockInfo.perform(h)
+        
+      if !stockinfo.blank?
+          if recipents.blank? or recipents.nil?
+            Rails.logger.info '######## No Recipents  ##########'
+            puts '########## No Recipents ##########'
+          else
+
+            Rails.logger.info '########  Generate Excel Sheet                  ##########'
+            puts '########  Generate Excel Sheet                  ##########'
+            
+            options[:stockinfo] = stockinfo
+            options[:recipents] = recipents
+            options[:filename]  = 'stockreport'+Time.now.to_s+'.xlsx'
+            GenStockReportXls.perform(options)
+            
+            Rails.logger.info '########  Send mail with excel reports as attacment######'
+            puts '########  Send mail with excel reports as attacment######'
+
+            Rails.logger.info Time.now
+            
+            ReportMailer.daily_email_update(options).deliver!
+          end  
+        end    
+     end 
   end
 
 end

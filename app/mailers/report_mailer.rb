@@ -7,18 +7,18 @@ class ReportMailer < ApplicationMailer
 
     puts "Updating daily reports"
    
-    attachments['simple.xlsx'] = File.read('simple.xlsx')
-    mail(to: 'rufaruqui@gmail.com', subject: 'New SAPL Report with attacment')
+    attachments[options[:filename]] = File.read(options[:filename])
+    mail(to: options[:recipents], subject: 'New SAPL Report with attacment')
 
     # mail = Mail.new do 
     #   from     'sapl.mailer@gmail.com'
-    #   to       'rufaruqui@gmail.com'
+    #   to        options[:recipents]
     #   subject  'New Stock Report'
     #   body     'Sample body'
     #   add_file :filename => options[:filename], :content => File.read(options[:filename])
     # end
    
-    # return mail
+    #  return mail
   end
 
 end

@@ -8,6 +8,12 @@ task send_daily_reports: :environment do
 end
 
 
+desc 'send daily reports in the morning'
+task corn_send_daily_reports: :environment do  
+    GenReport.perform.deliver_at(Time.now)
+end
+
+
 namespace :resque do
   task :setup do
     require 'resque'
