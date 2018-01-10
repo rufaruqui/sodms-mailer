@@ -1,3 +1,4 @@
 stockreport*xlsx
 log/development.log
 .bundle/
+.log/
