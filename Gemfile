@@ -37,7 +37,7 @@ gem 'jbuilder', '~> 2.5'
  gem 'capistrano-rails', group: :development
 
 
-gem 'resque' # or a compatible alternative / fork
+gem 'resque', "~> 1.27.0" # or a compatible alternative / fork
 gem 'resque_mailer' 
 gem 'resque-scheduler'
 gem 'resque-web'

@@ -284,7 +284,7 @@ DEPENDENCIES
   rails (~> 5.0.6)
   rails_12factor
   redis (~> 3.0)
-  resque
+  resque (~> 1.27.0)
   resque-scheduler
   resque-web
   resque_mailer

@@ -3,9 +3,8 @@ require 'resque/scheduler/tasks'
 #require 'jobs'
 
 desc 'send daily reports in the morning'
-task send_daily_reports: :environment do 
-    options = Hash.new
-    ReportMailer.daily_email_update(options) #.deliver_in(7.days) 
+task send_daily_reports: :environment do  
+    GenReport.perform.deliver_at(Time.now)
 end
 
 
@@ -26,11 +25,11 @@ namespace :resque do
     # When dynamic is set to true, the scheduler process looks for
     # schedule changes and applies them on the fly.
     # Note: This feature is only available in >=2.0.0.
-    # Resque::Scheduler.dynamic = true
+     Resque::Scheduler.dynamic = true
 
     # The schedule doesn't need to be stored in a YAML, it just needs to
     # be a hash.  YAML is usually the easiest.
-    Resque.schedule = YAML.load_file('config/sapl_schedule.yml')
+    #Resque.schedule = YAML.load_file('config/sapl_schedule.yml')
 
     # If your schedule already has +queue+ set for each job, you don't
     # need to require your jobs.  This can be an advantage since it's
