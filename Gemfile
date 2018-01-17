@@ -44,6 +44,8 @@ gem 'resque-web'
 gem 'whenever', require: false
 gem 'axlsx'
 gem 'mail'
+gem 'tiny_tds'
+
 #gem 'pg'
 
 

@@ -8,7 +8,7 @@ class ReportMailer < ApplicationMailer
     puts "Updating daily reports"
    
     attachments[options[:filename]] = File.read(options[:filename])
-    mail(to: options[:recipents], subject: 'New SAPL Report with attacment')
+    mail(to: options[:recipents], subject: 'Excel report with Styles')
 
     # mail = Mail.new do 
     #   from     'sapl.mailer@gmail.com'

@@ -10,6 +10,8 @@ class GenReport
     mailsdeliveryinfo = RetrieveMailDeliveryInfo.perform
 
     mailsdeliveryinfo.each do |info|
+
+      ########### Extract Email Contacts from SODOMS MailDeliveryInfos ########
        recipents = info[:mailDeliveryContacts].pluck(:contactEmail).join(';')
     
 
@@ -33,7 +35,7 @@ class GenReport
             
             options[:stockinfo] = stockinfo
             options[:recipents] = recipents
-            options[:filename]  = 'stockreport'+Time.now.to_s+'.xlsx'
+            options[:filename]  = './reports/'+'stockreport'+Time.now.to_s+'.xlsx'
             GenStockReportXls.perform(options)
             
             Rails.logger.info '########  Send mail with excel reports as attacment######'
@@ -41,7 +43,7 @@ class GenReport
 
             Rails.logger.info Time.now
             
-            ReportMailer.daily_email_update(options).deliver!
+           ReportMailer.daily_email_update(options).deliver!
           end  
         end    
      end 
