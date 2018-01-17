@@ -40,13 +40,20 @@ gem 'jbuilder', '~> 2.5'
 gem 'resque', "~> 1.27.0" # or a compatible alternative / fork
 gem 'resque_mailer' 
 gem 'resque-scheduler'
-gem 'resque-web'
+gem 'resque-web', require: 'resque_web'
+gem 'resque-retry'
 gem 'whenever', require: false
 gem 'axlsx'
 gem 'mail'
 gem 'tiny_tds'
 
 #gem 'pg'
+
+# Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
+#gem 'rack-cors'
+#gem 'rack-attack'
+#gem 'rack-timeout'
+#gem 'unicorn' -- using unix corn instead of unicorn
 
 
 ##Retriveing data from SODMS Backend###

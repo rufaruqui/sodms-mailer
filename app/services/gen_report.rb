@@ -43,7 +43,11 @@ class GenReport
 
             Rails.logger.info Time.now
             
-           ReportMailer.daily_email_update(options).deliver!
+          #  options = Hash.new
+          #  options[:recipents]="rufaruqui@gmail.com;"
+          #  options[:filename]="simple.xlsx"
+
+           ReportMailer.daily_email_update(options).deliver_at(Time.now)
           end  
         end    
      end 

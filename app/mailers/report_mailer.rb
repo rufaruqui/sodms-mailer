@@ -1,7 +1,7 @@
 class ReportMailer < ApplicationMailer
   include Resque::Mailer 
 
-   @queue='sapl'
+   @queue='saplmailer'
 
   def  daily_email_update(options={}) 
 
