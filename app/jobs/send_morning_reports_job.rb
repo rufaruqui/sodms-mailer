@@ -5,7 +5,7 @@ class SendMorningReportsJob < ApplicationJob
   queue_as :saplmailer
 
   def perform(*args)
-    # Do something later
+    # Enqueue report generation service
      GenReport.perform
   end
 end
