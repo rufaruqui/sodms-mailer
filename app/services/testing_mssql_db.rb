@@ -1,16 +1,16 @@
-require 'tiny_tds'
-@client = TinyTds::Client.new username: 'sa', password: '1234@sapl', host: '203.202.249.99', port: 1433 , database: 'SODMSDb'
-puts 'Connecting to SQL Server'
+# require 'tiny_tds'
+# @client = TinyTds::Client.new username: 'sa', password: '1234@sapl', host: '203.202.249.99', port: 1433 , database: 'SODMSDb'
+# puts 'Connecting to SQL Server'
 
-if @client.active? == true then puts 'Done' end
+# if @client.active? == true then puts 'Done' end
 
-def execute(sql)
-    result = @client.execute(sql)
+# def execute(sql)
+#     result = @client.execute(sql)
     
-    result.each 
-    if result.affected_rows > 0 then puts "#{result.affected_rows} row(s) affected" end
+#     result.each 
+#     if result.affected_rows > 0 then puts "#{result.affected_rows} row(s) affected" end
     
-end
+# end
 
  
 
@@ -38,11 +38,11 @@ end
 # execute("DELETE FROM Employees WHERE NAME = N'Jared'")
 
 # Read all departments
-puts "Reading data from table"
-@client.execute("SELECT * FROM Departments").each do |row|
-    puts row
-end
+# puts "Reading data from table"
+# @client.execute("SELECT * FROM Departments").each do |row|
+#     puts row
+# end
 
-puts "All done."
+# puts "All done."
 
-@client.close
+# @client.close
