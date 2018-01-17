@@ -45,7 +45,7 @@ gem 'resque-retry'
 gem 'whenever', require: false
 gem 'axlsx'
 gem 'mail'
-gem 'tiny_tds'
+#gem 'tiny_tds'
 
 #gem 'pg'
 
