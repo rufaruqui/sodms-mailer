@@ -14,7 +14,7 @@ namespace :resque do
     require 'resque/scheduler'
     require 'resque/scheduler/server'
 
-    ENV['QUEUE'] = '*'
+    #ENV['QUEUE'] = '*'
 
     Resque.redis = 'localhost:6379' unless Rails.env == 'production'
 
