@@ -1,4 +1,4 @@
  Running mail Queue
-    `QUEUE=sapl rake environment resque:work`
-    `QUEUE=sapl rake environment resque:scheduler`
+    `QUEUE=* rake environment resque:work`
+    `QUEUE=* rake environment resque:scheduler`
     

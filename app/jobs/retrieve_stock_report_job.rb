@@ -1,31 +1,15 @@
+class RetrieveStockReportJob < ApplicationJob
+   extend Resque::Plugins::Retry
  
-class GenReport
 
-  def self.perform(options={})  
-    
+  queue_as :saplmailer
 
-    Rails.logger.info '########  Retrive Mail Delivery Settings ##########'
-    puts '########  Retrive Mail Delivery Settings ##########'
-    
-    mailsdeliveryinfo = RetrieveMailDeliveryInfo.perform
+  def perform(options={})
+    # Do something later
+     
+      stockinfo = RetrieveStockInfo.perform(options)
+        puts stockinfo
 
-    mailsdeliveryinfo.each do |info|
-
-      ########### Extract Email Contacts from SODOMS MailDeliveryInfos ########
-       recipents = info[:mailDeliveryContacts].pluck(:contactEmail).join(';')
-    
-
-      Rails.logger.info '########  Retrive Stock Data from Sodms Backend ##########'
-      puts '########  Retrive Stock Data from Sodms Backend ##########'
-       
-       
-
-      h = Hash.new
-      h[:mailDeliverySettingId]=info[:id]
-     # RetrieveStockReportJob.perform_later(h)
-      
-      stockinfo = RetrieveStockInfo.perform(h)
-        
       if !stockinfo.blank?
           if recipents.blank? or recipents.nil?
             Rails.logger.info '######## No Recipents  ##########'
@@ -48,11 +32,10 @@ class GenReport
           #  options = Hash.new
           #  options[:recipents]="rufaruqui@gmail.com;"
           #  options[:filename]="simple.xlsx"
-
+           #EnqueueEmailJob.perform_later(options);
            ReportMailer.daily_email_update(options).deliver_at(Time.now)
+          # ReportMailer.daily_email_update(options).deliver_at(Time.now)
           end  
         end    
-     end 
   end
-
 end
