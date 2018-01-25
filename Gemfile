@@ -64,15 +64,6 @@ group :development, :test do
  # gem 'puma', '~> 3.0'
   gem 'byebug', platform: :mri
   gem 'mysql2'
-  gem 'capistrano'
-  gem 'capistrano-bundler'
-  gem 'capistrano-passenger', '>= 0.1.1'
-
-  # Remove the following if your app does not use Rails
-  gem 'capistrano-rails'
-
-  # Remove the following if your server does not use RVM
-  gem 'capistrano-rvm'
 end
 
 group :development do 
@@ -93,7 +84,13 @@ end
 
 
 gem 'foreman'
-
+gem 'capistrano'
+gem 'capistrano-bundler'
+gem 'capistrano-passenger', '>= 0.1.1'
+# Remove the following if your app does not use Rails
+gem 'capistrano-rails'
+# Remove the following if your server does not use RVM
+gem 'capistrano-rvm'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
