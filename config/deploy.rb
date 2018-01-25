@@ -8,7 +8,7 @@ set :repo_url, "ssh://git@203.202.249.101:7999/sod/sodmsmailer.git"
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
- set :deploy_to, "/var/www/sodmsmailer/code"
+ set :deploy_to, "/var/www/sodmsmailerapp"
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
@@ -40,6 +40,28 @@ set :repo_url, "ssh://git@203.202.249.101:7999/sod/sodmsmailer.git"
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
 
+namespace :foreman do
+  desc "Export the Procfile to Ubuntu's upstart scripts"
+  task :export, :roles => :app do
+    run "cd #{current_path} && #{sudo} foreman export upstart /etc/init -a #{app_name} -u #{user} -l /var/#{app_name}/log"
+  end
+
+  desc "Start the application services"
+  task :start, :roles => :app do
+    run "#{sudo} service #{app_name} start"
+  end
+
+  desc "Stop the application services"
+  task :stop, :roles => :app do
+    run "#{sudo} service #{app_name} stop"
+  end
+
+  desc "Restart the application services"
+  task :restart, :roles => :app do
+    run "#{sudo} service #{app_name} start || #{sudo} service #{app_name} restart"
+  end
+end
+
 namespace :deploy do
 
   after :restart, :clear_cache do
@@ -48,6 +70,11 @@ namespace :deploy do
       # within release_path do
       #   execute :rake, 'cache:clear'
       # end
+       foreman.export
+
+      # on OS X the equivalent pid-finding command is `ps | grep '/puma' | head -n 1 | awk {'print $1'}`
+      run "(kill -s SIGUSR1 $(ps -C ruby -F | grep '/puma' | awk {'print $2'})) || #{sudo} service #{app_name} restart"
+      # foreman.restart # uncomment this (and comment line above) if we need to read changes to the procfile
     end
   end
 
