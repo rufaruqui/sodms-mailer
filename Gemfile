@@ -11,7 +11,7 @@ gem 'rails', '~> 5.0.6'
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3'
 # Use Puma as the app server
-gem 'puma', '~> 3.0'
+#gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -79,6 +79,9 @@ group :production do
   gem 'pg'
   gem 'lograge'
 end
+
+
+gem 'passenger'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
