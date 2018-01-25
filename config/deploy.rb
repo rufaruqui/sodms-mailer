@@ -8,7 +8,7 @@ set :repo_url, "ssh://git@203.202.249.101:7999/sod/sodmsmailer.git"
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
- set :deploy_to, "/var/www/sodmsmailer/"
+ set :deploy_to, "/var/www/sodmsmailer/code"
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
