@@ -4,6 +4,9 @@ lock "~> 3.10.1"
 set :application, "sodmsmailer"
 set :repo_url, "ssh://git@203.202.249.101:7999/sod/sodmsmailer.git"
 
+set :app_name, "sodmsmailer"
+set :user, "mailadmin"
+
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
@@ -43,7 +46,7 @@ set :repo_url, "ssh://git@203.202.249.101:7999/sod/sodmsmailer.git"
 namespace :foreman do
   desc "Export the Procfile to Ubuntu's upstart scripts"
   task :export, :roles => :app do
-    run "cd #{current_path} && #{sudo} foreman export upstart /etc/init -a #{app_name} -u #{user} -l /var/#{app_name}/log"
+    run "cd #{current_path} && #{sudo} foreman export upstart /etc/init -a #{app_name} -u #{user} -l /var/www/#{app_name}/code/log"
   end
 
   desc "Start the application services"
@@ -63,19 +66,17 @@ namespace :foreman do
 end
 
 namespace :deploy do
-
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       # Here we can do anything such as:
       # within release_path do
       #   execute :rake, 'cache:clear'
+         run "(kill -s SIGUSR1 $(ps -C ruby -F | grep '/puma' | awk {'print $2'})) || #{sudo} service #{app_name} restart"
       # end
-       foreman.export
-
-      # on OS X the equivalent pid-finding command is `ps | grep '/puma' | head -n 1 | awk {'print $1'}`
-      run "(kill -s SIGUSR1 $(ps -C ruby -F | grep '/puma' | awk {'print $2'})) || #{sudo} service #{app_name} restart"
-      # foreman.restart # uncomment this (and comment line above) if we need to read changes to the procfile
     end
   end
-
 end
+
+
+after "deploy:update", "foreman:export"
+after "deploy:update", "foreman:restart"
