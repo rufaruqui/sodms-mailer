@@ -23,12 +23,12 @@ environment ENV.fetch("RAILS_ENV") { "production" }
 #
  workers ENV.fetch("WEB_CONCURRENCY") { 4 }
 
- on_worker_boot do
-  require "active_record"
-  cwd = File.dirname(__FILE__)+"/.."
-  ActiveRecord::Base.connection.disconnect! rescue ActiveRecord::ConnectionNotEstablished
-  ActiveRecord::Base.establish_connection(ENV["DATABASE_URL"] || YAML.load_file("#{cwd}/config/database.yml")[ENV["RAILS_ENV"]])
-end
+#  on_worker_boot do
+#   require "active_record"
+#   cwd = File.dirname(__FILE__)+"/.."
+#   ActiveRecord::Base.connection.disconnect! rescue ActiveRecord::ConnectionNotEstablished
+#   ActiveRecord::Base.establish_connection(ENV["DATABASE_URL"] || YAML.load_file("#{cwd}/config/database.yml")[ENV["RAILS_ENV"]])
+# end
 
 # Use the `preload_app!` method when specifying a `workers` number.
 # This directive tells Puma to first boot the application and load code
@@ -46,9 +46,9 @@ end
 # or connections that may have been created at application boot, Ruby
 # cannot share connections between processes.
 #
-# on_worker_boot do
-#   ActiveRecord::Base.establish_connection if defined?(ActiveRecord)
-# end
+on_worker_boot do
+  ActiveRecord::Base.establish_connection if defined?(ActiveRecord)
+end
 
 # Allow puma to be restarted by `rails restart` command.
 plugin :tmp_restart
