@@ -40,6 +40,31 @@ set :repo_url, "ssh://git@203.202.249.101:7999/sod/sodmsmailer.git"
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
 
+set :app_name, "sodmsmailer"
+set :user, "mailadmin"
+
+namespace :foreman do
+  desc "Export the Procfile to Ubuntu's upstart scripts"
+  task :export, :roles => :app do
+    run "cd #{current_path} && #{sudo} foreman export upstart /etc/init -a #{app_name} -u #{user} -l /var/#{app_name}/log"
+  end
+
+  desc "Start the application services"
+  task :start, :roles => :app do
+    run "#{sudo} service #{app_name} start"
+  end
+
+  desc "Stop the application services"
+  task :stop, :roles => :app do
+    run "#{sudo} service #{app_name} stop"
+  end
+
+  desc "Restart the application services"
+  task :restart, :roles => :app do
+    run "#{sudo} service #{app_name} start || #{sudo} service #{app_name} restart"
+  end
+end
+
 namespace :deploy do
 
   after :restart, :clear_cache do
