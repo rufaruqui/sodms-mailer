@@ -2,7 +2,7 @@
 lock "~> 3.10.1"
 
 set :application, "sodmsmailer"
-set :repo_url, "http://rokan@203.202.249.101:7990/scm/sod/sodmsmailer.git"
+set :repo_url, "ssh://git@203.202.249.101:7999/sod/sodmsmailer.git"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -27,7 +27,7 @@ set :repo_url, "http://rokan@203.202.249.101:7990/scm/sod/sodmsmailer.git"
  append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
 
  set :rvm_ruby_version, '2.3.3'
- 
+
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
