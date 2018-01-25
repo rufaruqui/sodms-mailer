@@ -4,9 +4,6 @@ lock "~> 3.10.1"
 set :application, "sodmsmailer"
 set :repo_url, "ssh://git@203.202.249.101:7999/sod/sodmsmailer.git"
 
-set :app_name, "sodmsmailer"
-set :user, "mailadmin"
-
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
@@ -43,40 +40,14 @@ set :user, "mailadmin"
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
 
-namespace :foreman do
-  desc "Export the Procfile to Ubuntu's upstart scripts"
-  task :export, :roles => :app do
-    run "cd #{current_path} && #{sudo} foreman export upstart /etc/init -a #{app_name} -u #{user} -l /var/www/#{app_name}/code/log"
-  end
-
-  desc "Start the application services"
-  task :start, :roles => :app do
-    run "#{sudo} service #{app_name} start"
-  end
-
-  desc "Stop the application services"
-  task :stop, :roles => :app do
-    run "#{sudo} service #{app_name} stop"
-  end
-
-  desc "Restart the application services"
-  task :restart, :roles => :app do
-    run "#{sudo} service #{app_name} start || #{sudo} service #{app_name} restart"
-  end
-end
-
 namespace :deploy do
+
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       # Here we can do anything such as:
       # within release_path do
       #   execute :rake, 'cache:clear'
-         run "(kill -s SIGUSR1 $(ps -C ruby -F | grep '/puma' | awk {'print $2'})) || #{sudo} service #{app_name} restart"
       # end
     end
   end
 end
-
-
-after "deploy:update", "foreman:export"
-after "deploy:update", "foreman:restart"
