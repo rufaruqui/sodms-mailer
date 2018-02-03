@@ -1,15 +1,14 @@
-class ReportMailer < ApplicationMailer
-  include Resque::Mailer 
+class TestMailer < ApplicationMailer
+    include Resque::Mailer 
 
    @queue='saplmailer'
 
   def  daily_email_update(options={}) 
 
     puts "Updating daily reports"
-    puts options
-   
-    attachments[options[:filename]] = File.read(options[:filename])
-    mail(to: options[:recipents], subject: 'Excel report with Styles')
+    #options[:to]="rufaruqui@gmail.com"
+    #attachments[options[:filename]] = File.read(options[:filename])
+    mail(to: 'rufaruqui@sdfagmail.com', subject: 'Testing action mailer')
 
     # mail = Mail.new do 
     #   from     'sapl.mailer@gmail.com'

@@ -2823,3 +2823,8 @@ Install missing gems with `bundle install`
   INFO [a4111c0d] Running /usr/bin/env echo "Branch master (at f6d30dc5e271fb3e526445861419ac03c27b90be) deployed as release 20180125140836 by rufaruqui" >> /var/www/sodmsmailerapp/revisions.log as mailadmin@192.168.0.9
  DEBUG [a4111c0d] Command: cd /var/www/sodmsmailerapp/releases && /usr/bin/env echo "Branch master (at f6d30dc5e271fb3e526445861419ac03c27b90be) deployed as release 20180125140836 by rufaruqui" >> /var/www/sodmsmailerapp/revisions.log
   INFO [a4111c0d] Finished in 0.055 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2018-01-27 12:21:03 +0600 cap production deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [222aec03] Running [ -d ~/.rvm ] as mailadmin@192.168.0.9
+ DEBUG [222aec03] Command: [ -d ~/.rvm ]

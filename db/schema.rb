@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180110055545) do
+ActiveRecord::Schema.define(version: 20180127073326) do
 
   create_table "emails", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "creatorid"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20180110055545) do
     t.json     "recipients"
     t.datetime "created_at",                                null: false
     t.datetime "updated_at",                                null: false
+    t.string   "attachment"
   end
 
   create_table "schedulers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
