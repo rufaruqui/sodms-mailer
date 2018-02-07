@@ -7,12 +7,8 @@
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
 server '203.202.249.100', user: 'mailadmin', roles: %w{web app}, my_property: :my_value
-<<<<<<< HEAD
-=======
 
->>>>>>> cd6c1ffd27be0b40a7437512a50797a44373ab93
 
-i
 # role-based syntax
 # ==================
 
