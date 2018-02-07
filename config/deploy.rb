@@ -130,7 +130,7 @@ namespace :app do
   task :systemd do
     on roles(:web) do
       within release_path do
-        execute :sudo, :foreman, :export, :systemd, "/etc/systemd/system", "--user mailadmin"
+        execute :sudo, :foreman, :export, :systemd, "/etc/systemd/system", "--user deploy"
         execute :sudo, :systemctl, "daemon-reload"
       end
     end
