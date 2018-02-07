@@ -43,51 +43,101 @@ set :repo_url, "ssh://git@203.202.249.101:7999/sod/sodmsmailer.git"
 set :app_name, "sodmsmailer"
 set :user, "mailadmin"
 
-namespace :foreman do
-  desc "Export the Procfile to Ubuntu's upstart scripts"
-  task :export do
-    on roles(:app) do
-    run "cd #{current_path} && #{sudo} foreman export upstart /etc/init -a #{app_name} -u #{user} -l /var/www/#{app_name}/log"
-  end
-end 
+# namespace :foreman do
+#   desc "Export the Procfile to Ubuntu's upstart scripts"
+#   task :export do
+#     on roles(:app) do
+#     run "cd #{current_path} && #{sudo} foreman export upstart /etc/init -a #{app_name} -u #{user} -l /var/www/#{app_name}/log"
+#   end
+# end 
 
-  desc "Start the application services"
+#   desc "Start the application services"
+#   task :start do
+#     on roles(:app) do
+#     run "#{sudo} service #{app_name} start"
+#   end
+# end
+
+#   desc "Stop the application services"
+#   task :stop do
+#     on roles(:app) do
+#     run "#{sudo} service #{app_name} stop"
+#   end
+# end
+
+#   desc "Restart the application services"
+#   task :restart do
+#     on roles(:app) do
+#     run "#{sudo} service #{app_name} start || #{sudo} service #{app_name} restart"
+#   end
+# end 
+# end
+
+# namespace :deploy do
+
+#   after :restart, :clear_cache do
+#     on roles(:web), in: :groups, limit: 3, wait: 10 do
+#       # Here we can do anything such as:
+#       # within release_path do
+#       #   execute :rake, 'cache:clear'
+#       # end
+#       foreman.export
+
+#     # on OS X the equivalent pid-finding command is `ps | grep '/puma' | head -n 1 | awk {'print $1'}`
+#     run "(kill -s SIGUSR1 $(ps -C ruby -F | grep '/puma' | awk {'print $2'})) || #{sudo} service #{app_name} restart"
+
+#     # foreman.restart # uncomment this (and comment line above) if we need to read changes to the procfile
+
+#     end
+#   end
+# end
+
+namespace :app do
+  desc "Start SODMS Mailer"
   task :start do
-    on roles(:app) do
-    run "#{sudo} service #{app_name} start"
+    on roles(:web) do |host|
+      within release_path do
+        execute :sudo, :systemctl, :start, "sodms-mailerweb@7070.service"
+        execute :sudo, :systemctl, :start, "sodms-mailerworker@7071.service"
+        execute :sudo, :systemctl, :start, "sodms-mailerscheduler@7072.service"
+      end
+    end
   end
-end
 
-  desc "Stop the application services"
+  desc "Stop   SODMS Mailer"
   task :stop do
-    on roles(:app) do
-    run "#{sudo} service #{app_name} stop"
+    on roles(:web) do |host|
+      within release_path do
+        execute :sudo, :systemctl, :stop, "sodmsmailer-web@7070.service"
+        execute :sudo, :systemctl, :stop, "sodmsmailer-worker@7071.service"
+        execute :sudo, :systemctl, :stop, "sodmsmailer-scheduler@7072.service"
+      end
+    end
   end
-end
 
-  desc "Restart the application services"
+  desc "Restart   SODMS Mailer"
   task :restart do
-    on roles(:app) do
-    run "#{sudo} service #{app_name} start || #{sudo} service #{app_name} restart"
+    on roles(:web) do |host|
+      within release_path do
+        execute :sudo, :systemctl, :restart, "sodmsmailer-web@7070.service"
+        execute :sudo, :systemctl, :restart, "sodmsmailer-worker@7070.service"
+        execute :sudo, :systemctl, :restart, "sodmsmailer-scheduler@7070.service"
+      end
+    end
   end
-end 
-end
 
-namespace :deploy do
-
-  after :restart, :clear_cache do
-    on roles(:web), in: :groups, limit: 3, wait: 10 do
-      # Here we can do anything such as:
-      # within release_path do
-      #   execute :rake, 'cache:clear'
-      # end
-      foreman.export
-
-    # on OS X the equivalent pid-finding command is `ps | grep '/puma' | head -n 1 | awk {'print $1'}`
-    run "(kill -s SIGUSR1 $(ps -C ruby -F | grep '/puma' | awk {'print $2'})) || #{sudo} service #{app_name} restart"
-
-    # foreman.restart # uncomment this (and comment line above) if we need to read changes to the procfile
-
+  desc "Reload systemd"
+  task :systemd do
+    on roles(:web) do
+      within release_path do
+        execute :sudo, :foreman, :export, :systemd, "/etc/systemd/system", "--user mailadmin"
+        execute :sudo, :systemctl, "daemon-reload"
+      end
     end
   end
 end
+
+after 'deploy:publishing', 'app:systemd'
+after 'app:systemd', 'app:restart'
+
+
