@@ -12,14 +12,20 @@
 
 
     6 Deploying a new release
-You are now ready to deploy a new release using Capistrano!
+        You are now ready to deploy a new release using Capistrano!
 
-On your local computer, make a random change in your application, add the various Capistrano config files, then commit and push your changes.
+        On your local computer, make a random change in your application, add the various Capistrano config files, then commit and push your changes.
 
-Copy$ nano app/somefile.rb
-$ git add Capfile config/deploy.rb config/deploy lib/capistrano
-$ git commit -a -m "Test Capistrano"
-$ git push
-Next, run Capistrano to start the deployment:
+        Copy$ nano app/somefile.rb
+        $ git add Capfile config/deploy.rb config/deploy lib/capistrano
+        $ git commit -a -m "Test Capistrano"
+        $ git push
+        Next, run Capistrano to start the deployment:
 
-Copy$ bundle exec cap production deploy
+        Copy$ bundle exec cap production deploy
+    7. Creating service to run at boot
+        Foreman ==> `http://blog.oestrich.org/2017/02/foreman-systemd-export/`
+
+        Creating manual `systemd` scripts
+        
+            $rvmsudo foreman export systemd /etc/systemd/system --user mailadmin -a "sodmsmailerapp" -l /var/www/sodmsmailerapp/shared/log
