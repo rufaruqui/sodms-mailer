@@ -8,7 +8,7 @@ class TestMailer < ApplicationMailer
     puts "Updating daily reports"
     #options[:to]="rufaruqui@gmail.com"
     #attachments[options[:filename]] = File.read(options[:filename])
-    mail(to: 'rufaruqui@sdfagmail.com', subject: 'Testing action mailer')
+    mail(to: 'rufaruqui@gmail.com', subject: 'Testing action mailer')
 
     # mail = Mail.new do 
     #   from     'sapl.mailer@gmail.com'
