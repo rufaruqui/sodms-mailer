@@ -9,7 +9,6 @@ Rails.application.load_tasks
 
 # Require resque & resque-retry.
 require 'resque-retry'
-
 require 'resque/failure/redis'
 
 # Require Rakefile related resque things.

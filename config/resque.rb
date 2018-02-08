@@ -12,7 +12,7 @@ namespace :resque do
 
     #ENV['QUEUE'] = '*'
 
-    Resque.redis = 'localhost:6379' unless Rails.env == 'production'
+    Resque.redis = 'localhost:6379' #unless Rails.env == 'production'
 
     # If you want to be able to dynamically change the schedule,
     # uncomment this line.  A dynamic schedule can be updated via the

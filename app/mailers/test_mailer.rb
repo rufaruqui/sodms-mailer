@@ -5,10 +5,10 @@ class TestMailer < ApplicationMailer
 
   def  daily_email_update(options={}) 
 
-    puts "Updating daily reports"
+    puts "Sending test mail"
     #options[:to]="rufaruqui@gmail.com"
     #attachments[options[:filename]] = File.read(options[:filename])
-    mail(to: 'rufaruqui@gmail.com', subject: 'Testing action mailer')
+    mail(to: 'rufaruqui@gmail.com', subject: 'Testing action mailer using Time.now')
 
     # mail = Mail.new do 
     #   from     'sapl.mailer@gmail.com'

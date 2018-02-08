@@ -1,9 +1,7 @@
 class SetSchedule
     def self.set_schedule_daily_reports(config={})
         
-        puts config[:every]
-        puts config[:every].nil?
-        puts config[:every].blank?
+      
         
         name="sending_daily_update"
         config[:class] = 'SendMorningReportsJob'  if config[:class].nil?
