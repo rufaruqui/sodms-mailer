@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Mail Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Schedule</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @mail_types.each do |mail_type| %>
+      <tr>
+        <td><%= mail_type.name %></td>
+        <td><%= mail_type.description %></td>
+        <td><%= mail_type.schedule %></td>
+        <td><%= link_to 'Show', mail_type %></td>
+        <td><%= link_to 'Edit', edit_mail_type_path(mail_type) %></td>
+        <td><%= link_to 'Destroy', mail_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Mail Type', new_mail_type_path %>

@@ -6,3 +6,4 @@ log/development.log
 tmp/pids/server.pid
 log/production.log
 log/test.log
+tmp/

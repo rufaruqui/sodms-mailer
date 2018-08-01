@@ -1,1 +1,3 @@
 SODMS_BACKEND_BASE: 'http://203.202.249.100:8070'
+LOCAL_BACKEND_BASE: 'http://localhost:5000'
+
