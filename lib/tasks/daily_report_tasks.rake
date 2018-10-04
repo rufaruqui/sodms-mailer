@@ -3,6 +3,11 @@
  
 #require 'jobs'
 
+desc 'send daily import containers report in the morning'
+task send_import_container_reports: :environment do   
+    ImportContainerReportEmailJob.perform_later
+end
+
 desc 'send daily reports in the morning'
 task send_daily_reports: :environment do  
     #GenReport.perform.deliver_at(Time.now)

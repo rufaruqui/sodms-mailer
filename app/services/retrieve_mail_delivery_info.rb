@@ -6,6 +6,7 @@ class RetrieveMailDeliveryInfo
         url = ENV["LOCAL_BACKEND_BASE"]+"/api/services/app/MailDeliverySetting/RetrieveMailDeliveryInfos"
         response = RestClient.post url, { }.to_json, {:Authorization => access_token, content_type: :json, accept: :json}
         mailinfo = JSON.parse(response.body,symbolize_names: true )
+        puts mailinfo
         if mailinfo[:success] == true
             return mailinfo[:result][:items]
         else
