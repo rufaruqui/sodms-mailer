@@ -26,20 +26,20 @@ test:
    socket: /tmp/mysql.sock
 
 
-production:
-   adapter: mysql2
-   database: sapl_mailer
-   username: root
-   password: password 
-   host: localhost
-   socket: /tmp/mysql.sock
-
-##Uncomment this before deploying to hosting server
 # production:
-#    adapter: postgresql
-#    encoding: unicode
+#    adapter: mysql2
 #    database: sapl_mailer
-#    username: mailadmin
-#    password: it@ocl+SAPL
+#    username: root
+#    password: password 
 #    host: localhost
-#    pool: 5
+#    socket: /tmp/mysql.sock
+
+#Uncomment this before deploying to hosting server
+production:
+   adapter: postgresql
+   encoding: unicode
+   database: sapl_mailer
+   username: mailer
+   password: 1234@isatl
+   host: localhost
+   pool: 5
