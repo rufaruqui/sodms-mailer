@@ -22,5 +22,8 @@ class ReportMailer < ApplicationMailer
     #  return mail
   end
   
+  def self.perform(options={})
+    daily_email_update(options).deliver
+  end
 
 end

@@ -116,9 +116,9 @@ class CreateImportContainerReportXls
         end 
         p.serialize(options[:filename])
 
-        Rails.logger.info '########  Send mail with excel reports as attacment######' 
-        #Email.create(:recipients=>options[:recipents], :subject=>options[:subject], :attachment=>options[:filename], :body=>options[:body])
-        ReportMailer.daily_email_update(options).deliver #at(Time.now)
+        Rails.logger.info '########  Storing mail info at db ######' 
+        Email.create(:recipients=>options[:recipents], :subject=>options[:subject], :attachment=>options[:filename], :body=>options[:body], :attachment_name=>options[:attachment_name], :mail_type=>options[:mail_type])
+        #ReportMailer.daily_email_update(options).deliver_at(Time.now)
     end
     
   end 
@@ -132,7 +132,6 @@ class CreateImportContainerReportXls
       sheet.add_row [" KATGHAR, NORTH PATENGA, CHITTAGONG-4204. "] , style: heading, height: 18
       sheet.add_row [" MAERSK LINE  / MAERSK LINE(MAERSK BANGLADESH LTD.)"] , style: heading, height: 16
       sheet.add_row [report_name], style: heading, height: 14 
-       
     end
 
 end

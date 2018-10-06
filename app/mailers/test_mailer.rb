@@ -8,7 +8,7 @@ class TestMailer < ApplicationMailer
     puts "Sending test mail"
     #options[:to]="rufaruqui@gmail.com"
     #attachments[options[:filename]] = File.read(options[:filename])
-    mail(to: 'rufaruqui@gmail.com', subject: 'Testing action mailer using Time.now')
+    mail(to: 'rufaruqui@gmail.com', subject: 'Testing action mailer using Time.now from Ubuntu')
 
     # mail = Mail.new do 
     #   from     'sapl.mailer@gmail.com'
@@ -20,5 +20,10 @@ class TestMailer < ApplicationMailer
    
     #  return mail
   end
+
+  def self.perform(options={})
+    daily_email_update(options).deliver
+  end
+
 
 end

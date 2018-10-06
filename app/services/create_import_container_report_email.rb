@@ -34,6 +34,7 @@ class CreateImportContainerReportEmail
             else
 
               Rails.logger.info '########  Generate Excel Sheet                  ##########' 
+              options[:mail_type] = info[:mailReportType]
               options[:subject] = 'Import Container Movement & Stock Report -- ' + Time.now.to_date.to_s + '--' + info[:clientName] + ' -- (' + info[:permittedDepotName] + ')'
               options[:attachment_name]=info[:clientName] + '_' + Time.now.to_date.to_s + '_Import Container Movement & Stock Report' + '.xlsx'
               options[:containerinfo] = containerinfo
