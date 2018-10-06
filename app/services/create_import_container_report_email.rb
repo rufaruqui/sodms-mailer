@@ -40,7 +40,7 @@ class CreateImportContainerReportEmail
               options[:containerinfo] = containerinfo
               options[:recipents] = recipents
               options[:body] = report_email_body(info)
-              options[:filename]  = ['./reports/',info[:clientName], '_import_container_report', Time.now.to_s, '.xlsx'].join
+              options[:filename]  = ['./reports/',info[:clientName], '_import_container_report_', Time.now.to_date.to_s, '.xlsx'].join
               CreateImportContainerReportXls.perform(options)
             end  
           end    
