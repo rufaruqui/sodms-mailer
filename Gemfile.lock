@@ -146,10 +146,14 @@ GEM
     pg (0.21.0)
     puma (3.11.2)
     rack (2.0.3)
+    rack-attack (5.4.1)
+      rack (>= 1.0, < 3)
+    rack-cors (1.0.2)
     rack-protection (2.0.0)
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
+    rack-timeout (0.5.1)
     rails (5.0.6)
       actioncable (= 5.0.6)
       actionmailer (= 5.0.6)
@@ -302,6 +306,9 @@ DEPENDENCIES
   mysql2
   pg
   puma
+  rack-attack
+  rack-cors
+  rack-timeout
   rails (~> 5.0.6)
   rails_12factor
   redis (~> 3.0)

@@ -7,9 +7,7 @@ class CreateImportContainerReportEmail
     Rails.logger.info '########  Retrive Mail Delivery Settings ##########' 
     
     mailsdeliveryinfo = RetrieveMailDeliveryInfo.perform
-    puts "*********"
-    puts mailsdeliveryinfo
-    puts "*********"
+     
     
    if !mailsdeliveryinfo.blank?
       mailsdeliveryinfo.each do |info| 
@@ -36,11 +34,14 @@ class CreateImportContainerReportEmail
               Rails.logger.info '########  Generate Excel Sheet                  ##########' 
               options[:mail_type] = info[:mailReportType]
               options[:subject] = 'Import Container Movement & Stock Report -- ' + Time.now.to_date.to_s + '--' + info[:clientName] + ' -- (' + info[:permittedDepotName] + ')'
-              options[:attachment_name]=info[:clientName] + '_' + Time.now.to_date.to_s + '_Import Container Movement & Stock Report' + '.xlsx'
+              options[:attachment_name]=[info[:clientName],info[:permittedDepotName], Time.now.to_date.to_s, info[:id], 'Import Container Movement & Stock Report','.xlsx'].join('_')
               options[:containerinfo] = containerinfo
               options[:recipents] = recipents
               options[:body] = report_email_body(info)
-              options[:filename]  = ['./reports/',info[:clientName], '_import_container_report_', Time.now.to_date.to_s, '.xlsx'].join
+              options[:filename]  = ['./reports/',info[:clientName],info[:permittedDepotName], 'import_container_report', Time.now.to_date.to_s, info[:id], '.xlsx'].join('_')
+              options[:clientid]  = info[:clientId]
+              options[:permitteddepoid] = info[:permittedDepotId]
+              #puts containerinfo[:importLadenStockReport][0] unless containerinfo[:importLadenStockReport].blank?
               CreateImportContainerReportXls.perform(options)
             end  
           end    

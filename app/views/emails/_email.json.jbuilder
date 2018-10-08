@@ -1,3 +1,5 @@
+json.extract! email, :id, :created_at, :updated_at, :subject, :body, :state, :recipients, :permitteddepoid, :mail_type, :clientid
+json.url email_url(email, format: :json)
 # == Schema Information
 #
 # Table name: emails
@@ -21,17 +23,3 @@
 #  attachment_name :string(255)
 #  mail_type       :integer
 #
-
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  subject: MyString
-  to: MyString
-  body: MyString
-  attachments: MyString
-
-two:
-  subject: MyString
-  to: MyString
-  body: MyString
-  attachments: MyString

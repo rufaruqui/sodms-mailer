@@ -18,6 +18,8 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  attachment      :string(255)
+#  attachment_name :string(255)
+#  mail_type       :integer
 #
 
 class Email < ApplicationRecord

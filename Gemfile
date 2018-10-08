@@ -50,9 +50,9 @@ gem 'mail'
 #gem 'pg'
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-#gem 'rack-cors'
-#gem 'rack-attack'
-#gem 'rack-timeout'
+gem 'rack-cors'
+gem 'rack-attack'
+gem 'rack-timeout'
 #gem 'unicorn' -- using unix corn instead of unicorn
 
 

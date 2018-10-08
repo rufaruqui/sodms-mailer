@@ -117,7 +117,7 @@ class CreateImportContainerReportXls
         p.serialize(options[:filename])
 
         Rails.logger.info '########  Storing mail info at db ######' 
-        Email.create(:recipients=>options[:recipents], :subject=>options[:subject], :attachment=>options[:filename], :body=>options[:body], :attachment_name=>options[:attachment_name], :mail_type=>options[:mail_type])
+        Email.create(:recipients=>options[:recipents], :subject=>options[:subject], :attachment=>options[:filename], :body=>options[:body], :attachment_name=>options[:attachment_name], :mail_type=>options[:mail_type], :state=>0, :clientid=>options[:clientid], :permitteddepoid=>options[:permitteddepoid])
         #ReportMailer.daily_email_update(options).deliver_at(Time.now)
     end
     
