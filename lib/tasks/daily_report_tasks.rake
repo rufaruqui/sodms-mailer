@@ -3,9 +3,9 @@
  
 #require 'jobs'
 
-desc 'prepare daily import containers report in the morning'
+desc 'prepare daily containers report in the morning'
 task prepare_import_container_reports: :environment do   
-    ImportContainerReportEmailJob.perform_later
+    ContainerReportEmailJob.perform_later
 end
 
 desc 'send daily import containers report in the morning'

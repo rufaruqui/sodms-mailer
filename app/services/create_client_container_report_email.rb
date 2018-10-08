@@ -1,65 +1,30 @@
  
 class CreateClientContainerReportEmail
-
-  def self.perform(options={})  
-    
-
-    Rails.logger.info '########  Retrive Mail Delivery Settings ##########'
-    puts '########  Retrive Mail Delivery Settings ##########'
-    
-    mailsdeliveryinfo = RetrieveMailDeliveryInfo.perform
-
-    mailsdeliveryinfo.each do |info|
-
-      ########### Extract Email Contacts from SODOMS MailDeliveryInfos ########
+  def self.perform(info)  
+       options = {} 
        recipents = info[:mailDeliveryContacts].pluck(:contactEmail).join(';')
-    
-
-      Rails.logger.info '########  Retrive Stock Data from Sodms Backend ##########'
-      puts '########  Retrive Stock Data from Sodms Backend ##########'
-       
-       
-
-      h = Hash.new
-      h[:mailDeliverySettingId]=info[:id]
-     # RetrieveStockReportJob.perform_later(h)
-      
-      containerinfo = RetrieveClientContainerData.perform(h)
-        
-      if !containerinfo.blank?
-          if recipents.blank? or recipents.nil?
-            Rails.logger.info '######## No Recipents  ##########'
-            puts '########## No Recipents ##########'
-          else
-
-            Rails.logger.info '########  Generate Excel Sheet                  ##########'
-            puts '########  Generate Excel Sheet                  ##########'
-            
-            options[:containerinfo] = containerinfo
-            options[:recipents] = recipents
-            options[:filename]  = ['./reports/','container_report', Time.now.to_s, '.xlsx'].join
-            
-            CreateClientContainerReportXls.perform(options)
-            
-            Rails.logger.info '########  Send mail with excel reports as attacment######'
-            puts '########  Send mail with excel reports as attacment######'
-        #     Rails.logger.info Time.now
-        #    options = Hash.new
-        #    options[:recipents]="rufaruqui@gmail.com;"
-        #    options[:filename]="simple.xlsx"
-           Email.create(:recipients=>options[:recipents], :subject=>"Morning Updates", :attachment=>options[:filename])
-           ReportMailer.daily_email_update(options).deliver_now #_at(Time.now)
-          end  
-        end    
-     end 
-
-     emails = Email.where('created_at >= ?', Time.now.to_datetime - 1.day)
-     emails.each do  |email|
-        options = Hash.new
-        options[:recipents] = email.recipients
-        options[:filename]  = email.attachment
-        ReportMailer.daily_email_update(options).deliver_at(Time.now)
-      end
+       h = Hash.new 
+       h = {:mailDeliverySettingsId=> info[:id]} 
+       containerinfo = RetrieveClientContainerData.perform(h)
+       if !containerinfo.blank?
+            if recipents.blank? or recipents.nil?
+              Rails.logger.info '######## No Recipents  ##########' 
+            else
+              Rails.logger.info '########  Generate Excel Sheet                  ##########' 
+              options[:mail_delivery_setting_id] = info[:id]
+              options[:mail_type] = info[:mailReportType]
+              options[:subject] = 'Container Movement & Stock Report -- ' + Time.now.to_date.to_s + '--' + info[:clientName] + ' -- (' + info[:permittedDepotName] + ')'
+              options[:attachment_name]=info[:clientName] + [info[:permittedDepotName], Time.now.to_date.to_s, info[:id], 'Container Movement & Stock Report','.xlsx'].join('_')
+              options[:containerinfo] = containerinfo
+              options[:recipents] = recipents
+              options[:body] = EmailService.container_report_email_body(info)
+              options[:filename]  = ['./reports/',info[:clientName],info[:permittedDepotName], 'container_report', Time.now.to_date.to_s, info[:id], '.xlsx'].join('_')
+              options[:clientid]  = info[:clientId]
+              options[:permitteddepoid] = info[:permittedDepotId]
+              options[:client_name] = info[:clientName]
+              options[:permitted_depo_name] = info[:permittedDepotName]
+              CreateClientContainerReportXls.perform(options)
+            end   
+      end 
   end
-
 end

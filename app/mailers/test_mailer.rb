@@ -22,7 +22,7 @@ class TestMailer < ApplicationMailer
   end
 
   def self.perform(options={})
-    daily_email_update(options).deliver
+    daily_email_update(options).deliver!
   end
 
 

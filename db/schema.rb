@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181006104140) do
+ActiveRecord::Schema.define(version: 20181008093400) do
 
   create_table "emails", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "creatorid"
     t.string   "subject"
-    t.text     "body",            limit: 65535
-    t.integer  "state",                         default: 0
+    t.text     "body",                     limit: 65535
+    t.integer  "state",                                  default: 0
     t.integer  "permitteddepoid"
     t.integer  "clientid"
     t.string   "from_name"
@@ -25,11 +25,14 @@ ActiveRecord::Schema.define(version: 20181006104140) do
     t.datetime "scheduled_on"
     t.datetime "sent_on"
     t.json     "recipients"
-    t.datetime "created_at",                                null: false
-    t.datetime "updated_at",                                null: false
+    t.datetime "created_at",                                         null: false
+    t.datetime "updated_at",                                         null: false
     t.string   "attachment"
     t.string   "attachment_name"
     t.integer  "mail_type"
+    t.string   "client_name"
+    t.string   "permitted_depo_name"
+    t.integer  "mail_delivery_setting_id"
   end
 
   create_table "mail_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

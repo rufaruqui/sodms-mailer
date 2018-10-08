@@ -1,85 +1,80 @@
-
 require 'axlsx'
 
-class CreateClientContainerReportXls
-   def self.perform(options={})
+class CreateClientContainerReportXls < CreateExcelTemplate
+    
+   def self.perform(options={}) 
+
+    container_in = ["ID", "Container Number", "Size", "Type", "Company", "Agent", "MLO", "Issue Date", "In Date", "Container Condition","Damage Area", "Damage Part", "Damage Description", "Unstuffing Date", "Out Date", "Seal Number", "Amended Seal No", "Vessel", "Rotation #", "Line #", "BE #", "BL #", "Location - From", "Depo Loc", "Importer", "CNF", "EIR #", "Commodity", "In Transport", "In Trailer", "In Remarks"]
+    container_in_summary= ["Agent", "MLO", "Size-Type", "Sound", "Repaired", "Damage", "Wash", "Sweep", "Clean", "Total"]
+    container_unstuffing = ["ID", "Container Number", "Size", "Type","Height", "Company", "Agent", "MLO", "Vessel", "Rotation #", "BE #", "BL #", "Line #", "Importer", "CNF", "EIR #", "Commodity","Seal Number", "Amended Seal No",  "Location - From", "Depo Loc","Issue Date", "In Date", "Unstuffing Date", "Container Condition","Damage Area", "Damage Part", "Damage Description","In Transport", "In Trailer", "Trailer #", "In Remarks"]
+    container_unstuffing_summary= ["Agent", "MLO", "Size-Type", "Sound", "Repaired", "Damage", "Wash", "Sweep", "Clean", "Total"]
+    container_fclout = ["ID", "Container Number", "Size", "Type", "Company", "Agent", "MLO", "Vessel", "Rotation #", "Importer", "CNF" "Commodity","Current Depo", "Seal Number", "Amended Seal No","EIR #", "BE #", "BL #", "Line #",  "Location - From", "Depo Loc","Issue Date", "In Date", "Out Date","Out Location", "Container Condition","Damage Area", "Damage Part", "Damage Description","Total Lot", "Total Weight", "Out Transport", "Out Remarks"]
+    container_fclout_summary= ["Agent", "MLO", "Size-Type", "Sound", "Repaired", "Damage", "Wash", "Sweep", "Clean", "Total"]
+    container_ladenstock = ["ID", "Container Number", "Size", "Type", "Company", "Agent", "MLO", "Vessel", "Rotation #", "Importer", "Container Condition","Damage Area", "Damage Part", "Damage Description","CNF", "Commodity","Seal Number", "Amended Seal No", "EIR #", "Issue Date", "In Date","Location - From", "Depo Loc","BE #", "BL #", "Line #","Trailer #","In Transport", "In Remarks"]
+    container_ladenstock_summary= ["Agent", "MLO", "Size-Type", "Sound", "Repaired", "Damage", "Wash", "Sweep", "Clean", "Total"]
+    
+
       Axlsx::Package.new do |p|
-
         wb = p.workbook
-         wb.styles do |s| 
-          header_footer = {:different_first => false, :odd_header => '&L&F : &A&R&D &T', :odd_footer => '&C&Pof&N'}
-          #wb.add_worksheet(:name => "header footer", :header_footer => header_footer) do |sheet|
-           heading = s.add_style alignment: {horizontal: :center}, b: true, sz: 18, bg_color: "0066CC", fg_color: "FF"
+          wb.styles do |s| 
+              heading = s.add_style :fg_color=> "004586", :b => true,  :bg_color => "FFFFFF", :sz => 12, 
+                              :border => { :style => :thin, :color => "00" },
+                              :alignment => { :horizontal => :center,  :vertical => :center , :wrap_text => false}
+          header = s.add_style :bg_color => "FFFFFF", :fg_color => "000000", :b => true, :sz => 10, :border => { :style => :thin, :color => "000000" }     
+          wb.add_worksheet(:name => "In Report") do |sheet|
+              add_header sheet, heading, "In Report"
+              prepare_workbook sheet, options[:containerinfo][:containerInReport], container_in, header    
+            end
+          
+          wb.add_worksheet(:name => "In Report Summary") do |sheet|
+              add_header sheet, heading, "In Report Summary"
+              prepare_workbook sheet, options[:containerinfo][:containerInReportSummary], container_in_summary, header, false
+            end
+            
+            wb.add_worksheet(:name => "Out Empty Report") do |sheet|
+              add_header sheet, heading, "Out Empty Report"
+              prepare_workbook sheet, options[:containerinfo][:containerEmptyOutReport], container_unstuffing, header    
+            end
 
+            wb.add_worksheet(:name => "Out Empty Report Summary") do |sheet|
+              add_header sheet, heading, "Out Empty Report Summary"
+              prepare_workbook sheet, options[:containerinfo][:containerEmptyOutReportSummary], container_unstuffing_summary, header, false 
+            end
+          
+          wb.add_worksheet(:name => "Out Laden Report") do |sheet|
+              add_header sheet, heading, "Out Laden Report"
+              prepare_workbook sheet, options[:containerinfo][:containerLadenOutReport], container_fclout, header  
+            end
+          
+          wb.add_worksheet(:name => "Out Laden Report Summary") do |sheet|
+              add_header sheet, heading, "Out Laden Report Summary"
+              prepare_workbook sheet, options[:containerinfo][:containerLadenOutReportSummary], container_fclout_summary, header,false
+            end
 
-       #   head = s.add_style :bg_color => "00", :fg_color => "FF"
+      
 
-        # defaults =  { :style => :thick, :color => "000000" }
-        # borders = Hash.new do |hash, key|
-        #   hash[key] = wb.styles.add_style :border => defaults.merge( { :edges => key.to_s.split('_').map(&:to_sym) } )
-        # end
-        # top_row =  [0, borders[:top_left], borders[:top], borders[:top], borders[:top_right]]
-        # middle_row = [0, borders[:left], nil, nil, borders[:right]]
-        # bottom_row = [0, borders[:bottom_left], borders[:bottom], borders[:bottom], borders[:bottom_right]]
+          wb.add_worksheet(:name => "Stock Report") do |sheet|
+              add_header sheet, heading, "Stock Report"
+              prepare_workbook sheet, options[:containerinfo][:containerStockReport], container_ladenstock, header  
+            end
 
-         
+          wb.add_worksheet(:name => "Stock Report Summary") do |sheet|
+              add_header sheet, heading, "Stock Report Summary"
+              prepare_workbook sheet, options[:containerinfo][:containerStockReportSummary], container_ladenstock_summary, header, false 
+          end
+        end
+          
+          p.serialize(options[:filename])
 
-        # p.workbook.add_worksheet(:name => "In Report") do |sheet|
-        #     add_header sheet, heading
-        #     sheet.add_row ["SL #", "Container #", "Size", "Type", "Current Depo" "Permitted Depo", "Agent", "MLO", "F. Loc", "Imp. Vessel", "Imp. Rotation", "Cond", "DI Agent", "DI Mlo", "DI Date" "Remarks", "Damage Area", "Damage Part", "Damage Description"] 
-        #     #sheet.add_row options[:stockinfo][0].keys unless options[:stockinfo].blank?
-        #     options[:containerinfo][:containerInReport].each do |info|  
-        #        sheet.add_row    info.values
-        #       end
-        #    end
-
-        
-        # p.workbook.add_worksheet(:name => "Out Empty Report") do |sheet|
-        #     add_header sheet, heading
-        #     sheet.add_row ["Container #", "Size", "Type", "Permitted Depo", "Gate In Depo", "Agent", "MLO Clinet", "Condition", "Vessel", "Gate In Date", "Rotation #", "Prime Mover #", "Storage Days"] 
-        #     #sheet.add_row options[:stockinfo][0].keys unless options[:stockinfo].blank?
-        #     options[:stockinfo].each do |info|  
-        #        sheet.add_row    info.values
-        #       end
-        #    end
-
-
-        # p.workbook.add_worksheet(:name => "Out Laden Report") do |sheet|
-        #     add_header sheet, heading
-        #     sheet.add_row ["Container #", "Size", "Type", "Permitted Depo", "Gate In Depo", "Agent", "MLO Clinet", "Condition", "Vessel", "Gate In Date", "Rotation #", "Prime Mover #", "Storage Days"] 
-        #     #sheet.add_row options[:stockinfo][0].keys unless options[:stockinfo].blank?
-        #     options[:stockinfo].each do |info|  
-        #        sheet.add_row    info.values
-        #       end
-        #    end
-
-
-        p.workbook.add_worksheet(:name => "Stock Report") do |sheet|
-            add_header sheet, heading
-            sheet.add_row ["ID #", "Container #", "Size", "Type", "Agent", "MLO", "Current Depo", "Permitted Depo", "Imp. Vessel", "Imp. Rotation", "F. Loc", "In Date", "Condition", "Storage Day", "Status", "Status Name", "DI Agent", "DI Mlo", "DI Date", "Remarks", "Damage Area", "Damage Part", "Damage Description"] 
-            #sheet.add_row options[:stockinfo][0].keys unless options[:stockinfo].blank?
-            options[:containerinfo][:containerStockReport].each do |info|  
-               sheet.add_row    info.values
-              end 
-             
-           end
-        
-      p.serialize(options[:filename])
-     end
-    end
+          Rails.logger.info "########  Storing mail info at db ######" 
+          EmailService.create_email options
+      end
+      
   end 
 
-    def self.add_header(sheet, heading)
-      sheet.add_row [" SUMMIT ALLIANCE PORT LIMITED (OCL) "], style: heading, height: 30
-      sheet.add_row [" KATGHAR, NORTH PATENGA, CHITTAGONG-4204. "] , style: heading, height: 28
-      sheet.add_row [" MAERSK LINE  / MAERSK LINE(MAERSK BANGLADESH LTD.)"] , style: heading, height: 28
-      sheet.add_row ['Total Container Stock Report ']
-      # sheet.merge_cells("A1:M1");
-      # sheet.merge_cells("A2:M2");
-      # sheet.merge_cells("A3:M3");
-      # sheet.merge_cells("A4:M4"); 
-    end
+    
 
+     
 end
 
 
