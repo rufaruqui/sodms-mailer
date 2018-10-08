@@ -7,6 +7,8 @@ class CreateClientContainerReportXls
 
         wb = p.workbook
          wb.styles do |s| 
+          header_footer = {:different_first => false, :odd_header => '&L&F : &A&R&D &T', :odd_footer => '&C&Pof&N'}
+          #wb.add_worksheet(:name => "header footer", :header_footer => header_footer) do |sheet|
            heading = s.add_style alignment: {horizontal: :center}, b: true, sz: 18, bg_color: "0066CC", fg_color: "FF"
 
 
@@ -72,10 +74,13 @@ class CreateClientContainerReportXls
       sheet.add_row [" KATGHAR, NORTH PATENGA, CHITTAGONG-4204. "] , style: heading, height: 28
       sheet.add_row [" MAERSK LINE  / MAERSK LINE(MAERSK BANGLADESH LTD.)"] , style: heading, height: 28
       sheet.add_row ['Total Container Stock Report ']
-      sheet.merge_cells("A1:M1");
-      sheet.merge_cells("A2:M2");
-      sheet.merge_cells("A3:M3");
-      sheet.merge_cells("A4:M4"); 
+      # sheet.merge_cells("A1:M1");
+      # sheet.merge_cells("A2:M2");
+      # sheet.merge_cells("A3:M3");
+      # sheet.merge_cells("A4:M4"); 
     end
 
 end
+
+
+  
