@@ -30,5 +30,7 @@ end
 desc 'Setting dynamic schchedule'
 task set_schedule_dym: :environment do   
      SetSchedule.set_schedule_daily_reports
+     SetSchedule.set_sent_containers_reports
+     SetSchedule.set_create_conatainers_reports
 end
 
