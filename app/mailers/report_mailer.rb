@@ -23,7 +23,7 @@ class ReportMailer < ApplicationMailer
   end
   
   def self.perform(options={})
-    daily_email_update(options).deliver
+    daily_email_update(options).deliver_at(Time.now)
   end
 
 end
