@@ -1,8 +1,8 @@
 class SendEmailReportsJob < ApplicationJob
-  queue_as :default
-
-  def perform(*args)
-    # Do something later
+   extend Resque::Plugins::Retry
+   
+  queue_as :saplmailer
+  def perform(options={}) 
      emails = Email.where('created_at >= ?', Time.now.to_datetime - 1.day)
      emails.each do  |email|
         options = Hash.new
@@ -11,8 +11,9 @@ class SendEmailReportsJob < ApplicationJob
         options[:subject]   = email.subject
         options[:body]      = email.body
         options[:attachment_name] = email.attachment_name
-        ReportMailer.daily_email_update(options).deliver
+        ReportMailer.daily_email_update(options).deliver!
         email.update(:state=>1)
-      end
-  end
+    end
+  end 
 end
+ 
