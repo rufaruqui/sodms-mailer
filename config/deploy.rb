@@ -119,9 +119,9 @@ namespace :app do
   task :restart do
     on roles(:web) do |host|
       within release_path do
-        execute :sudo, :systemctl, :restart, "sodmsmailer-web@7070.service"
-        execute :sudo, :systemctl, :restart, "sodmsmailer-worker@7070.service"
-        execute :sudo, :systemctl, :restart, "sodmsmailer-scheduler@7070.service"
+        execute :sudo, :systemctl, :restart, "sodmsmailer-web.service"
+        execute :sudo, :systemctl, :restart, "sodmsmailer-worker.service"
+        execute :sudo, :systemctl, :restart, "sodmsmailer-scheduler.service"
       end
     end
   end
@@ -130,7 +130,7 @@ namespace :app do
   task :systemd do
     on roles(:web) do
       within release_path do
-        execute :sudo, :foreman, :export, :systemd, "/etc/systemd/system", "--user deploy"
+        execute :sudo, :foreman, :export, :systemd, "/etc/systemd/system", "--user mailadmin"
         execute :sudo, :systemctl, "daemon-reload"
       end
     end
