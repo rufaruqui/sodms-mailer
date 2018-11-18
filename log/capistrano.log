@@ -730,3 +730,10 @@ Install missing gems with `bundle install`
   INFO [c6131bd0] Running /usr/bin/env sudo foreman export systemd /etc/systemd/system --user mailadmin as mailadmin@103.4.65.211
  DEBUG [c6131bd0] Command: cd /var/www/sodmsmailer/releases/20181117131515 && /usr/bin/env sudo foreman export systemd /etc/systemd/system --user mailadmin
  DEBUG [c6131bd0] 	sudo: no tty present and no askpass program specified
+  INFO ---------------------------------------------------------------------------
+  INFO START 2018-11-18 08:21:08 +0600 cap production deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [209a6627] Running [ -d ~/.rvm ] as mailadmin@103.4.65.211,
+ DEBUG [9bd01b24] Running [ -d ~/.rvm ] as mailadmin@175.29.189.243
+ DEBUG [209a6627] Command: [ -d ~/.rvm ]
+ DEBUG [9bd01b24] Command: [ -d ~/.rvm ]
