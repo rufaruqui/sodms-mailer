@@ -9,8 +9,8 @@ class AuthService
            return @@accessToken
         else   
             puts "Calling SODMS backend to authenticate"
-            response = RestClient.post ENV["LOCAL_BACKEND_BASE"]+"/api/TokenAuth/Authenticate", {  "userNameOrEmailAddress": "rokan",
-            "password": "123qwe",  "rememberClient": true,}.to_json, {content_type: :json, accept: :json}
+            response = RestClient.post ENV["LOCAL_BACKEND_BASE"]+"/api/TokenAuth/Authenticate", {  "userNameOrEmailAddress": "mailadmin",
+            "password": "1234@mailer",  "rememberClient": true,}.to_json, {content_type: :json, accept: :json}
             authinfo = JSON.parse(response.body,symbolize_names: true )
             @@expiredAt =  Time.now + authinfo[:result][:expireInSeconds];
             @@accessToken = authinfo[:result][:accessToken] 
