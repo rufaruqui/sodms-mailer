@@ -23,6 +23,8 @@ class CreateImportContainerReportXls < CreateExcelTemplate
              heading = s.add_style :fg_color=> "004586", :b => true,  :bg_color => "FFFFFF", :sz => 12, 
                             :border => { :style => :thin, :color => "00" },
                             :alignment => { :horizontal => :center,  :vertical => :center , :wrap_text => false}
+               date_format = s.add_style :format_code => 'YYYY-MM-DD'
+  
         header = s.add_style :bg_color => "FFFFFF", :fg_color => "000000", :b => true, :sz => 10, :border => { :style => :thin, :color => "000000" }     
         wb.add_worksheet(:name => "In Report") do |sheet|
             add_header options[:permitted_depo_name], options[:client_name], sheet, heading, 'Import Container In Report'
@@ -59,6 +61,8 @@ class CreateImportContainerReportXls < CreateExcelTemplate
         wb.add_worksheet(:name => "Laden Stock Report") do |sheet|
             add_header options[:permitted_depo_name], options[:client_name], sheet, heading, 'Import Laden Container Stock Report'
             prepare_workbook sheet, options[:containerinfo][:importLadenStockReport], import_ladenstock, header  
+             sheet.col_style 24, date_format, :row_offset => 1 
+              sheet.col_style 25, date_format, :row_offset => 1 
            end
 
         wb.add_worksheet(:name => "Laden Stock Report Summary") do |sheet|
