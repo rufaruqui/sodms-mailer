@@ -11,6 +11,12 @@ class EmailsController < ApplicationController
     toDate = DateTime.strptime(toDate.to_s,'%s')
      
     @emails = Email.where(created_at:fromDate..toDate)
+    @summary = Hash.new
+    @summary = { :created=>@emails.count, 
+                 :sent => @emails.where(state: :sent).count, 
+                 :delivered => @emails.where(state: :delivered).count, 
+                 :failed => @emails.where(state: :failed).count
+                 } unless @emails.nil? or @emails.blank?
   end
 
   # GET /emails/1

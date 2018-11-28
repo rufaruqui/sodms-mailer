@@ -22,44 +22,44 @@ class CreateClientContainerReportXls < CreateExcelTemplate
                               :alignment => { :horizontal => :center,  :vertical => :center , :wrap_text => false}
           header = s.add_style :bg_color => "FFFFFF", :fg_color => "000000", :b => true, :sz => 10, :border => { :style => :thin, :color => "000000" }     
           wb.add_worksheet(:name => "In Report") do |sheet|
-              add_header sheet, heading, "In Report"
+              add_header options[:permitted_depo_name], options[:client_name], sheet, heading, "In Report"
               prepare_workbook sheet, options[:containerinfo][:containerInReport], container_in, header    
             end
           
           wb.add_worksheet(:name => "In Report Summary") do |sheet|
-              add_header sheet, heading, "In Report Summary"
+              add_header options[:permitted_depo_name], options[:client_name], sheet, heading, "In Report Summary"
               prepare_workbook sheet, options[:containerinfo][:containerInReportSummary], container_in_summary, header, false
             end
             
             wb.add_worksheet(:name => "Out Empty Report") do |sheet|
-              add_header sheet, heading, "Out Empty Report"
+              add_header options[:permitted_depo_name], options[:client_name], sheet, heading, "Out Empty Report"
               prepare_workbook sheet, options[:containerinfo][:containerEmptyOutReport], container_unstuffing, header    
             end
 
             wb.add_worksheet(:name => "Out Empty Report Summary") do |sheet|
-              add_header sheet, heading, "Out Empty Report Summary"
+              add_header options[:permitted_depo_name], options[:client_name], sheet, heading, "Out Empty Report Summary"
               prepare_workbook sheet, options[:containerinfo][:containerEmptyOutReportSummary], container_unstuffing_summary, header, false 
             end
           
           wb.add_worksheet(:name => "Out Laden Report") do |sheet|
-              add_header sheet, heading, "Out Laden Report"
+              add_header options[:permitted_depo_name], options[:client_name], sheet, heading, "Out Laden Report"
               prepare_workbook sheet, options[:containerinfo][:containerLadenOutReport], container_fclout, header  
             end
           
           wb.add_worksheet(:name => "Out Laden Report Summary") do |sheet|
-              add_header sheet, heading, "Out Laden Report Summary"
+              add_header options[:permitted_depo_name], options[:client_name], sheet, heading, "Out Laden Report Summary"
               prepare_workbook sheet, options[:containerinfo][:containerLadenOutReportSummary], container_fclout_summary, header,false
             end
 
       
 
           wb.add_worksheet(:name => "Stock Report") do |sheet|
-              add_header sheet, heading, "Stock Report"
+              add_header options[:permitted_depo_name], options[:client_name], sheet, heading, "Stock Report"
               prepare_workbook sheet, options[:containerinfo][:containerStockReport], container_ladenstock, header  
             end
 
           wb.add_worksheet(:name => "Stock Report Summary") do |sheet|
-              add_header sheet, heading, "Stock Report Summary"
+              add_header options[:permitted_depo_name], options[:client_name], sheet, heading, "Stock Report Summary"
               prepare_workbook sheet, options[:containerinfo][:containerStockReportSummary], container_ladenstock_summary, header, false 
           end
         end

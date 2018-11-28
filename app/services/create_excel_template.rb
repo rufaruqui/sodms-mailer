@@ -1,8 +1,8 @@
 class CreateExcelTemplate
-    def self.add_header(sheet, heading, report_name)
-      sheet.add_row [" SUMMIT ALLIANCE PORT LIMITED (OCL) "], style: heading, height: 20
+    def self.add_header(depo_name, client_name, sheet, heading, report_name)
+      sheet.add_row [depo_name], style: heading, height: 20
       sheet.add_row [" KATGHAR, NORTH PATENGA, CHITTAGONG-4204. "] , style: heading, height: 18
-      sheet.add_row [" MAERSK LINE  / MAERSK LINE(MAERSK BANGLADESH LTD.)"] , style: heading, height: 16
+      sheet.add_row [client_name] , style: heading, height: 16
       sheet.add_row [report_name], style: heading, height: 14 
       sheet.merge_cells("A1:AD1");
       sheet.merge_cells("A2:AD2");

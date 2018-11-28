@@ -1,1 +1,2 @@
-json.array! @emails, partial: 'emails/email', as: :email
+json.emails @emails
+json.summary @summary

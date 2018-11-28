@@ -12,7 +12,7 @@ class SendEmailReportsJob < ApplicationJob
         options[:body]      = email.body
         options[:attachment_name] = email.attachment_name
         ReportMailer.daily_email_update(options).deliver!
-        email.update(:state=>1)
+        email.update(state: :sent)
     end
   end 
 end

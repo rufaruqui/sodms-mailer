@@ -38,8 +38,8 @@ test:
 production:
    adapter: postgresql
    encoding: unicode
-   database: sapl_mailer
+   database: mailer
    username: mailer
-   password: 1234@isatl
+   password: 1234@mailer
    host: localhost
    pool: 5

@@ -1,2 +1,1 @@
 json.extract! email, :id, :created_at, :updated_at, :subject, :body, :state, :recipients, :permitteddepoid, :mail_type, :clientid, :client_name, :permitted_depo_name
-json.url email_url(email, format: :json) 
