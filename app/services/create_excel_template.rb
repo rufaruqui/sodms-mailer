@@ -8,7 +8,7 @@ class CreateExcelTemplate
     end
    
     def self.prepare_workbook(sheet, data, style_info, hidden=true) 
-            damage_details = [:damageArea, :damagePart, :damageDescription]
+            damage_details = [:damageArea, :damagePart, :damageAreaName, :damagePartName, :damageDescription, :damageComponent, :damageType, :repairType]
            if data.blank? or !data.first.include?:containerNumber or data.first[:id] == 0
              sheet.add_row [""], style: style_info[:heading], height: 16   
            else
@@ -21,7 +21,7 @@ class CreateExcelTemplate
             data.each_with_index do |info, index|
                a = info.keys 
               if index > 0 and info.include?:containerNumber and data[index][:containerNumber] == data[index-1][:containerNumber]
-                 sheet.add_row  a.map{|item| (item.in? damage_details ) ? info[item] : nil}
+                 sheet.add_row  [" "].push(a.map{|item| (item.in? damage_details ) ? info[item] : nil})
               else
                 sheet.add_row    [sl].push(info.values).flatten
                sl +=1
