@@ -4,10 +4,6 @@ class ReportMailer < ApplicationMailer
    @queue='saplmailer'
 
   def  daily_email_update(options={}) 
-
-    puts "Updating daily reports"
-    puts options
-   
     attachments[options[:attachment_name]] = File.read(options[:filename])
     mail(to: options[:recipents], subject: options[:subject], body: options[:body])
 
@@ -18,8 +14,8 @@ class ReportMailer < ApplicationMailer
     #   body     'Sample body'
     #   add_file :filename => options[:filename], :content => File.read(options[:filename])
     # end
-   
     #  return mail
+    
   end
   
   def self.perform(options={})

@@ -3,24 +3,19 @@
  
 #require 'jobs'
 
-desc 'prepare daily containers reports'
+desc 'Prepare daily containers reports'
 task prepare_container_reports: :environment do   
-    ContainerReportEmailJob.perform_later
+    CreateContainerReportsJob.perform_later
 end
-
-
  
-desc 'send daily containers reports'
+desc 'Send daily containers reports'
 task send_container_reports: :environment do   
-    SendEmailReportsJob.perform_later
+    SendContainerReportsJob.perform_later
 end
 
- 
- 
 desc 'Setting dynamic schchedule'
 task set_schedule_dym: :environment do   
-     SetSchedule.set_schedule_daily_reports
-     SetSchedule.set_sent_containers_reports
-     SetSchedule.set_create_conatainers_reports
+     SetSchedule.set_create_containers_reports
+     SetSchedule.set_send_containers_reports
 end
 

@@ -1,7 +1,7 @@
 class SetSchedule
-    def self.set_create_conatainers_reports(config={})  
+    def self.set_create_containers_reports(config={})  
         name="create_containers_report"
-        config[:class] = 'ContainerReportEmailJob'  if config[:class].nil?
+        config[:class] = 'CreateContainerReportsJob'  if config[:class].nil?
         config[:every] = ['1d', {at:  '6:30am'}] if config[:every].nil?
         #config[:every] = ['1d', {at: Scheduler.first.execution_time}] if config[:every].nil?
         config[:persist] = true
@@ -10,9 +10,9 @@ class SetSchedule
         Resque.set_schedule(name, config)
     end
 
-    def self.set_sent_containers_reports(config={})  
+    def self.set_send_containers_reports(config={})  
         name="send_containers_reports"
-        config[:class] = 'SendEmailReport'  if config[:class].nil?
+        config[:class] = 'SendContainerReportsJob'  if config[:class].nil?
         config[:every] = ['1d', {at: '7am'}] if config[:every].nil?
         #config[:every] = ['1d', {at: Scheduler.first.execution_time}] if config[:every].nil?
         config[:persist] = true
@@ -21,13 +21,16 @@ class SetSchedule
         Resque.set_schedule(name, config)
     end
 
-    def self.set_schedule_daily_reports(config={})  
-        name="sending_daily_update"
-        config[:class] = 'SendMorningReportsJob'  if config[:class].nil?
-        config[:every] = ['1d', {at: Scheduler.first.execution_time}] if config[:every].nil?
-        config[:persist] = true
-        config[:queue]='saplmailer' if config[:queue].nil?
-        puts config
-        Resque.set_schedule(name, config)
+    def self.list_of_services
+        Dir.glob('app/services/*.rb').map do |file|
+            file[/app\/services\/(.*)\.rb/, 1].camelize
+        end
+    end
+
+    def list_of_jobs
+      list = Dir.glob('app/jobs/*.rb').map do |file|
+            file[/app\/jobs\/(.*)\.rb/, 1].camelize
+        end
+      list -= ["ApplicationJob"]
     end
 end

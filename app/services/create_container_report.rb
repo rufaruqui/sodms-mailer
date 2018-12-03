@@ -8,7 +8,7 @@ class CreateContainerReport
         if !mailsdeliveryinfo.blank?
             mailsdeliveryinfo.each do |info|     
                 if info[:mailReportType] == 0  #Empty Container Report
-                    CreateClientContainerReportEmail.perform(info)
+                   CreateClientContainerReportEmail.perform(info)
                 elsif info[:mailReportType] == 1 #Import Container Report
                     CreateImportContainerReportEmail.perform(info)
                 end

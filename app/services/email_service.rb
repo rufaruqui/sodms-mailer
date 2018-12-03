@@ -19,7 +19,7 @@ class EmailService
           <<-EOF 
              Dear #{info[:clientName]},
                 
-                Kindly see the attached Import Container Combining Report for the Date 01/10/2018.
+                Kindly see the attached Import Container Combining Report for the Date #{Time.now.strftime("%d/%m/%Y")}.
                 
                 Client Name: #{info[:clientName]}  Client Code: #{info[:clientName]}
                 Depot      :  #{info[:permittedDepotName]}
@@ -46,7 +46,7 @@ class EmailService
           <<-EOF 
              Dear #{info[:clientName]},
                 
-                Kindly see the attached Container Combining Report for the Date 01/10/2018.
+                Kindly see the attached Container Combining Report for the Date #{Time.now.strftime("%d/%m/%Y")}.
                 
                 Client Name: #{info[:clientName]}  Client Code: #{info[:clientName]}
                 Depot      :  #{info[:permittedDepotName]}
