@@ -1,13 +1,13 @@
-class SendContainerReportsJob < ApplicationJob
-   extend Resque::Plugins::Retry
+class CheckUndeliveredEmailsJob < ApplicationJob
+     extend Resque::Plugins::Retry
    
   queue_as :saplmailer
   def perform(options={}) 
-     emails = Email.where('created_at >= ?', Time.now.to_datetime - 1.day)
+    emails = Email.where.not(state: "sent").where('created_at >= ?', Time.now.to_datetime - 1.day)
      sent_emails emails
   end
-  
-  def sent_emails emails
+
+   def sent_emails emails
     emails.each do  |email|
         options = Hash.new
         options[:recipents] = email.recipients
@@ -20,4 +20,3 @@ class SendContainerReportsJob < ApplicationJob
     end
   end
 end
- 

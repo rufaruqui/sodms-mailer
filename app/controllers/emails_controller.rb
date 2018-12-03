@@ -1,5 +1,5 @@
 class EmailsController < ApplicationController
-     before_action :set_email, only: [:show, :edit, :update, :destroy]
+     before_action :set_email, only: [:show, :edit, :update, :destroy, :resend_email]
 
   # GET /emails
   # GET /emails.json
@@ -73,6 +73,17 @@ class EmailsController < ApplicationController
     end
   end
 
+  def resend_email
+    sent_email [@email] 
+    render json: { :message=>"email queued for delivery", status: :ok, :errors=>nil} 
+  end 
+
+  def resend_emails
+    emails = Email.where(state: params[:state].downcase.to_sym) 
+    sent_email emails unless emails.blank?
+    render json: { :message=>"email queued for delivery", status: :ok, :errors=>nil} 
+  end 
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_email
@@ -82,6 +93,20 @@ class EmailsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def email_params
       params.require(:email).permit(:fromDate, :toDate, :subject, :body, :state, :permitteddepoid, :recipients, :attachment_name, :mail_type)
+    end
+
+    def sent_email emails
+      emails.each do |email|
+        options = Hash.new
+        options[:recipents] = email.recipients
+        options[:filename]  = email.attachment
+        options[:subject]   = email.subject
+        options[:body]      = email.body
+        options[:attachment_name] = email.attachment_name
+        ReportMailer.daily_email_update(options).deliver
+        email.update(state: :sent)
+      end
+
     end
 end
  

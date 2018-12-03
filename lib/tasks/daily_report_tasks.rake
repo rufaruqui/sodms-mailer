@@ -13,6 +13,12 @@ task send_container_reports: :environment do
     SendContainerReportsJob.perform_later
 end
 
+
+desc 'Check undelivered containers reports'
+task send_container_reports: :environment do   
+    CheckUndeliveredEmailsJob.perform_later
+end
+
 desc 'Setting dynamic schchedule'
 task set_schedule_dym: :environment do   
      SetSchedule.set_create_containers_reports
