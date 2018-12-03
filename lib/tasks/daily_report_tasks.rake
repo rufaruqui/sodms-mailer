@@ -15,7 +15,7 @@ end
 
 
 desc 'Check undelivered containers reports'
-task send_container_reports: :environment do   
+task check_undelivered_emails: :environment do   
     CheckUndeliveredEmailsJob.perform_later
 end
 
