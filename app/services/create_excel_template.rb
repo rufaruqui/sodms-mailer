@@ -12,7 +12,7 @@ class CreateExcelTemplate
            if data.blank? or !data.first.include?:containerNumber or data.first[:id] == 0
              sheet.add_row [""], style: style_info[:heading], height: 16   
            else
-              sheet.add_row ["Total number of containers:#{data.pluck(:containerNumber).uniq.count}"], style: style_info[:heading], height: 16   
+              sheet.add_row ["Total number of containers : #{data.pluck(:containerNumber).uniq.count}"], style: style_info[:heading], height: 16   
            end
           
            sheet.add_row ["SL #"].push(data.first.keys.map(&:to_s).map(&:titleize)).flatten, style: style_info[:heading]  
