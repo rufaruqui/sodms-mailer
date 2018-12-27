@@ -53,6 +53,7 @@ gem 'mail'
 gem 'rack-cors'
 gem 'rack-attack'
 gem 'rack-timeout'
+gem 'jwt' 
 #gem 'unicorn' -- using unix corn instead of unicorn
 
 

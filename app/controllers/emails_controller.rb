@@ -11,12 +11,16 @@ class EmailsController < ApplicationController
     toDate = DateTime.strptime(toDate.to_s,'%s')
      
     @emails = Email.where(created_at:fromDate..toDate)
+    options = {:payload=>{:data=>@emails.to_json}, :hmac_secret=>"thisisreallytoughy"}
+    
     @summary = Hash.new
-    @summary = { :created=>@emails.count, 
+    @summary = { :created=>@emails.where(state: :created).count, 
                  :sent => @emails.where(state: :sent).count, 
                  :delivered => @emails.where(state: :delivered).count, 
                  :failed => @emails.where(state: :failed).count
                  } unless @emails.nil? or @emails.blank?
+        
+    @payload = EncryptionService.sign :emails=> @emails.to_json, :summary=>@summary
   end
 
   # GET /emails/1
