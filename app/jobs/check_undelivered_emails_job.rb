@@ -11,6 +11,7 @@ class CheckUndeliveredEmailsJob < ApplicationJob
     emails.each do  |email|
         options = Hash.new
         options[:recipents] = email.recipients
+        options[:cc] = email.cc
         options[:filename]  = email.attachment
         options[:subject]   = email.subject
         options[:body]      = email.body
