@@ -3,8 +3,13 @@ class SendContainerReportsJob < ApplicationJob
    
   queue_as :saplmailer
   def perform(options={}) 
-     emails = Email.where('created_at >= ?', Time.now.to_datetime - 1.day)
-     sent_emails emails
+   if options.key? :id
+      sent_emails [Email.find(options[:id])]
+   elsif options.key? :state
+      sent_emails Email.where(state: options[:state].downcase.to_sym) 
+   else   
+     sent_emails Email.where('created_at >= ?', Time.now.to_datetime - 1.day)
+   end
   end
   
   def sent_emails emails

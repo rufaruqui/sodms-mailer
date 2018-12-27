@@ -78,13 +78,15 @@ class EmailsController < ApplicationController
   end
 
   def resend_email
-    sent_email [@email] 
+    # sent_email [@email] 
+    SendContainerReportsJob.perform_now params
     render json: { :message=>"email queued for delivery", status: :ok, :errors=>nil} 
   end 
 
   def resend_emails
-    emails = Email.where(state: params[:state].downcase.to_sym) 
-    sent_email emails unless emails.blank?
+    # emails = Email.where(state: params[:state].downcase.to_sym) 
+    # sent_email emails unless emails.blank?
+     SendContainerReportsJob.perform_now params
     render json: { :message=>"email queued for delivery", status: :ok, :errors=>nil} 
   end 
 
@@ -99,19 +101,19 @@ class EmailsController < ApplicationController
       params.require(:email).permit(:fromDate, :toDate, :subject, :body, :state, :permitteddepoid, :recipients, :attachment_name, :mail_type)
     end
 
-    def sent_email emails
-      emails.each do |email|
-        options = Hash.new
-        options[:recipents] = email.recipients
-        options[:cc] = email.cc
-        options[:filename]  = email.attachment
-        options[:subject]   = email.subject
-        options[:body]      = email.body
-        options[:attachment_name] = email.attachment_name
-        ReportMailer.daily_email_update(options).deliver
-        email.update(state: :sent)
-      end
+    # def sent_email emails
+    #   emails.each do |email|
+    #     options = Hash.new
+    #     options[:recipents] = email.recipients
+    #     options[:cc] = email.cc
+    #     options[:filename]  = email.attachment
+    #     options[:subject]   = email.subject
+    #     options[:body]      = email.body
+    #     options[:attachment_name] = email.attachment_name
+    #     ReportMailer.daily_email_update(options).deliver_now
+    #     email.update(state: :sent)
+    #   end
 
-    end
+    # end
 end
  
