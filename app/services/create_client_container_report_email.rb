@@ -12,6 +12,8 @@ class CreateClientContainerReportEmail
        if !containerinfo.blank?
             if (recipents.blank? or recipents.nil?) and (cc.blank? or cc.nil?)
               Rails.logger.info '######## No Recipents  ##########' 
+            elsif !empty_report? containerinfo
+              Rails.logger.info '######## Nothing to send  ##########' 
             else
               Rails.logger.info '########  Generate Excel Sheet                  ##########' 
               options[:mail_delivery_setting_id] = info[:id]
@@ -30,5 +32,13 @@ class CreateClientContainerReportEmail
               CreateClientContainerReportXls.perform(options)
             end   
       end 
+  end
+
+  def self.empty_report? response
+    response.each do |k, v|
+         return v.length > 0
+    end
+    
+    return false
   end
 end
