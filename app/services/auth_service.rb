@@ -19,6 +19,6 @@ class AuthService
             else
                 return nil
             end
-        end    
+         end    
     end
 end

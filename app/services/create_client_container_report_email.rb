@@ -7,9 +7,10 @@ class CreateClientContainerReportEmail
 
        h = Hash.new 
        h = {:mailDeliverySettingsId=> info[:id]} 
-       containerinfo = RetrieveClientContainerData.perform(h)
+       containerinfo = RetrieveClientContainerData.perform(h) 
+
        if !containerinfo.blank?
-            if recipents.blank? or recipents.nil? or cc.blank? or cc.nil?
+            if (recipents.blank? or recipents.nil?) and (cc.blank? or cc.nil?)
               Rails.logger.info '######## No Recipents  ##########' 
             else
               Rails.logger.info '########  Generate Excel Sheet                  ##########' 
