@@ -23,6 +23,7 @@
 #  client_name              :string(255)
 #  permitted_depo_name      :string(255)
 #  mail_delivery_setting_id :integer
+#  cc                       :json
 #
 
 require 'test_helper'

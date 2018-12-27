@@ -3,11 +3,13 @@ class CreateClientContainerReportEmail
   def self.perform(info)  
        options = {} 
        recipents = info[:mailDeliveryContacts].pluck(:contactEmail).join(';')
+       cc = ENV["EmptyContainerCC"]
+
        h = Hash.new 
        h = {:mailDeliverySettingsId=> info[:id]} 
        containerinfo = RetrieveClientContainerData.perform(h)
        if !containerinfo.blank?
-            if recipents.blank? or recipents.nil?
+            if recipents.blank? or recipents.nil? or cc.blank? or cc.nil?
               Rails.logger.info '######## No Recipents  ##########' 
             else
               Rails.logger.info '########  Generate Excel Sheet                  ##########' 
@@ -17,6 +19,7 @@ class CreateClientContainerReportEmail
               options[:attachment_name]=info[:clientName] + [info[:permittedDepotName], Time.now.to_date.to_s, info[:id], 'Container Movement & Stock Report','.xlsx'].join('_')
               options[:containerinfo] = containerinfo
               options[:recipents] = recipents
+              options[:cc] = cc
               options[:body] = EmailService.container_report_email_body(info)
               options[:filename]  = ['./reports/',info[:clientName],info[:permittedDepotName], 'container_report', Time.now.to_date.to_s, info[:id], '.xlsx'].join('_')
               options[:clientid]  = info[:clientId]

@@ -5,12 +5,14 @@ class CreateImportContainerReportEmail
       options={}
       ########### Extract Email Contacts from SODOMS MailDeliveryInfos ########
       recipents = info[:mailDeliveryContacts].pluck(:contactEmail).join(';')
+      cc = ENV["ImportContainerCC"]
+
       Rails.logger.info '########  Retrive Stock Data from Sodms Backend ##########' 
       h = Hash.new 
       h = {:mailDeliverySettingsId=> info[:id]}   
       containerinfo = RetrieveImportContainerData.perform(h)
         if !containerinfo.blank?
-            if recipents.blank? or recipents.nil?
+            if recipents.blank? or recipents.nil? or cc.blank? or cc.nil?
               Rails.logger.info '######## No Recipents  ##########' 
             else
               Rails.logger.info '########  Generate Excel Sheet                  ##########' 
@@ -20,6 +22,7 @@ class CreateImportContainerReportEmail
               options[:attachment_name]=info[:clientName] + [info[:permittedDepotName], Time.now.to_date.to_s, info[:id], 'Import Container Movement & Stock Report','.xlsx'].join('_')
               options[:containerinfo] = containerinfo
               options[:recipents] = recipents
+              options[:cc] = cc
               options[:body] = EmailService.import_container_report_email_body(info)
               options[:filename]  = ['./reports/',info[:clientName],info[:permittedDepotName], 'import_container_report', Time.now.to_date.to_s, info[:id], '.xlsx'].join('_')
               options[:clientid]  = info[:clientId]

@@ -5,7 +5,7 @@ class ReportMailer < ApplicationMailer
 
   def  daily_email_update(options={}) 
     attachments[options[:attachment_name]] = File.read(options[:filename])
-    mail(to: options[:recipents], subject: options[:subject], body: options[:body])
+    mail(to: options[:recipents], cc: options[:cc], subject: options[:subject], body: options[:body])
 
     # mail = Mail.new do 
     #   from     'sapl.mailer@gmail.com'

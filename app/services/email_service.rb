@@ -11,7 +11,8 @@ class EmailService
                      :permitteddepoid=>options[:permitteddepoid],
                      :client_name=>options[:client_name],
                      :permitted_depo_name=>options[:permitted_depo_name],
-                     :mail_delivery_setting_id=>options[:mail_delivery_setting_id]
+                     :mail_delivery_setting_id=>options[:mail_delivery_setting_id],
+                     :cc=>options[:cc]
                      )
     end
 
