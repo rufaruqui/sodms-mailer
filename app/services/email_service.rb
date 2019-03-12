@@ -20,12 +20,12 @@ class EmailService
           <<-EOF 
              Dear #{info[:clientName]},
                 
-                Kindly see the attached Import Container Combining Report for the Date #{Time.now.strftime("%d/%m/%Y")}.
+             Kindly see the attached Import Container Movement Report for the Date #{Time.now.strftime("%d/%m/%Y")}.
                 
-                Client Name: #{info[:clientName]}  Client Code: #{info[:clientName]}
-                Depot      :  #{info[:permittedDepotName]}
+             Client Name: #{info[:clientName] if info[:clientName]}  
+             Client Code: #{info[:clientCode] if info[:clientCode]} 
                 
-                Container Combining Report Includes:
+             Import Container Movement Report Includes:
                   1. In Report
                   2. In Summary
                   3. Unstuffing Report
@@ -35,11 +35,11 @@ class EmailService
                   7. Laden Stock Report
                   8. Laden Stock Summary
               
-                NB: This is a system generated mail sent automatically. So if you found any problem in the report, please contact with our respective person.
+            NB: This is a system generated mail sent automatically. So if you found any problem in the report, please contact with our respective person.
 
-              Best Regards
-              Customer Service Department
-              #{info[:permittedDepotName]}
+            Best Regards
+            Customer Service Department
+            #{info[:permittedDepotName]}
          EOF
 
         end
@@ -47,12 +47,12 @@ class EmailService
           <<-EOF 
              Dear #{info[:clientName]},
                 
-                Kindly see the attached Container Combining Report for the Date #{Time.now.strftime("%d/%m/%Y")}.
+             Kindly see the attached Container Movement Report for the Date #{Time.now.strftime("%d/%m/%Y")}.
                 
-                Client Name: #{info[:clientName]}  Client Code: #{info[:clientName]}
-                Depot      :  #{info[:permittedDepotName]}
+             Client Name: #{info[:clientName] if info[:clientName]}  
+             Client Code: #{info[:clientCode] if info[:clientCode]} 
                 
-                Container Combining Report Includes:
+             Container Movement Report Includes:
                   1. In Report
                   2. In Summary
                   3. Out Empty Report
@@ -62,11 +62,11 @@ class EmailService
                   7. Stock Report
                   8. Stock Summary
               
-                NB: This is a system generated mail sent automatically. So if you found any problem in the report, please contact with our respective person.
+            NB: This is a system generated mail sent automatically. So if you found any problem in the report, please contact with our respective person.
 
-              Best Regards
-              Customer Service Department
-              #{info[:permittedDepotName]}
+            Best Regards
+            Customer Service Department
+            #{info[:permittedDepotName]}
          EOF
 
         end
@@ -75,18 +75,18 @@ class EmailService
           <<-EOF 
              Dear #{info[:clientName]},
                 
-                Kindly see the attached Cargo Report for the Date #{Time.now.strftime("%d/%m/%Y")}.
+             Kindly see the attached Cargo Report for the Date #{Time.now.strftime("%d/%m/%Y")}.
                 
-                Client Name: #{info[:clientName]}  Client Code: #{info[:clientName]}
-                Depot      :  #{info[:permittedDepotName]}
+             Client Name: #{info[:clientName]}  Client Code: #{info[:clientName]}
+             Depot      :  #{info[:permittedDepotName]}
                 
                  
               
-                NB: This is a system generated mail sent automatically. So if you found any problem in the report, please contact with our respective person.
+            NB: This is a system generated mail sent automatically. So if you found any problem in the report, please contact with our respective person.
 
-              Best Regards
-              Customer Service Department
-              #{info[:permittedDepotName]}
+            Best Regards
+            Customer Service Department
+            #{info[:permittedDepotName]}
          EOF
 
         end

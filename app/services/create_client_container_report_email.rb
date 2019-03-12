@@ -18,13 +18,13 @@ class CreateClientContainerReportEmail
               Rails.logger.info '########  Generate Excel Sheet                  ##########' 
               options[:mail_delivery_setting_id] = info[:id]
               options[:mail_type] = info[:mailReportType]
-              options[:subject] = 'Container Movement & Stock Report -- ' + Time.now.to_date.to_s + '--' + info[:clientName] + ' -- (' + info[:permittedDepotName] + ')'
-              options[:attachment_name]=info[:clientName] + [info[:permittedDepotName], Time.now.to_date.to_s, info[:id], 'Container Movement & Stock Report','.xlsx'].join('_')
+              options[:subject] = 'Container Movement & Stock Report -- ' + Time.now.to_date.to_s + ' for ' + info[:clientCode] + '  (' + info[:permittedDepotCode] + ')'
+              options[:attachment_name]=[info[:permittedDepotCode], info[:clientCode], 'ContainerMovementReport', Time.now.to_date.to_s,'.xlsx'].join('_')
               options[:containerinfo] = containerinfo
               options[:recipents] = recipents
               options[:cc] = cc
               options[:body] = EmailService.container_report_email_body(info)
-              options[:filename]  = ['./reports/',info[:clientName],info[:permittedDepotName], 'container_report', Time.now.to_date.to_s, info[:id], '.xlsx'].join('_')
+              options[:filename]  = ['./reports/',info[:permittedDepotCode], info[:clientCode], 'ContainerMovementReport', Time.now.to_date.to_s, info[:id],'.xlsx'].join('_')
               options[:clientid]  = info[:clientId]
               options[:permitteddepoid] = info[:permittedDepotId]
               options[:client_name] = info[:clientName]
