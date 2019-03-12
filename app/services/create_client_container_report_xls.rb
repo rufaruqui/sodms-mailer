@@ -24,48 +24,48 @@ class CreateClientContainerReportXls < CreateExcelTemplate
   
           header = {:heading=>heading, :date_format=> date_format}
           wb.add_worksheet(:name => "In Report") do |sheet|
-              add_header options[:permitted_depo_name], options[:client_name], sheet, header, "In Report"
+              add_header options[:permitted_depo_name], options[:client_name] + ' ( ' + options[:client_code] + ')', sheet, header, "In Report"
               prepare_workbook sheet, options[:containerinfo][:containerInReport], header    
             end
           
           wb.add_worksheet(:name => "In Report Summary") do |sheet|
-              add_header options[:permitted_depo_name], options[:client_name], sheet, header, "In Report Summary"
+              add_header options[:permitted_depo_name], options[:client_name] + ' ( ' + options[:client_code] + ')', sheet, header, "In Report Summary"
               prepare_workbook sheet, options[:containerinfo][:containerInReportSummary], header, false
             end
             
             wb.add_worksheet(:name => "Out Empty Report") do |sheet|
-              add_header options[:permitted_depo_name], options[:client_name], sheet, header, "Out Empty Report"
+              add_header options[:permitted_depo_name], options[:client_name] + ' ( ' + options[:client_code] + ')', sheet, header, "Out Empty Report"
               prepare_workbook sheet, options[:containerinfo][:containerEmptyOutReport], header    
             end
 
             wb.add_worksheet(:name => "Out Empty Report Summary") do |sheet|
-              add_header options[:permitted_depo_name], options[:client_name], sheet, header, "Out Empty Report Summary"
+              add_header options[:permitted_depo_name], options[:client_name] + ' ( ' + options[:client_code] + ')', sheet, header, "Out Empty Report Summary"
               prepare_workbook sheet, options[:containerinfo][:containerEmptyOutReportSummary], header, false 
             end
           
           wb.add_worksheet(:name => "Out Laden Report") do |sheet|
-              add_header options[:permitted_depo_name], options[:client_name], sheet, header, "Out Laden Report"
+              add_header options[:permitted_depo_name], options[:client_name] + ' ( ' + options[:client_code] + ')', sheet, header, "Out Laden Report"
               prepare_workbook sheet, options[:containerinfo][:containerLadenOutReport], header  
             end
           
           wb.add_worksheet(:name => "Out Laden Report Summary") do |sheet|
-              add_header options[:permitted_depo_name], options[:client_name], sheet, header, "Out Laden Report Summary"
+              add_header options[:permitted_depo_name], options[:client_name] + ' ( ' + options[:client_code] + ')', sheet, header, "Out Laden Report Summary"
               prepare_workbook sheet, options[:containerinfo][:containerLadenOutReportSummary], header,false
             end
 
       
 
           wb.add_worksheet(:name => "Stock Report") do |sheet|
-              add_header options[:permitted_depo_name], options[:client_name], sheet, header, "Stock Report"
+              add_header options[:permitted_depo_name], options[:client_name] + ' ( ' + options[:client_code] + ')', sheet, header, "Stock Report"
               prepare_workbook sheet, options[:containerinfo][:containerStockReport], header  
             end
 
           wb.add_worksheet(:name => "Stock Report Summary") do |sheet|
-              add_header options[:permitted_depo_name], options[:client_name], sheet, header, "Stock Report Summary"
+              add_header options[:permitted_depo_name], options[:client_name] + ' ( ' + options[:client_code] + ')', sheet, header, "Stock Report Summary"
               prepare_workbook sheet, options[:containerinfo][:containerStockReportSummary], header, false 
           end
         end
-          
+          p.use_shared_strings = true
           p.serialize(options[:filename])
 
           Rails.logger.info "########  Storing mail info at db ######" 

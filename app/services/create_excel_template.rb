@@ -1,8 +1,8 @@
 class CreateExcelTemplate
     def self.add_header(depo_name, client_name, sheet, style_info, report_name)
-      sheet.add_row [depo_name], style: style_info[:heading], height: 20 
-      sheet.add_row [client_name] , style:  style_info[:heading], height: 16
-      sheet.add_row [report_name], style:  style_info[:heading], height: 14 
+      sheet.add_row [depo_name],   style: style_info[:heading], height: 20 
+      sheet.add_row [client_name], style: style_info[:heading], height: 16
+      sheet.add_row [report_name], style: style_info[:heading], height: 14 
      
     end
    
@@ -43,10 +43,11 @@ class CreateExcelTemplate
       h.each_with_index do |item, index|  
         sheet.col_style index+1, style_info[:date_format], :row_offset => 5 if item.to_s.downcase.include?  "date" 
       end
-          sheet.merge_cells("A1:AG1")
-          sheet.merge_cells("A2:AG2")
-          sheet.merge_cells("A3:AG3")
-          sheet.merge_cells("A4:AG4")
-          sheet.column_info.first.width = 5
+
+      sheet.merge_cells("A1:AG1")
+      sheet.merge_cells("A2:AG2")
+      sheet.merge_cells("A3:AG3")
+      sheet.merge_cells("A4:AG4")
+      sheet.column_info.first.width = 5
     end
 end

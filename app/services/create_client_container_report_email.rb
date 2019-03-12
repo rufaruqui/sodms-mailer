@@ -19,7 +19,7 @@ class CreateClientContainerReportEmail
               options[:mail_delivery_setting_id] = info[:id]
               options[:mail_type] = info[:mailReportType]
               options[:subject] = 'Container Movement & Stock Report -- ' + Time.now.to_date.to_s + ' for ' + info[:clientCode] + '  (' + info[:permittedDepotCode] + ')'
-              options[:attachment_name]=[info[:permittedDepotCode], info[:clientCode], 'ContainerMovementReport', Time.now.to_date.to_s,'.xlsx'].join('_')
+              options[:attachment_name]=[info[:permittedDepotCode], info[:clientCode], 'ContainerMovementReport', Time.now.to_date.to_s].join('_')+'.xlsx'
               options[:containerinfo] = containerinfo
               options[:recipents] = recipents
               options[:cc] = cc
@@ -28,6 +28,7 @@ class CreateClientContainerReportEmail
               options[:clientid]  = info[:clientId]
               options[:permitteddepoid] = info[:permittedDepotId]
               options[:client_name] = info[:clientName]
+              options[:client_code] = info[:clientCode]
               options[:permitted_depo_name] = info[:permittedDepotName]
               CreateClientContainerReportXls.perform(options)
             end   

@@ -28,6 +28,7 @@ class CreateCargoReportEmail
               options[:clientid]  = info[:clientId]
               options[:permitteddepoid] = info[:permittedDepotId]
               options[:client_name] = info[:clientName]
+              options[:client_code] = info[:clientCode]
               options[:permitted_depo_name] = info[:permittedDepotName]
               CreateCargoReportXls.perform(options)
             end   

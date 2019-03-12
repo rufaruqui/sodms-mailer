@@ -27,58 +27,59 @@ class CreateImportContainerReportXls < CreateExcelTemplate
   
         header = {:heading=>heading, :date_format=> date_format}  
         wb.add_worksheet(:name => "In Report") do |sheet|
-            add_header options[:permitted_depo_name], options[:client_name], sheet, header, 'Import Container In Report'
+            add_header options[:permitted_depo_name], options[:client_name] + ' ( ' + options[:client_code] + ')', sheet, header, 'Import Container In Report'
             prepare_workbook sheet, options[:containerinfo][:importInReport], header   
            end
          
          wb.add_worksheet(:name => "In Report Summary") do |sheet|
-            add_header options[:permitted_depo_name], options[:client_name], sheet, header, 'Import Container In Report'
+            add_header options[:permitted_depo_name], options[:client_name] + ' ( ' + options[:client_code] + ')', sheet, header, 'Import Container In Report'
             prepare_workbook sheet, options[:containerinfo][:importInReportSummary], header, false
            end
           
            wb.add_worksheet(:name => "Unstuffing Report") do |sheet|
-            add_header options[:permitted_depo_name], options[:client_name], sheet, header, 'Total Import Container Unstuffing Report'
+            add_header options[:permitted_depo_name], options[:client_name] + ' ( ' + options[:client_code] + ')', sheet, header, 'Total Import Container Unstuffing Report'
             prepare_workbook sheet, options[:containerinfo][:importUnstuffingReport], header   
            end
 
            wb.add_worksheet(:name => "Unstuffing Report Summary") do |sheet|
-            add_header options[:permitted_depo_name], options[:client_name], sheet, header, 'Total Import Container Unstuffing Summary'
+            add_header options[:permitted_depo_name], options[:client_name] + ' ( ' + options[:client_code] + ')', sheet, header, 'Total Import Container Unstuffing Summary'
             prepare_workbook sheet, options[:containerinfo][:importUnstuffingReportSummary], header, false 
            end
         
         wb.add_worksheet(:name => "FCL Out Report") do |sheet|
-            add_header options[:permitted_depo_name], options[:client_name], sheet, header, 'Total Import Container FCL Out Report'
+            add_header options[:permitted_depo_name], options[:client_name] + ' ( ' + options[:client_code] + ')', sheet, header, 'Total Import Container FCL Out Report'
             prepare_workbook sheet, options[:containerinfo][:importFclOutReport], header  
            end
         
         wb.add_worksheet(:name => "FCL Out Report Summary") do |sheet|
-            add_header options[:permitted_depo_name], options[:client_name], sheet, header, 'Total Import Container FCL Out Summary'
+            add_header options[:permitted_depo_name], options[:client_name] + ' ( ' + options[:client_code] + ')', sheet, header, 'Total Import Container FCL Out Summary'
             prepare_workbook sheet, options[:containerinfo][:importFclOutReportSummary], header,false
            end
 
      
 
         wb.add_worksheet(:name => "Laden Stock Report") do |sheet|
-            add_header options[:permitted_depo_name], options[:client_name], sheet, header, 'Import Laden Container Stock Report'
+            add_header options[:permitted_depo_name], options[:client_name] + ' ( ' + options[:client_code] + ')', sheet, header, 'Import Laden Container Stock Report'
             prepare_workbook sheet, options[:containerinfo][:importLadenStockReport], header 
           end
 
         wb.add_worksheet(:name => "Laden Stock Report Summary") do |sheet|
-            add_header options[:permitted_depo_name], options[:client_name], sheet, header, 'Laden Stock Report Summary'
+            add_header options[:permitted_depo_name], options[:client_name] + ' ( ' + options[:client_code] + ')', sheet, header, 'Laden Stock Report Summary'
             prepare_workbook sheet, options[:containerinfo][:importLadenStockReportSummary], header, false 
          end
 
         wb.add_worksheet(:name => "Issue Balance Report") do |sheet|
-             add_header options[:permitted_depo_name], options[:client_name], sheet, header, 'Import Issue Balance Report'
+             add_header options[:permitted_depo_name], options[:client_name] + ' ( ' + options[:client_code] + ')', sheet, header, 'Import Issue Balance Report'
              prepare_workbook sheet, options[:containerinfo][:issueBalanceReport], header
            end
 
         wb.add_worksheet(:name => "Issue Balance Report Summary") do |sheet|
-            add_header options[:permitted_depo_name], options[:client_name], sheet, header, 'Import Issue Balance Report Summary' 
+            add_header options[:permitted_depo_name], options[:client_name] + ' ( ' + options[:client_code] + ')', sheet, header, 'Import Issue Balance Report Summary' 
             prepare_workbook sheet, options[:containerinfo][:issueBalanceReportSummary], header, false
            end
      
         end 
+        p.use_shared_strings = true
         p.serialize(options[:filename])
 
         Rails.logger.info '########  Storing mail info at db ######' 

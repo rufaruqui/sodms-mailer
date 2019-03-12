@@ -15,31 +15,31 @@ class CreateCargoReportXls < CreateExcelTemplate
   
           header = {:heading=>heading, :date_format=> date_format}
           wb.add_worksheet(:name => "cargoBalanceData") do |sheet|
-              add_header options[:permitted_depo_name], options[:client_name], sheet, header, "cargoBalanceData"
+              add_header options[:permitted_depo_name], options[:client_name] + ' ( ' + options[:client_code] + ')', sheet, header, "cargoBalanceData"
               prepare_workbook sheet, options[:cargoinfo][:cargoBalanceData], header    
             end
           
           wb.add_worksheet(:name => "cargoReceivingData") do |sheet|
-              add_header options[:permitted_depo_name], options[:client_name], sheet, header, "cargoReceivingData"
+              add_header options[:permitted_depo_name], options[:client_name] + ' ( ' + options[:client_code] + ')', sheet, header, "cargoReceivingData"
               prepare_workbook sheet, options[:cargoinfo][:cargoReceivingData], header, false
             end
             
             wb.add_worksheet(:name => "cargoStuffingData") do |sheet|
-              add_header options[:permitted_depo_name], options[:client_name], sheet, header, "cargoStuffingData"
+              add_header options[:permitted_depo_name], options[:client_name] + ' ( ' + options[:client_code] + ')', sheet, header, "cargoStuffingData"
               prepare_workbook sheet, options[:cargoinfo][:cargoStuffingData], header    
             end
 
             wb.add_worksheet(:name => "cargoShutoutData") do |sheet|
-              add_header options[:permitted_depo_name], options[:client_name], sheet, header, "cargoShutoutData"
+              add_header options[:permitted_depo_name], options[:client_name] + ' ( ' + options[:client_code] + ')', sheet, header, "cargoShutoutData"
               prepare_workbook sheet, options[:cargoinfo][:cargoShutoutData], header, false 
             end
           
           wb.add_worksheet(:name => "buyerSealData") do |sheet|
-              add_header options[:permitted_depo_name], options[:client_name], sheet, header, "buyerSealData"
+              add_header options[:permitted_depo_name], options[:client_name] + ' ( ' + options[:client_code] + ')', sheet, header, "buyerSealData"
               prepare_workbook sheet, options[:cargoinfo][:buyerSealData], header  
             end
         end
-          
+          p.use_shared_strings = true
           p.serialize(options[:filename])
 
           Rails.logger.info "########  Storing mail info at db ######" 

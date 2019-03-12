@@ -35,11 +35,11 @@ class EmailService
                   7. Laden Stock Report
                   8. Laden Stock Summary
               
-            NB: This is a system generated mail sent automatically. So if you found any problem in the report, please contact with our respective person.
+             NB: This is a system generated mail sent automatically. So if you found any problem in the report, please contact with our respective person.
 
-            Best Regards
-            Customer Service Department
-            #{info[:permittedDepotName]}
+             Best Regards
+             Customer Service Department
+             #{info[:permittedDepotName]}
          EOF
 
         end
@@ -62,23 +62,23 @@ class EmailService
                   7. Stock Report
                   8. Stock Summary
               
-            NB: This is a system generated mail sent automatically. So if you found any problem in the report, please contact with our respective person.
+             NB: This is a system generated mail sent automatically. So if you found any problem in the report, please contact with our respective person.
 
-            Best Regards
-            Customer Service Department
-            #{info[:permittedDepotName]}
+             Best Regards
+             Customer Service Department
+             #{info[:permittedDepotName]}
          EOF
 
         end
 
     def self.cargo_report_email_body (info)
           <<-EOF 
-             Dear #{info[:clientName]},
+            Dear #{info[:clientName]},
                 
-             Kindly see the attached Cargo Report for the Date #{Time.now.strftime("%d/%m/%Y")}.
+            Kindly see the attached Cargo Report for the Date #{Time.now.strftime("%d/%m/%Y")}.
                 
-             Client Name: #{info[:clientName]}  Client Code: #{info[:clientName]}
-             Depot      :  #{info[:permittedDepotName]}
+            Client Name: #{info[:clientName]}  Client Code: #{info[:clientName]}
+            Depot      :  #{info[:permittedDepotName]}
                 
                  
               
