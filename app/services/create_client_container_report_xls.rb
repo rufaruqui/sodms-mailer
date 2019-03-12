@@ -72,11 +72,7 @@ class CreateClientContainerReportXls < CreateExcelTemplate
           EmailService.create_email options
       end
       
-  end 
-
-    
-
-     
+  end   
 end
 
 

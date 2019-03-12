@@ -3,6 +3,12 @@
  
 #require 'jobs'
 
+desc 'Prepare daily cargo reports'
+task prepare_cargo_reports: :environment do   
+    CreateCargoReportsJob.perform_later
+end
+
+
 desc 'Prepare daily containers reports'
 task prepare_container_reports: :environment do   
     CreateContainerReportsJob.perform_later
