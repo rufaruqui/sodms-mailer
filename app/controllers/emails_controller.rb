@@ -79,14 +79,14 @@ class EmailsController < ApplicationController
 
   def resend_email
     # sent_email [@email] 
-    SendContainerReportsJob.perform_now params
+    SendContainerReportsJob.perform_later params
     render json: { :message=>"email queued for delivery", status: :ok, :errors=>nil} 
   end 
 
   def resend_emails
     # emails = Email.where(state: params[:state].downcase.to_sym) 
     # sent_email emails unless emails.blank?
-     SendContainerReportsJob.perform_now params
+     SendContainerReportsJob.perform_later params
     render json: { :message=>"email queued for delivery", status: :ok, :errors=>nil} 
   end 
 
