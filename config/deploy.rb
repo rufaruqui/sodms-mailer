@@ -131,7 +131,7 @@ namespace :app do
     on roles(:web) do
       within release_path do
         #execute :sudo, :foreman, :export, :systemd, "/etc/systemd/system", "--user mailadmin"
-        execute :sudo, :systemctl, "daemon-reload"
+        #execute :sudo, :systemctl, "daemon-reload"
       end
     end
   end

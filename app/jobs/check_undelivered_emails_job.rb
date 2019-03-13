@@ -3,7 +3,7 @@ class CheckUndeliveredEmailsJob < ApplicationJob
    
   queue_as :saplmailer
   def perform(options={}) 
-    emails = Email.where.not(state: "sent").where('created_at >= ?', Time.now.to_datetime - 1.day)
+     emails = Email.where.not(state: "sent").where('created_at >= ?', Time.now.to_date - 1.day)
      sent_emails emails
   end
 

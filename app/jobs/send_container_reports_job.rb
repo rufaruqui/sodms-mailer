@@ -8,7 +8,7 @@ class SendContainerReportsJob < ApplicationJob
    elsif options.key? :state
       sent_emails Email.where(state: options[:state].downcase.to_sym) 
    else   
-     sent_emails Email.where('created_at >= ?', Time.now.to_datetime - 1.day)
+      sent_emails Email.where.not(state: "sent").where('created_at >= ?', Time.now.to_date - 1.day)
    end
   end
   

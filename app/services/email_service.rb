@@ -20,7 +20,7 @@ class EmailService
           <<-EOF 
              Dear #{info[:clientName]},
                 
-             Kindly see the attached Import Container Movement Report for the Date #{Time.now.strftime("%d/%m/%Y")}.
+             Kindly see the attached Import Container Movement Report for the Date #{(Time.now-1.day).strftime("%d/%m/%Y")}.
                 
              Client Name: #{info[:clientName] if info[:clientName]}  
              Client Code: #{info[:clientCode] if info[:clientCode]} 
@@ -47,7 +47,7 @@ class EmailService
           <<-EOF 
              Dear #{info[:clientName]},
                 
-             Kindly see the attached Container Movement Report for the Date #{Time.now.strftime("%d/%m/%Y")}.
+             Kindly see the attached Container Movement Report for the Date #{(Time.now-1.day).strftime("%d/%m/%Y")}.
                 
              Client Name: #{info[:clientName] if info[:clientName]}  
              Client Code: #{info[:clientCode] if info[:clientCode]} 
@@ -75,7 +75,7 @@ class EmailService
           <<-EOF 
             Dear #{info[:clientName]},
                 
-            Kindly see the attached Cargo Report for the Date #{Time.now.strftime("%d/%m/%Y")}.
+            Kindly see the attached Cargo Report for the Date #{(Time.now-1.day).strftime("%d/%m/%Y")}.
                 
             Client Name: #{info[:clientName]}  Client Code: #{info[:clientName]}
             Depot      :  #{info[:permittedDepotName]}
