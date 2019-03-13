@@ -5685,3 +5685,254 @@ You can enable  auto-update  with:    echo rvm_autoupdate_flag=2 >> ~/.rvmrc
   INFO [044020af] Running /usr/bin/env sudo systemctl daemon-reload as mailadmin@103.4.65.211
  DEBUG [044020af] Command: cd /var/www/sodmsmailer/releases/20190312142604 && /usr/bin/env sudo systemctl daemon-reload
  DEBUG [044020af] 	sudo: no tty present and no askpass program specified
+  INFO ---------------------------------------------------------------------------
+  INFO START 2019-03-13 10:14:17 +0600 cap production deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [950abfbe] Running [ -d ~/.rvm ] as mailadmin@103.4.65.211
+ DEBUG [950abfbe] Command: [ -d ~/.rvm ]
+ DEBUG [950abfbe] Finished in 5.372 seconds with exit status 1 (failed).
+ DEBUG [aee6bbbd] Running [ -d /usr/local/rvm ] as mailadmin@103.4.65.211
+ DEBUG [aee6bbbd] Command: [ -d /usr/local/rvm ]
+ DEBUG [aee6bbbd] Finished in 0.053 seconds with exit status 0 (successful).
+ DEBUG [133385b4] Running /usr/local/rvm/bin/rvm version as mailadmin@103.4.65.211
+ DEBUG [133385b4] Command: /usr/local/rvm/bin/rvm version
+ DEBUG [133385b4] 	rvm 1.29.4 (latest) by Michal Papis, Piotr Kuczynski, Wayne E. Seguin [https://rvm.io]
+ DEBUG [133385b4] Finished in 0.394 seconds with exit status 0 (successful).
+ DEBUG [bef77132] Running /usr/local/rvm/bin/rvm current as mailadmin@103.4.65.211
+ DEBUG [bef77132] Command: /usr/local/rvm/bin/rvm current
+ DEBUG [bef77132] 	ruby-2.3.3
+ DEBUG [bef77132] Finished in 0.394 seconds with exit status 0 (successful).
+ DEBUG [048c538d] Running /usr/local/rvm/bin/rvm 2.3.3 do ruby --version as mailadmin@103.4.65.211
+ DEBUG [048c538d] Command: /usr/local/rvm/bin/rvm 2.3.3 do ruby --version
+ DEBUG [048c538d] 	ruby 2.3.3p222 (2016-11-21 revision 56859) [x86_64-linux]
+ DEBUG [048c538d] Finished in 0.584 seconds with exit status 0 (successful).
+  INFO [dd25637f] Running /usr/bin/env mkdir -p /tmp as mailadmin@103.4.65.211
+ DEBUG [dd25637f] Command: /usr/bin/env mkdir -p /tmp
+  INFO [dd25637f] Finished in 0.059 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-sodmsmailer-production-rufaruqui.sh 0.0%
+  INFO Uploading /tmp/git-ssh-sodmsmailer-production-rufaruqui.sh 100.0%
+  INFO [b90b954f] Running /usr/bin/env chmod 700 /tmp/git-ssh-sodmsmailer-production-rufaruqui.sh as mailadmin@103.4.65.211
+ DEBUG [b90b954f] Command: /usr/bin/env chmod 700 /tmp/git-ssh-sodmsmailer-production-rufaruqui.sh
+  INFO [b90b954f] Finished in 0.103 seconds with exit status 0 (successful).
+  INFO [c6667e92] Running /usr/bin/env git ls-remote ssh://git@203.202.249.101:7999/sod/sodmsmailer.git HEAD as mailadmin@103.4.65.211
+ DEBUG [c6667e92] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-sodmsmailer-production-rufaruqui.sh" ; /usr/bin/env git ls-remote ssh://git@203.202.249.101:7999/sod/sodmsmailer.git HEAD )
+ DEBUG [c6667e92] 	4b708e8d42ac860645ddf0c56336a97da3d81143	HEAD
+  INFO [c6667e92] Finished in 0.342 seconds with exit status 0 (successful).
+  INFO [59557f67] Running /usr/bin/env mkdir -p /var/www/sodmsmailer/shared /var/www/sodmsmailer/releases as mailadmin@103.4.65.211
+ DEBUG [59557f67] Command: /usr/bin/env mkdir -p /var/www/sodmsmailer/shared /var/www/sodmsmailer/releases
+  INFO [59557f67] Finished in 0.063 seconds with exit status 0 (successful).
+  INFO [f5b9cd9c] Running /usr/bin/env mkdir -p /var/www/sodmsmailer/shared/log /var/www/sodmsmailer/shared/tmp/pids /var/www/sodmsmailer/shared/tmp/cache /var/www/sodmsmailer/shared/tmp/sockets /var/www/sodmsmailer/shared/public/system /var/www/sodmsmailer/shared/public/assets as mailadmin@103.4.65.211
+ DEBUG [f5b9cd9c] Command: /usr/bin/env mkdir -p /var/www/sodmsmailer/shared/log /var/www/sodmsmailer/shared/tmp/pids /var/www/sodmsmailer/shared/tmp/cache /var/www/sodmsmailer/shared/tmp/sockets /var/www/sodmsmailer/shared/public/system /var/www/sodmsmailer/shared/public/assets
+  INFO [f5b9cd9c] Finished in 0.059 seconds with exit status 0 (successful).
+  INFO [a6c2a026] Running /usr/bin/env mkdir -p /var/www/sodmsmailer/shared/config as mailadmin@103.4.65.211
+ DEBUG [a6c2a026] Command: /usr/bin/env mkdir -p /var/www/sodmsmailer/shared/config
+  INFO [a6c2a026] Finished in 0.056 seconds with exit status 0 (successful).
+ DEBUG [56f0727b] Running [ -f /var/www/sodmsmailer/shared/config/database.yml ] as mailadmin@103.4.65.211
+ DEBUG [56f0727b] Command: [ -f /var/www/sodmsmailer/shared/config/database.yml ]
+ DEBUG [56f0727b] Finished in 0.051 seconds with exit status 0 (successful).
+ DEBUG [56500d82] Running [ -f /var/www/sodmsmailer/shared/config/secrets.yml ] as mailadmin@103.4.65.211
+ DEBUG [56500d82] Command: [ -f /var/www/sodmsmailer/shared/config/secrets.yml ]
+ DEBUG [56500d82] Finished in 0.059 seconds with exit status 0 (successful).
+ DEBUG [6ecb541d] Running [ -f /var/www/sodmsmailer/current/REVISION ] as mailadmin@103.4.65.211
+ DEBUG [6ecb541d] Command: [ -f /var/www/sodmsmailer/current/REVISION ]
+ DEBUG [6ecb541d] Finished in 0.053 seconds with exit status 0 (successful).
+ DEBUG [a836edd7] Running /usr/bin/env cat /var/www/sodmsmailer/current/REVISION 2>/dev/null as mailadmin@103.4.65.211
+ DEBUG [a836edd7] Command: /usr/bin/env cat /var/www/sodmsmailer/current/REVISION 2>/dev/null
+ DEBUG [a836edd7] 	c168d78ca48c9c8ac10e9a846ee585efab953ba3
+ DEBUG [a836edd7] Finished in 0.544 seconds with exit status 0 (successful).
+ DEBUG [e35ddb63] Running [ -f /var/www/sodmsmailer/repo/HEAD ] as mailadmin@103.4.65.211
+ DEBUG [e35ddb63] Command: [ -f /var/www/sodmsmailer/repo/HEAD ]
+ DEBUG [e35ddb63] Finished in 0.051 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/sodmsmailer/repo
+ DEBUG [71113d7d] Running if test ! -d /var/www/sodmsmailer/repo; then echo "Directory does not exist '/var/www/sodmsmailer/repo'" 1>&2; false; fi as mailadmin@103.4.65.211
+ DEBUG [71113d7d] Command: if test ! -d /var/www/sodmsmailer/repo; then echo "Directory does not exist '/var/www/sodmsmailer/repo'" 1>&2; false; fi
+ DEBUG [71113d7d] Finished in 0.049 seconds with exit status 0 (successful).
+  INFO [3ed0f4ee] Running /usr/bin/env git remote set-url origin ssh://git@203.202.249.101:7999/sod/sodmsmailer.git as mailadmin@103.4.65.211
+ DEBUG [3ed0f4ee] Command: cd /var/www/sodmsmailer/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-sodmsmailer-production-rufaruqui.sh" ; /usr/bin/env git remote set-url origin ssh://git@203.202.249.101:7999/sod/sodmsmailer.git )
+  INFO [3ed0f4ee] Finished in 0.057 seconds with exit status 0 (successful).
+  INFO [6be4ead6] Running /usr/bin/env git remote update --prune as mailadmin@103.4.65.211
+ DEBUG [6be4ead6] Command: cd /var/www/sodmsmailer/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-sodmsmailer-production-rufaruqui.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [6be4ead6] 	Fetching origin
+ DEBUG [6be4ead6] 	From ssh://203.202.249.101:7999/sod/sodmsmailer
+   c168d78..4b708e8  master     -> master
+  INFO [6be4ead6] Finished in 0.416 seconds with exit status 0 (successful).
+ DEBUG [ba0dae5a] Running if test ! -d /var/www/sodmsmailer/repo; then echo "Directory does not exist '/var/www/sodmsmailer/repo'" 1>&2; false; fi as mailadmin@103.4.65.211
+ DEBUG [ba0dae5a] Command: if test ! -d /var/www/sodmsmailer/repo; then echo "Directory does not exist '/var/www/sodmsmailer/repo'" 1>&2; false; fi
+ DEBUG [ba0dae5a] Finished in 0.054 seconds with exit status 0 (successful).
+  INFO [17903f58] Running /usr/bin/env mkdir -p /var/www/sodmsmailer/releases/20190313041425 as mailadmin@103.4.65.211
+ DEBUG [17903f58] Command: cd /var/www/sodmsmailer/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-sodmsmailer-production-rufaruqui.sh" ; /usr/bin/env mkdir -p /var/www/sodmsmailer/releases/20190313041425 )
+  INFO [17903f58] Finished in 0.068 seconds with exit status 0 (successful).
+  INFO [2e5ce1ae] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/sodmsmailer/releases/20190313041425 as mailadmin@103.4.65.211
+ DEBUG [2e5ce1ae] Command: cd /var/www/sodmsmailer/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-sodmsmailer-production-rufaruqui.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/sodmsmailer/releases/20190313041425 )
+  INFO [2e5ce1ae] Finished in 0.066 seconds with exit status 0 (successful).
+ DEBUG [1c84efca] Running if test ! -d /var/www/sodmsmailer/repo; then echo "Directory does not exist '/var/www/sodmsmailer/repo'" 1>&2; false; fi as mailadmin@103.4.65.211
+ DEBUG [1c84efca] Command: if test ! -d /var/www/sodmsmailer/repo; then echo "Directory does not exist '/var/www/sodmsmailer/repo'" 1>&2; false; fi
+ DEBUG [1c84efca] Finished in 0.068 seconds with exit status 0 (successful).
+ DEBUG [627ab94b] Running /usr/bin/env git rev-list --max-count=1 master as mailadmin@103.4.65.211
+ DEBUG [627ab94b] Command: cd /var/www/sodmsmailer/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-sodmsmailer-production-rufaruqui.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [627ab94b] 	4b708e8d42ac860645ddf0c56336a97da3d81143
+ DEBUG [627ab94b] Finished in 0.059 seconds with exit status 0 (successful).
+ DEBUG [5dfb867d] Running if test ! -d /var/www/sodmsmailer/releases/20190313041425; then echo "Directory does not exist '/var/www/sodmsmailer/releases/20190313041425'" 1>&2; false; fi as mailadmin@103.4.65.211
+ DEBUG [5dfb867d] Command: if test ! -d /var/www/sodmsmailer/releases/20190313041425; then echo "Directory does not exist '/var/www/sodmsmailer/releases/20190313041425'" 1>&2; false; fi
+ DEBUG [5dfb867d] Finished in 0.049 seconds with exit status 0 (successful).
+  INFO [439a8d50] Running /usr/bin/env echo "4b708e8d42ac860645ddf0c56336a97da3d81143" >> REVISION as mailadmin@103.4.65.211
+ DEBUG [439a8d50] Command: cd /var/www/sodmsmailer/releases/20190313041425 && /usr/bin/env echo "4b708e8d42ac860645ddf0c56336a97da3d81143" >> REVISION
+  INFO [439a8d50] Finished in 0.061 seconds with exit status 0 (successful).
+  INFO [b116b8cd] Running /usr/bin/env mkdir -p /var/www/sodmsmailer/releases/20190313041425/config as mailadmin@103.4.65.211
+ DEBUG [b116b8cd] Command: /usr/bin/env mkdir -p /var/www/sodmsmailer/releases/20190313041425/config
+  INFO [b116b8cd] Finished in 0.053 seconds with exit status 0 (successful).
+ DEBUG [004a6261] Running [ -L /var/www/sodmsmailer/releases/20190313041425/config/database.yml ] as mailadmin@103.4.65.211
+ DEBUG [004a6261] Command: [ -L /var/www/sodmsmailer/releases/20190313041425/config/database.yml ]
+ DEBUG [004a6261] Finished in 0.053 seconds with exit status 1 (failed).
+ DEBUG [be21e6a0] Running [ -f /var/www/sodmsmailer/releases/20190313041425/config/database.yml ] as mailadmin@103.4.65.211
+ DEBUG [be21e6a0] Command: [ -f /var/www/sodmsmailer/releases/20190313041425/config/database.yml ]
+ DEBUG [be21e6a0] Finished in 0.052 seconds with exit status 0 (successful).
+  INFO [d48daeed] Running /usr/bin/env rm /var/www/sodmsmailer/releases/20190313041425/config/database.yml as mailadmin@103.4.65.211
+ DEBUG [d48daeed] Command: /usr/bin/env rm /var/www/sodmsmailer/releases/20190313041425/config/database.yml
+  INFO [d48daeed] Finished in 0.061 seconds with exit status 0 (successful).
+  INFO [178b727f] Running /usr/bin/env ln -s /var/www/sodmsmailer/shared/config/database.yml /var/www/sodmsmailer/releases/20190313041425/config/database.yml as mailadmin@103.4.65.211
+ DEBUG [178b727f] Command: /usr/bin/env ln -s /var/www/sodmsmailer/shared/config/database.yml /var/www/sodmsmailer/releases/20190313041425/config/database.yml
+  INFO [178b727f] Finished in 0.050 seconds with exit status 0 (successful).
+ DEBUG [d3e6bb21] Running [ -L /var/www/sodmsmailer/releases/20190313041425/config/secrets.yml ] as mailadmin@103.4.65.211
+ DEBUG [d3e6bb21] Command: [ -L /var/www/sodmsmailer/releases/20190313041425/config/secrets.yml ]
+ DEBUG [d3e6bb21] Finished in 0.051 seconds with exit status 1 (failed).
+ DEBUG [a224b09d] Running [ -f /var/www/sodmsmailer/releases/20190313041425/config/secrets.yml ] as mailadmin@103.4.65.211
+ DEBUG [a224b09d] Command: [ -f /var/www/sodmsmailer/releases/20190313041425/config/secrets.yml ]
+ DEBUG [a224b09d] Finished in 0.050 seconds with exit status 0 (successful).
+  INFO [310612af] Running /usr/bin/env rm /var/www/sodmsmailer/releases/20190313041425/config/secrets.yml as mailadmin@103.4.65.211
+ DEBUG [310612af] Command: /usr/bin/env rm /var/www/sodmsmailer/releases/20190313041425/config/secrets.yml
+  INFO [310612af] Finished in 0.050 seconds with exit status 0 (successful).
+  INFO [9891f1c7] Running /usr/bin/env ln -s /var/www/sodmsmailer/shared/config/secrets.yml /var/www/sodmsmailer/releases/20190313041425/config/secrets.yml as mailadmin@103.4.65.211
+ DEBUG [9891f1c7] Command: /usr/bin/env ln -s /var/www/sodmsmailer/shared/config/secrets.yml /var/www/sodmsmailer/releases/20190313041425/config/secrets.yml
+  INFO [9891f1c7] Finished in 0.052 seconds with exit status 0 (successful).
+  INFO [33df9f17] Running /usr/bin/env mkdir -p /var/www/sodmsmailer/releases/20190313041425 /var/www/sodmsmailer/releases/20190313041425/tmp /var/www/sodmsmailer/releases/20190313041425/public as mailadmin@103.4.65.211
+ DEBUG [33df9f17] Command: /usr/bin/env mkdir -p /var/www/sodmsmailer/releases/20190313041425 /var/www/sodmsmailer/releases/20190313041425/tmp /var/www/sodmsmailer/releases/20190313041425/public
+  INFO [33df9f17] Finished in 0.055 seconds with exit status 0 (successful).
+ DEBUG [ba15254e] Running [ -L /var/www/sodmsmailer/releases/20190313041425/log ] as mailadmin@103.4.65.211
+ DEBUG [ba15254e] Command: [ -L /var/www/sodmsmailer/releases/20190313041425/log ]
+ DEBUG [ba15254e] Finished in 0.048 seconds with exit status 1 (failed).
+ DEBUG [59b35a59] Running [ -d /var/www/sodmsmailer/releases/20190313041425/log ] as mailadmin@103.4.65.211
+ DEBUG [59b35a59] Command: [ -d /var/www/sodmsmailer/releases/20190313041425/log ]
+ DEBUG [59b35a59] Finished in 0.051 seconds with exit status 0 (successful).
+  INFO [589e76e6] Running /usr/bin/env rm -rf /var/www/sodmsmailer/releases/20190313041425/log as mailadmin@103.4.65.211
+ DEBUG [589e76e6] Command: /usr/bin/env rm -rf /var/www/sodmsmailer/releases/20190313041425/log
+  INFO [589e76e6] Finished in 0.062 seconds with exit status 0 (successful).
+  INFO [94939df1] Running /usr/bin/env ln -s /var/www/sodmsmailer/shared/log /var/www/sodmsmailer/releases/20190313041425/log as mailadmin@103.4.65.211
+ DEBUG [94939df1] Command: /usr/bin/env ln -s /var/www/sodmsmailer/shared/log /var/www/sodmsmailer/releases/20190313041425/log
+  INFO [94939df1] Finished in 0.051 seconds with exit status 0 (successful).
+ DEBUG [82ba198a] Running [ -L /var/www/sodmsmailer/releases/20190313041425/tmp/pids ] as mailadmin@103.4.65.211
+ DEBUG [82ba198a] Command: [ -L /var/www/sodmsmailer/releases/20190313041425/tmp/pids ]
+ DEBUG [82ba198a] Finished in 0.054 seconds with exit status 1 (failed).
+ DEBUG [89811cd2] Running [ -d /var/www/sodmsmailer/releases/20190313041425/tmp/pids ] as mailadmin@103.4.65.211
+ DEBUG [89811cd2] Command: [ -d /var/www/sodmsmailer/releases/20190313041425/tmp/pids ]
+ DEBUG [89811cd2] Finished in 0.052 seconds with exit status 1 (failed).
+  INFO [f5f2cf15] Running /usr/bin/env ln -s /var/www/sodmsmailer/shared/tmp/pids /var/www/sodmsmailer/releases/20190313041425/tmp/pids as mailadmin@103.4.65.211
+ DEBUG [f5f2cf15] Command: /usr/bin/env ln -s /var/www/sodmsmailer/shared/tmp/pids /var/www/sodmsmailer/releases/20190313041425/tmp/pids
+  INFO [f5f2cf15] Finished in 0.061 seconds with exit status 0 (successful).
+ DEBUG [f62bf112] Running [ -L /var/www/sodmsmailer/releases/20190313041425/tmp/cache ] as mailadmin@103.4.65.211
+ DEBUG [f62bf112] Command: [ -L /var/www/sodmsmailer/releases/20190313041425/tmp/cache ]
+ DEBUG [f62bf112] Finished in 0.059 seconds with exit status 1 (failed).
+ DEBUG [3887c814] Running [ -d /var/www/sodmsmailer/releases/20190313041425/tmp/cache ] as mailadmin@103.4.65.211
+ DEBUG [3887c814] Command: [ -d /var/www/sodmsmailer/releases/20190313041425/tmp/cache ]
+ DEBUG [3887c814] Finished in 0.052 seconds with exit status 1 (failed).
+  INFO [90b88f04] Running /usr/bin/env ln -s /var/www/sodmsmailer/shared/tmp/cache /var/www/sodmsmailer/releases/20190313041425/tmp/cache as mailadmin@103.4.65.211
+ DEBUG [90b88f04] Command: /usr/bin/env ln -s /var/www/sodmsmailer/shared/tmp/cache /var/www/sodmsmailer/releases/20190313041425/tmp/cache
+  INFO [90b88f04] Finished in 0.052 seconds with exit status 0 (successful).
+ DEBUG [d66e75d9] Running [ -L /var/www/sodmsmailer/releases/20190313041425/tmp/sockets ] as mailadmin@103.4.65.211
+ DEBUG [d66e75d9] Command: [ -L /var/www/sodmsmailer/releases/20190313041425/tmp/sockets ]
+ DEBUG [d66e75d9] Finished in 0.051 seconds with exit status 1 (failed).
+ DEBUG [2f883666] Running [ -d /var/www/sodmsmailer/releases/20190313041425/tmp/sockets ] as mailadmin@103.4.65.211
+ DEBUG [2f883666] Command: [ -d /var/www/sodmsmailer/releases/20190313041425/tmp/sockets ]
+ DEBUG [2f883666] Finished in 0.049 seconds with exit status 1 (failed).
+  INFO [2ddbf032] Running /usr/bin/env ln -s /var/www/sodmsmailer/shared/tmp/sockets /var/www/sodmsmailer/releases/20190313041425/tmp/sockets as mailadmin@103.4.65.211
+ DEBUG [2ddbf032] Command: /usr/bin/env ln -s /var/www/sodmsmailer/shared/tmp/sockets /var/www/sodmsmailer/releases/20190313041425/tmp/sockets
+  INFO [2ddbf032] Finished in 0.059 seconds with exit status 0 (successful).
+ DEBUG [a1feece2] Running [ -L /var/www/sodmsmailer/releases/20190313041425/public/system ] as mailadmin@103.4.65.211
+ DEBUG [a1feece2] Command: [ -L /var/www/sodmsmailer/releases/20190313041425/public/system ]
+ DEBUG [a1feece2] Finished in 0.067 seconds with exit status 1 (failed).
+ DEBUG [6880b616] Running [ -d /var/www/sodmsmailer/releases/20190313041425/public/system ] as mailadmin@103.4.65.211
+ DEBUG [6880b616] Command: [ -d /var/www/sodmsmailer/releases/20190313041425/public/system ]
+ DEBUG [6880b616] Finished in 0.056 seconds with exit status 1 (failed).
+  INFO [a35c4f16] Running /usr/bin/env ln -s /var/www/sodmsmailer/shared/public/system /var/www/sodmsmailer/releases/20190313041425/public/system as mailadmin@103.4.65.211
+ DEBUG [a35c4f16] Command: /usr/bin/env ln -s /var/www/sodmsmailer/shared/public/system /var/www/sodmsmailer/releases/20190313041425/public/system
+  INFO [a35c4f16] Finished in 0.060 seconds with exit status 0 (successful).
+ DEBUG [b9f0d4a9] Running [ -L /var/www/sodmsmailer/releases/20190313041425/public/assets ] as mailadmin@103.4.65.211
+ DEBUG [b9f0d4a9] Command: [ -L /var/www/sodmsmailer/releases/20190313041425/public/assets ]
+ DEBUG [b9f0d4a9] Finished in 0.060 seconds with exit status 1 (failed).
+ DEBUG [01b12d22] Running [ -d /var/www/sodmsmailer/releases/20190313041425/public/assets ] as mailadmin@103.4.65.211
+ DEBUG [01b12d22] Command: [ -d /var/www/sodmsmailer/releases/20190313041425/public/assets ]
+ DEBUG [01b12d22] Finished in 0.045 seconds with exit status 1 (failed).
+  INFO [76fa293e] Running /usr/bin/env ln -s /var/www/sodmsmailer/shared/public/assets /var/www/sodmsmailer/releases/20190313041425/public/assets as mailadmin@103.4.65.211
+ DEBUG [76fa293e] Command: /usr/bin/env ln -s /var/www/sodmsmailer/shared/public/assets /var/www/sodmsmailer/releases/20190313041425/public/assets
+  INFO [76fa293e] Finished in 0.054 seconds with exit status 0 (successful).
+ DEBUG [d8aa0fb1] Running if test ! -d /var/www/sodmsmailer/releases/20190313041425; then echo "Directory does not exist '/var/www/sodmsmailer/releases/20190313041425'" 1>&2; false; fi as mailadmin@103.4.65.211
+ DEBUG [d8aa0fb1] Command: if test ! -d /var/www/sodmsmailer/releases/20190313041425; then echo "Directory does not exist '/var/www/sodmsmailer/releases/20190313041425'" 1>&2; false; fi
+ DEBUG [d8aa0fb1] Finished in 0.050 seconds with exit status 0 (successful).
+ DEBUG [18973209] Running /usr/local/rvm/bin/rvm 2.3.3 do bundle check --path /var/www/sodmsmailer/shared/bundle as mailadmin@103.4.65.211
+ DEBUG [18973209] Command: cd /var/www/sodmsmailer/releases/20190313041425 && /usr/local/rvm/bin/rvm 2.3.3 do bundle check --path /var/www/sodmsmailer/shared/bundle
+ DEBUG [18973209] 	Warning: the running version of Bundler (1.16.5) is older than the version that created the lockfile (1.16.6). We suggest you upgrade to the latest version of Bundler by running `gem install bundler`.
+ DEBUG [18973209] 	The following gems are missing
+ * annotate (2.7.2)
+ DEBUG [18973209] 	 * bindex (0.5.0)
+ * byebug (9.1.0)
+ DEBUG [18973209] 	 * listen (3.0.8)
+ * mysql2 (0.4.10)
+ * spring (2.0.2)
+ * spring-watcher-listen (2.0.1)
+ * web-console (3.5.1)
+ DEBUG [18973209] 	Install missing gems with `bundle install`
+ DEBUG [18973209] Finished in 0.848 seconds with exit status 1 (failed).
+  INFO [095489b7] Running /usr/local/rvm/bin/rvm 2.3.3 do bundle install --path /var/www/sodmsmailer/shared/bundle --without development test --deployment --quiet as mailadmin@103.4.65.211
+ DEBUG [095489b7] Command: cd /var/www/sodmsmailer/releases/20190313041425 && /usr/local/rvm/bin/rvm 2.3.3 do bundle install --path /var/www/sodmsmailer/shared/bundle --without development test --deployment --quiet
+ DEBUG [095489b7] 	Warning, new version of rvm available '1.29.7-next', you are using older version '1.29.4'.
+You can disable this warning with:    echo rvm_autoupdate_flag=0 >> ~/.rvmrc
+You can enable  auto-update  with:    echo rvm_autoupdate_flag=2 >> ~/.rvmrc
+  INFO [095489b7] Finished in 3.412 seconds with exit status 0 (successful).
+ DEBUG [e697e97d] Running if test ! -d /var/www/sodmsmailer/releases/20190313041425; then echo "Directory does not exist '/var/www/sodmsmailer/releases/20190313041425'" 1>&2; false; fi as mailadmin@103.4.65.211
+ DEBUG [e697e97d] Command: if test ! -d /var/www/sodmsmailer/releases/20190313041425; then echo "Directory does not exist '/var/www/sodmsmailer/releases/20190313041425'" 1>&2; false; fi
+ DEBUG [e697e97d] Finished in 0.067 seconds with exit status 0 (successful).
+  INFO [e1eaeddf] Running /usr/local/rvm/bin/rvm 2.3.3 do bundle exec rake assets:precompile as mailadmin@103.4.65.211
+ DEBUG [e1eaeddf] Command: cd /var/www/sodmsmailer/releases/20190313041425 && ( export RAILS_ENV="production" RAILS_GROUPS="" ; /usr/local/rvm/bin/rvm 2.3.3 do bundle exec rake assets:precompile )
+  INFO [e1eaeddf] Finished in 2.642 seconds with exit status 0 (successful).
+ DEBUG [26f2911d] Running if test ! -d /var/www/sodmsmailer/releases/20190313041425; then echo "Directory does not exist '/var/www/sodmsmailer/releases/20190313041425'" 1>&2; false; fi as mailadmin@103.4.65.211
+ DEBUG [26f2911d] Command: if test ! -d /var/www/sodmsmailer/releases/20190313041425; then echo "Directory does not exist '/var/www/sodmsmailer/releases/20190313041425'" 1>&2; false; fi
+ DEBUG [26f2911d] Finished in 0.051 seconds with exit status 0 (successful).
+  INFO [eeffc332] Running /usr/bin/env mkdir -p /var/www/sodmsmailer/releases/20190313041425/assets_manifest_backup as mailadmin@103.4.65.211
+ DEBUG [eeffc332] Command: cd /var/www/sodmsmailer/releases/20190313041425 && /usr/bin/env mkdir -p /var/www/sodmsmailer/releases/20190313041425/assets_manifest_backup
+  INFO [eeffc332] Finished in 0.055 seconds with exit status 0 (successful).
+ DEBUG [f0b809f1] Running /usr/bin/env ls /var/www/sodmsmailer/releases/20190313041425/public/assets/.sprockets-manifest* as mailadmin@103.4.65.211
+ DEBUG [f0b809f1] Command: cd /var/www/sodmsmailer/releases/20190313041425 && /usr/bin/env ls /var/www/sodmsmailer/releases/20190313041425/public/assets/.sprockets-manifest*
+ DEBUG [f0b809f1] 	/var/www/sodmsmailer/releases/20190313041425/public/assets/.sprockets-manifest-c340b45981b0ce025ea676d6b0a4fea8.json
+ DEBUG [f0b809f1] Finished in 0.060 seconds with exit status 0 (successful).
+ DEBUG [d8db4f6a] Running /usr/bin/env ls /var/www/sodmsmailer/releases/20190313041425/public/assets/.sprockets-manifest* as mailadmin@103.4.65.211
+ DEBUG [d8db4f6a] Command: cd /var/www/sodmsmailer/releases/20190313041425 && /usr/bin/env ls /var/www/sodmsmailer/releases/20190313041425/public/assets/.sprockets-manifest*
+ DEBUG [d8db4f6a] 	/var/www/sodmsmailer/releases/20190313041425/public/assets/.sprockets-manifest-c340b45981b0ce025ea676d6b0a4fea8.json
+ DEBUG [d8db4f6a] Finished in 0.052 seconds with exit status 0 (successful).
+  INFO [fe7c5105] Running /usr/bin/env cp /var/www/sodmsmailer/releases/20190313041425/public/assets/.sprockets-manifest-c340b45981b0ce025ea676d6b0a4fea8.json /var/www/sodmsmailer/releases/20190313041425/assets_manifest_backup as mailadmin@103.4.65.211
+ DEBUG [fe7c5105] Command: cd /var/www/sodmsmailer/releases/20190313041425 && /usr/bin/env cp /var/www/sodmsmailer/releases/20190313041425/public/assets/.sprockets-manifest-c340b45981b0ce025ea676d6b0a4fea8.json /var/www/sodmsmailer/releases/20190313041425/assets_manifest_backup
+  INFO [fe7c5105] Finished in 0.076 seconds with exit status 0 (successful).
+  INFO [deploy:migrate] Run `rake db:migrate`
+ DEBUG [05ae972e] Running if test ! -d /var/www/sodmsmailer/releases/20190313041425; then echo "Directory does not exist '/var/www/sodmsmailer/releases/20190313041425'" 1>&2; false; fi as mailadmin@103.4.65.211
+ DEBUG [05ae972e] Command: if test ! -d /var/www/sodmsmailer/releases/20190313041425; then echo "Directory does not exist '/var/www/sodmsmailer/releases/20190313041425'" 1>&2; false; fi
+ DEBUG [05ae972e] Finished in 0.050 seconds with exit status 0 (successful).
+  INFO [c1ff3b4b] Running /usr/local/rvm/bin/rvm 2.3.3 do bundle exec rake db:migrate as mailadmin@103.4.65.211
+ DEBUG [c1ff3b4b] Command: cd /var/www/sodmsmailer/releases/20190313041425 && ( export RAILS_ENV="production" ; /usr/local/rvm/bin/rvm 2.3.3 do bundle exec rake db:migrate )
+ DEBUG [c1ff3b4b] 	  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1145812769880286725);[0m
+ DEBUG [c1ff3b4b] 	  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+ DEBUG [c1ff3b4b] 	  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+ DEBUG [c1ff3b4b] 	  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+ DEBUG [c1ff3b4b] 	  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+ DEBUG [c1ff3b4b] 	  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(1145812769880286725)[0m
+  INFO [c1ff3b4b] Finished in 2.679 seconds with exit status 0 (successful).
+  INFO [0c9b08d6] Running /usr/bin/env ln -s /var/www/sodmsmailer/releases/20190313041425 /var/www/sodmsmailer/releases/current as mailadmin@103.4.65.211
+ DEBUG [0c9b08d6] Command: /usr/bin/env ln -s /var/www/sodmsmailer/releases/20190313041425 /var/www/sodmsmailer/releases/current
+  INFO [0c9b08d6] Finished in 0.072 seconds with exit status 0 (successful).
+  INFO [68524692] Running /usr/bin/env mv /var/www/sodmsmailer/releases/current /var/www/sodmsmailer as mailadmin@103.4.65.211
+ DEBUG [68524692] Command: /usr/bin/env mv /var/www/sodmsmailer/releases/current /var/www/sodmsmailer
+  INFO [68524692] Finished in 0.027 seconds with exit status 0 (successful).
+ DEBUG [c9e61fff] Running if test ! -d /var/www/sodmsmailer/releases/20190313041425; then echo "Directory does not exist '/var/www/sodmsmailer/releases/20190313041425'" 1>&2; false; fi as mailadmin@103.4.65.211
+ DEBUG [c9e61fff] Command: if test ! -d /var/www/sodmsmailer/releases/20190313041425; then echo "Directory does not exist '/var/www/sodmsmailer/releases/20190313041425'" 1>&2; false; fi
+ DEBUG [c9e61fff] Finished in 0.097 seconds with exit status 0 (successful).
+  INFO [df5a5694] Running /usr/bin/env sudo systemctl restart sodmsmailer-web.service as mailadmin@103.4.65.211
+ DEBUG [df5a5694] Command: cd /var/www/sodmsmailer/releases/20190313041425 && /usr/bin/env sudo systemctl restart sodmsmailer-web.service
+ DEBUG [df5a5694] 	sudo: no tty present and no askpass program specified
