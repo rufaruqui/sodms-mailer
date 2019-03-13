@@ -137,7 +137,7 @@ namespace :app do
   end
 end
 
-after 'deploy:publishing', 'app:systemd'
-after 'app:systemd', 'app:restart'
+after 'deploy:publishing', 'app:restart'
+#after 'app:systemd', 'app:restart'
 
 
