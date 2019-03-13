@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: ENV["DefaultForm"] ? ENV["DefaultForm"] : 'reporting@isatlbd.com'
+  default from: ENV["DefaultFrom"] ? ENV["DefaultFrom"] : 'reporting@isatlbd.com'
  # layout 'mailer'
 end
