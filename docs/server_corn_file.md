@@ -18,5 +18,5 @@
 ## Deleteing all reports older than 30 days, run every day at 6 pm
 
 ```bash
-0  18 * 8 *  find /var/www/sodmsmailer/releases/*/reports/* -mtime +30 -type f -delete
+0  18 * * *  find /var/www/sodmsmailer/releases/*/reports/* -mtime +30 -type f -delete
 ```
