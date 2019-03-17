@@ -4,7 +4,7 @@ class ReportMailer < ApplicationMailer
    @queue='saplmailer'
 
   def  daily_email_update(options={}) 
-    attachments[options[:attachment_name]] = File.read(options[:filename])
+    attachments[options[:attachment_name]] =  File.read(options[:filename]) if File.exist? (options[:filename])
     mail(to: options[:recipents], cc: options[:cc], subject: options[:subject], body: options[:body])
 
     # mail = Mail.new do 
