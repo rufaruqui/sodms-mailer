@@ -58,17 +58,17 @@ https://www.phusionpassenger.com/library/walkthroughs/deploy/ruby/ownserver/ngin
 ```bash
 ssh shimul@175.29.189.243
 
-sudo adduser mailadmin
-sudo passwd mailadmin  
+sudo adduser mailer
+sudo passwd mailer  
       Set Password 1234@sodms
 ssh-keygen
 
-sudo mkdir -p ~mailadmin/.ssh
+sudo mkdir -p ~mailer/.ssh
 touch $HOME/.ssh/authorized_keys
-sudo sh -c "cat $HOME/.ssh/authorized_keys >> ~mailadmin/.ssh/authorized_keys"
-sudo chown -R mailadmin: ~mailadmin/.ssh
-sudo chmod 700 ~mailadmin/.ssh
-sudo sh -c "chmod 600 ~mailadmin/.ssh/*"
+sudo sh -c "cat $HOME/.ssh/authorized_keys >> ~mailer/.ssh/authorized_keys"
+sudo chown -R mailer: ~mailadmin/.ssh
+sudo chmod 700 ~mailer/.ssh
+sudo sh -c "chmod 600 ~mailer/.ssh/*"
 ```
 1.3 Install Git on the server
 `sudo apt-get install -y git`
@@ -101,13 +101,13 @@ Password: 1234@mailer
 Setting up a basic directory structure
 ```
 sudo mkdir -p /var/www/sodmsmailer/shared
-sudo chown mailadmin: /var/www/sodmsmailer/ /var/www/sodmsmailer/shared/
+sudo chown mailer: /var/www/sodmsmailer/ /var/www/sodmsmailer/shared/
 ```
 
 Create initial configuration files
 ```
 sudo mkdir -p /var/www/sodmsmailer/shared/config
-sudo chown -R mailadmin: /var/www/sodmsmailer/shared/config/
+sudo chown -R mailer: /var/www/sodmsmailer/shared/config/
 sudo chmod 600 /var/www/sodmsmailer/shared/config/database.yml
 sudo chmod 600 /var/www/sodmsmailer/shared/config/secrets.yml
 ```
