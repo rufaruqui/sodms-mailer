@@ -110,6 +110,8 @@ sudo mkdir -p /var/www/sodmsmailer/shared/config
 sudo chown -R mailer: /var/www/sodmsmailer/shared/config/
 sudo chmod 600 /var/www/sodmsmailer/shared/config/database.yml
 sudo chmod 600 /var/www/sodmsmailer/shared/config/secrets.yml
+sudo mkdir -p /usr/local/rvm/gems/ruby-2.3.3@sodmsmailer
+sudo chown -R mailer: /usr/local/rvm/gems/ruby-2.3.3@sodmsmailer
 ```
 
 
@@ -165,3 +167,22 @@ Do same things for all services.
 Install Redis server for Mail Scheduling
  `https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-redis-on-ubuntu-16-04`
 
+
+
+### Cronjob
+
+```
+40 8 * * * /bin/bash -l -c 'cd /var/www/sodmsmailer/current && /usr/local/rvm/bin/rvm-exec ruby-2.3.3 && RAILS_ENV=production bundle exec rake prepare_container_reports  --silent'
+
+45 8 * * * /bin/bash -l -c 'cd /var/www/sodmsmailer/current && /usr/local/rvm/bin/rvm-exec ruby-2.3.3 && RAILS_ENV=production bundle exec rake send_container_reports  --silent'
+
+50 8 * * * /bin/bash -l -c 'cd /var/www/sodmsmailer/current && /usr/local/rvm/bin/rvm-exec ruby-2.3.3 && RAILS_ENV=production bundle exec rake check_undelivered_emails  --silent'
+
+15 9 * * * /bin/bash -l -c 'cd /var/www/sodmsmailer/current && /usr/local/rvm/bin/rvm-exec ruby-2.3.3 && RAILS_ENV=production bundle exec rake check_undelivered_emails  --silent'
+
+30 09 * * * /bin/bash -l -c 'cd /var/www/sodmsmailer/current && /usr/local/rvm/bin/rvm-exec ruby-2.3.3 && RAILS_ENV=production bundle exec rake check_undelivered_emails  --silent'
+
+15 10 * * * /bin/bash -l -c 'cd /var/www/sodmsmailer/current && /usr/local/rvm/bin/rvm-exec ruby-2.3.3 && RAILS_ENV=production bundle exec rake check_undelivered_emails  --silent'
+
+0  18 * * *  find /var/www/sodmsmailer/releases/*/reports/* -mtime +30 -type f -delete
+```
