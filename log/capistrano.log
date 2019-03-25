@@ -7194,3 +7194,8 @@ You can enable  auto-update  with:    echo rvm_autoupdate_flag=2 >> ~/.rvmrc
   INFO ---------------------------------------------------------------------------
  DEBUG [54043c19] Running [ -d ~/.rvm ] as mailadmin@192.168.0.245
  DEBUG [54043c19] Command: [ -d ~/.rvm ]
+  INFO ---------------------------------------------------------------------------
+  INFO START 2019-03-25 12:05:15 +0600 cap production deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [537b4bd8] Running [ -d ~/.rvm ] as mailadmin@202.203.249.99
+ DEBUG [537b4bd8] Command: [ -d ~/.rvm ]
