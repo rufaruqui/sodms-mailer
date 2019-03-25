@@ -8,3 +8,4 @@ log/production.log
 log/test.log
 tmp/
 .xlsx
+log/capistrano.log
