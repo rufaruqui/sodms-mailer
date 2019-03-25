@@ -7189,3 +7189,8 @@ You can enable  auto-update  with:    echo rvm_autoupdate_flag=2 >> ~/.rvmrc
   INFO [f566d148] Running /usr/bin/env sudo systemctl restart sodmsmailer-web.service as mailadmin@103.4.65.211
  DEBUG [f566d148] Command: cd /var/www/sodmsmailer/releases/20190317050919 && /usr/bin/env sudo systemctl restart sodmsmailer-web.service
  DEBUG [f566d148] 	sudo: no tty present and no askpass program specified
+  INFO ---------------------------------------------------------------------------
+  INFO START 2019-03-25 12:03:55 +0600 cap production deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [54043c19] Running [ -d ~/.rvm ] as mailadmin@192.168.0.245
+ DEBUG [54043c19] Command: [ -d ~/.rvm ]
