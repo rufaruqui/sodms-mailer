@@ -9024,3 +9024,8 @@ Install missing gems with `bundle install`
   INFO [649bdf08] Running /usr/bin/env sudo systemctl restart sodmsmailer-web.service as mailadmin@192.168.0.13
  DEBUG [649bdf08] Command: cd /var/www/sodmsmailer/releases/20190325122428 && /usr/bin/env sudo systemctl restart sodmsmailer-web.service
  DEBUG [649bdf08] 	sudo: no tty present and no askpass program specified
+  INFO ---------------------------------------------------------------------------
+  INFO START 2019-04-04 13:33:25 +0600 cap production deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [bbfbe516] Running [ -d ~/.rvm ] as mailadmin@192.168.0.13
+ DEBUG [bbfbe516] Command: [ -d ~/.rvm ]
