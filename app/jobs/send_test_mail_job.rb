@@ -4,7 +4,7 @@ class SendTestMailJob < ApplicationJob
 
   queue_as :saplmailer
   def perform(*args)
-    TestMailer.daily_email_update.deliver_at(Time.now)
+    TestMailer.perform
   end
 end
  

@@ -8,7 +8,7 @@ class AuthService
         if Time.now < @@expiredAt and  !@@accessToken.nil?
            return @@accessToken
         else  
-            begin 
+            #begin 
             puts "Calling SODMS backend to authenticate"
             puts "#{ENV["LOCAL_BACKEND_BASE"]}/api/TokenAuth/Authenticate}"
             response = RestClient.post ENV["LOCAL_BACKEND_BASE"]+"/api/TokenAuth/Authenticate", {  "userNameOrEmailAddress": "mailadmin",
@@ -21,9 +21,9 @@ class AuthService
             else
                 return nil
             end
-            rescue RestClient::Exception => e
-              return nil
-            end
+            # rescue RestClient::Exception => e
+            #   return nil
+            # end
          end    
     end
 end

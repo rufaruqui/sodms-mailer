@@ -4,6 +4,9 @@ class TestMailer < ApplicationMailer
    @queue='saplmailer'
 
   def  daily_email_update(options={}) 
+  # options[:attachment_name] = "sample.xlsx"
+  # options[:filename]="./reports/sample.xlsx"
+
     puts "Sending test mail"  
      @mail = mail(to: 'rufaruqui@gmail.com', 
          cc: 'rokan@cu.ac.bd', 

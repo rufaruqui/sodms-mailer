@@ -38,7 +38,7 @@ class CreateExcelTemplate
     end
 
     def self.format_workbook(sheet, data, style_info) 
-      keys = data.select{|k| k.to_s.match(/id|Id/)}
+      keys = data.select{|k| k.to_s.match(/id|Id|currentDepotUnit/)}
       h = data - keys    
       h.each_with_index do |item, index|  
         sheet.col_style index+1, style_info[:date_format], :row_offset => 5 if item.to_s.downcase.include?  "date" 
