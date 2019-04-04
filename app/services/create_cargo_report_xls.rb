@@ -7,6 +7,7 @@ class CreateCargoReportXls < CreateExcelTemplate
  
       Axlsx::Package.new do |p|
         wb = p.workbook
+          wb.styles.fonts.first.name = 'Calibri'
           wb.styles do |s| 
               heading = s.add_style :fg_color=> "004586", :b => true,  :bg_color => "FFFFFF", :sz => 12, 
                               :border => { :style => :thin, :color => "00" },
@@ -44,6 +45,7 @@ class CreateCargoReportXls < CreateExcelTemplate
 
           Rails.logger.info "########  Storing mail info at db ######" 
           EmailService.create_email options
+          true
       end
       
   end   

@@ -7,10 +7,10 @@ class CreateExcelTemplate
     end
    
     def self.prepare_workbook(sheet, data, style_info, hidden=true) 
-             keys = data.first.keys.select{|k| k.to_s.match(/id|Id/)}
+             keys = data.first.keys.select{|k| k.to_s.match(/id|Id|currentDepotUnit/)}
              h = data.first.keys - keys
            # h = data.first.delete_if { |key, value| !key.to_s.match(/Id/) }
-            damage_details = [:damageAreaName, :damagePartName, :damageDescription, :damageComponent, :damageType, :repairType]
+           damage_details = [:damageAreaName, :damagePartName, :damageDescription, :damageComponent, :damageType, :repairType]
            if data.blank? or !data.first.include?:containerNumber or data.first[:id] == 0
              sheet.add_row [""], style: style_info[:heading], height: 16   
            else

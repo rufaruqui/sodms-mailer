@@ -8,38 +8,48 @@ class CreateClientContainerReportEmail
        h = Hash.new 
        h = {:mailDeliverySettingsId=> info[:id]} 
        containerinfo = RetrieveClientContainerData.perform(h) 
+       info[:summary] =  report_summary containerinfo
 
+       # ap containerinfo
        if !containerinfo.blank?
-            if (recipents.blank? or recipents.nil?) and (cc.blank? or cc.nil?)
-              Rails.logger.info '######## No Recipents  ##########' 
-            elsif !empty_report? containerinfo
-              Rails.logger.info '######## Nothing to send  ##########' 
-            else
-              Rails.logger.info '########  Generate Excel Sheet                  ##########' 
               options[:mail_delivery_setting_id] = info[:id]
               options[:mail_type] = info[:mailReportType]
               options[:subject] = 'Container Movement & Stock Report -- ' + Time.now.to_date.to_s + ' for ' + info[:clientCode] + '  (' + info[:permittedDepotCode] + ')'
-              options[:attachment_name]=[info[:permittedDepotCode], info[:clientCode], 'ContainerMovementReport', Time.now.to_date.to_s].join('_')+'.xlsx'
-              options[:containerinfo] = containerinfo
               options[:recipents] = recipents
               options[:cc] = cc
-              options[:body] = EmailService.container_report_email_body(info)
-              options[:filename]  = ['./reports/',info[:permittedDepotCode], info[:clientCode], 'ContainerMovementReport', Time.now.to_date.to_s, info[:id],'.xlsx'].join('_')
-              options[:clientid]  = info[:clientId]
+              options[:clientid]  = info[:clientId] 
               options[:permitteddepoid] = info[:permittedDepotId]
               options[:client_name] = info[:clientName]
               options[:client_code] = info[:clientCode]
-              options[:permitted_depo_name] = info[:permittedDepotName]
+              options[:permitted_depo_name] = info[:permittedDepotName]  
+            if !empty_report? info[:summary]
+              Rails.logger.info '######## Nothing to send  ##########' 
+              options[:body] = EmailService.container_report_email_body(info)
+              EmailService.create_email options
+            else
+              Rails.logger.info '########  Generate Excel Sheet                  ##########' 
+              options[:containerinfo] = containerinfo
+              options[:body] = EmailService.container_report_email_body(info)
+              options[:attachment_name]=[info[:permittedDepotCode], info[:clientCode], 'ContainerMovementReport', Time.now.to_date.to_s].join('_')+'.xlsx'
+              options[:filename]  = ['./reports/',info[:permittedDepotCode], info[:clientCode], 'ContainerMovementReport', Time.now.to_date.to_s, info[:id],'.xlsx'].join('_')
               CreateClientContainerReportXls.perform(options)
-            end   
+            end  unless (recipents.blank? or recipents.nil?) and (cc.blank? or cc.nil?)
       end 
   end
 
   def self.empty_report? response
     response.each do |k, v|
-         return v.length > 0
+         return v > 0
     end
-    
     return false
+  end
+
+  def self.report_summary container_data
+      summary = Hash.new
+      summary[:inReport] = container_data[:containerInReport].first[:id] == 0 ? 0 : container_data[:containerInReport].pluck(:containerNumber).uniq.count
+      summary[:outEmptyReport] = container_data[:containerEmptyOutReport].first[:id] == 0 ? 0 : container_data[:containerEmptyOutReport].pluck(:containerNumber).uniq.count
+      summary[:outLadenReport] = container_data[:containerLadenOutReport].first[:id] == 0 ? 0 : container_data[:containerLadenOutReport].pluck(:containerNumber).uniq.count
+      summary[:stockReport] =    container_data[:containerStockReport].first[:id] == 0 ? 0 : container_data[:containerStockReport].pluck(:containerNumber).uniq.count
+      return summary
   end
 end

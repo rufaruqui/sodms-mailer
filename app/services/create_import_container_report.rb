@@ -13,5 +13,6 @@ class CreateImportContainerReport
                 end
             end
         end
+        true
     end
 end

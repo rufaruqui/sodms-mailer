@@ -73,7 +73,7 @@ Rails.application.configure do
       :port => 587,
       :domain => 'saplbd.com',
       :user_name => "reporting@saplbd.com",
-      :password => "1290@cfsrt",
+      :password => "it@sapl$9904",
       :authentication => :login,
       :enable_starttls_auto => true
   }

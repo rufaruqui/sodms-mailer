@@ -13,6 +13,6 @@ class CreateEmptyContainerReport
                 end
             end
         end
-   
+        true
     end
 end

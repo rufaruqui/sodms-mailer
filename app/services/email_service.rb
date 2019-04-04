@@ -1,5 +1,6 @@
 class EmailService
     def self.create_email(options)
+        options[:attachment_name] = options[:attachment_name].present? ? options[:attachment_name] : nil; 
      Email.create(:recipients=>options[:recipents], 
                      :subject=>options[:subject], 
                      :attachment=>options[:filename], 
@@ -26,16 +27,21 @@ class EmailService
              Client Code: #{info[:clientCode] if info[:clientCode]} 
                 
              Import Container Movement Report Includes:
-                  1. In Report
+
+                  1. In Report  #{ '[' + info[:summary][:importInReport].to_s + ' of container(s) ]' if info[:summary][:importInReport] > 0 }
                   2. In Summary
-                  3. Unstuffing Report
+                  3. Unstuffing Report #{ '[' + info[:summary][:importUnstuffingReport].to_s + ' of container(s) ]' if info[:summary][:importUnstuffingReport] > 0 }
                   4. Unstuffing Summary
-                  5. FCL Out Report
+                  5. FCL Out Report #{ '[' + info[:summary][:importFclOutReport].to_s + ' of container(s) ]' if info[:summary][:importFclOutReport] > 0 }
                   6. FCL Out Summary
-                  7. Laden Stock Report
+                  7. Laden Stock Report #{ '[' + info[:summary][:importLadenStockReport].to_s + ' of container(s) ]' if info[:summary][:importLadenStockReport] > 0 }
                   8. Laden Stock Summary
-              
-             NB: This is a system generated mail sent automatically. So if you found any problem in the report, please contact with our respective person.
+                  9. Issue Balance Report   #{ '[' + info[:summary][:issueBalanceReport].to_s + ' of container(s) ]' if info[:summary][:issueBalanceReport] > 0 }
+                  10. Issue Balance Report Summary
+             
+                System will not include excel attachment if there are no container to show. 
+
+                NB: This is a system generated mail sent automatically. So if you found any problem in the report, please contact with our respective person.
 
              Best Regards
              Customer Service Department
@@ -53,16 +59,20 @@ class EmailService
              Client Code: #{info[:clientCode] if info[:clientCode]} 
                 
              Container Movement Report Includes:
-                  1. In Report
-                  2. In Summary
-                  3. Out Empty Report
-                  4. Out Empty Summary
-                  5. Out Laden Report
-                  6. Out Laden Summary
-                  7. Stock Report
-                  8. Stock Summary
+             
+                   1. In Report          #{ '[' + info[:summary][:inReport].to_s + ' of container(s) ]' if info[:summary][:inReport] > 0 }
+                   2. In Summary
+                   3. Out Empty Report   #{ '[' + info[:summary][:outEmptyReport].to_s + ' of container(s) ]' if info[:summary][:inReport] > 0 }
+                   4. Out Empty Summary
+                   5. Out Laden Report   #{ '[' + info[:summary][:outLadenReport].to_s + ' of container(s) ]' if info[:summary][:inReport] > 0 }
+                   6. Out Laden Summary
+                   7. Stock Report       #{ '[' + info[:summary][:stockReport].to_s + ' of container(s) )' if info[:summary][:inReport] > 0 }
+                   8. Stock Summary 
               
-             NB: This is a system generated mail sent automatically. So if you found any problem in the report, please contact with our respective person.
+
+             System will not include excel attachment if there are no container to show. 
+
+             NB: This is a system generated mail sent automatically. So if you found any problem in the report, please contact with our respective person. Reports with 0 container are not generated.
 
              Best Regards
              Customer Service Department
@@ -90,4 +100,5 @@ class EmailService
          EOF
 
         end
+
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181227045430) do
+ActiveRecord::Schema.define(version: 20190402061632) do
 
   create_table "emails", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "creatorid"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20181227045430) do
     t.string   "permitted_depo_name"
     t.integer  "mail_delivery_setting_id"
     t.json     "cc"
+    t.string   "client_code"
   end
 
   create_table "mail_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

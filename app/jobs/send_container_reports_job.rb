@@ -13,7 +13,7 @@ class SendContainerReportsJob < ApplicationJob
   end
   
   def sent_emails emails
-    emails.each do  |email|
+    emails.each do  |email| 
         options = Hash.new
         options[:recipents] = email.recipients
         options[:cc] = email.cc
@@ -22,7 +22,7 @@ class SendContainerReportsJob < ApplicationJob
         options[:body]      = email.body
         options[:attachment_name] = email.attachment_name
         ReportMailer.daily_email_update(options).deliver!
-        email.update(state: :sent)
+        email.update(state: :sent) 
     end
   end
 end

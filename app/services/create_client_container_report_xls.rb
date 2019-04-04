@@ -16,6 +16,7 @@ class CreateClientContainerReportXls < CreateExcelTemplate
 
       Axlsx::Package.new do |p|
         wb = p.workbook
+          wb.styles.fonts.first.name = 'Calibri'
           wb.styles do |s| 
               heading = s.add_style :fg_color=> "004586", :b => true,  :bg_color => "FFFFFF", :sz => 12, 
                               :border => { :style => :thin, :color => "00" },
@@ -26,52 +27,51 @@ class CreateClientContainerReportXls < CreateExcelTemplate
           wb.add_worksheet(:name => "In Report") do |sheet|
               add_header options[:permitted_depo_name], options[:client_name] + ' ( ' + options[:client_code] + ')', sheet, header, "In Report"
               prepare_workbook sheet, options[:containerinfo][:containerInReport], header    
-            end
+            end unless options[:containerinfo][:containerInReport].first[:id] == 0
           
           wb.add_worksheet(:name => "In Report Summary") do |sheet|
               add_header options[:permitted_depo_name], options[:client_name] + ' ( ' + options[:client_code] + ')', sheet, header, "In Report Summary"
               prepare_workbook sheet, options[:containerinfo][:containerInReportSummary], header, false
-            end
+            end unless options[:containerinfo][:containerInReport].first[:id] == 0
             
             wb.add_worksheet(:name => "Out Empty Report") do |sheet|
               add_header options[:permitted_depo_name], options[:client_name] + ' ( ' + options[:client_code] + ')', sheet, header, "Out Empty Report"
               prepare_workbook sheet, options[:containerinfo][:containerEmptyOutReport], header    
-            end
+            end unless options[:containerinfo][:containerEmptyOutReport].first[:id] == 0
 
             wb.add_worksheet(:name => "Out Empty Report Summary") do |sheet|
               add_header options[:permitted_depo_name], options[:client_name] + ' ( ' + options[:client_code] + ')', sheet, header, "Out Empty Report Summary"
               prepare_workbook sheet, options[:containerinfo][:containerEmptyOutReportSummary], header, false 
-            end
+            end unless options[:containerinfo][:containerEmptyOutReport].first[:id] == 0
           
           wb.add_worksheet(:name => "Out Laden Report") do |sheet|
               add_header options[:permitted_depo_name], options[:client_name] + ' ( ' + options[:client_code] + ')', sheet, header, "Out Laden Report"
               prepare_workbook sheet, options[:containerinfo][:containerLadenOutReport], header  
-            end
+            end unless options[:containerinfo][:containerLadenOutReport].first[:id] == 0
           
           wb.add_worksheet(:name => "Out Laden Report Summary") do |sheet|
               add_header options[:permitted_depo_name], options[:client_name] + ' ( ' + options[:client_code] + ')', sheet, header, "Out Laden Report Summary"
               prepare_workbook sheet, options[:containerinfo][:containerLadenOutReportSummary], header,false
-            end
+            end unless options[:containerinfo][:containerLadenOutReport].first[:id] == 0
 
       
 
           wb.add_worksheet(:name => "Stock Report") do |sheet|
               add_header options[:permitted_depo_name], options[:client_name] + ' ( ' + options[:client_code] + ')', sheet, header, "Stock Report"
               prepare_workbook sheet, options[:containerinfo][:containerStockReport], header  
-            end
+            end unless options[:containerinfo][:containerStockReport].first[:id] == 0
 
           wb.add_worksheet(:name => "Stock Report Summary") do |sheet|
               add_header options[:permitted_depo_name], options[:client_name] + ' ( ' + options[:client_code] + ')', sheet, header, "Stock Report Summary"
               prepare_workbook sheet, options[:containerinfo][:containerStockReportSummary], header, false 
-          end
+          end unless options[:containerinfo][:containerStockReport].first[:id] == 0
         end
           p.use_shared_strings = true
           p.serialize(options[:filename])
-
           Rails.logger.info "########  Storing mail info at db ######" 
           EmailService.create_email options
       end
-      
+      true
   end   
 end
 

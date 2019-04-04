@@ -7,7 +7,8 @@ class AuthService
    def self.authenticate(options={}) 
         if Time.now < @@expiredAt and  !@@accessToken.nil?
            return @@accessToken
-        else   
+        else  
+            begin 
             puts "Calling SODMS backend to authenticate"
             puts "#{ENV["LOCAL_BACKEND_BASE"]}/api/TokenAuth/Authenticate}"
             response = RestClient.post ENV["LOCAL_BACKEND_BASE"]+"/api/TokenAuth/Authenticate", {  "userNameOrEmailAddress": "mailadmin",
@@ -15,10 +16,13 @@ class AuthService
             authinfo = JSON.parse(response.body,symbolize_names: true )
             @@expiredAt =  Time.now + authinfo[:result][:expireInSeconds];
             @@accessToken = authinfo[:result][:accessToken] 
-            if authinfo[:success] == true 
+           if authinfo[:success] == true 
                 return authinfo[:result][:accessToken]
             else
                 return nil
+            end
+            rescue RestClient::Exception => e
+              return nil
             end
          end    
     end

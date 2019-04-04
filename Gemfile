@@ -65,6 +65,7 @@ group :development, :test do
  # gem 'puma', '~> 3.0'
   gem 'byebug', platform: :mri
   gem 'mysql2'
+  gem 'awesome_print'
 end
 
 group :development do 

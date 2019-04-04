@@ -9,3 +9,4 @@ log/test.log
 tmp/
 .xlsx
 log/capistrano.log
+reports/*.xlsx

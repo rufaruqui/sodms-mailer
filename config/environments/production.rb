@@ -83,9 +83,8 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.raise_delivery_errors =true
+  config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default_options = {from: 'reporting@saplbd.com'}
   
   config.action_mailer.smtp_settings = {
@@ -93,7 +92,7 @@ Rails.application.configure do
       :port => 587,
       :domain => 'saplbd.com',
       :user_name => "reporting@saplbd.com",
-      :password => "1290@cfsrt",
+      :password => "it@sapl$9904",
       :authentication => :login,
       :enable_starttls_auto => true
   }

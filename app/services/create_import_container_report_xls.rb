@@ -5,20 +5,10 @@ class CreateImportContainerReportXls < CreateExcelTemplate
    
    def self.perform(options={}) 
     puts "Creating Import Container Movement Report"
-   # import_in = ["ID", "Container Number", "Size", "Type", "Company", "Agent", "MLO", "Issue Date", "In Date", "Container Condition","Damage Area", "Damage Part", "Damage Description", "Unstuffing Date", "Out Date", "Seal Number", "Amended Seal No", "Vessel", "Rotation #", "Line #", "BE #", "BL #", "Location - From", "Depo Loc", "Importer", "CNF", "EIR #", "Commodity", "In Transport", "In Trailer", "In Remarks"]
-   # import_in_summary= ["Agent", "MLO", "Size-Type", "Sound", "Repaired", "Damage", "Wash", "Sweep", "Clean", "Total"]
-   # import_unstuffing = ["ID", "Container Number", "Size", "Type","Height", "Company", "Agent", "MLO", "Import Vessel", "Rotation #", "BE #", "BL #", "Line #", "Importer", "CNF", "EIR #", "Commodity","Seal Number", "Amended Seal No",  "Location - From", "Depo Loc","Issue Date", "In Date", "Unstuffing Date", "Container Condition","Damage Area", "Damage Part", "Damage Description","In Transport", "In Trailer", "Trailer #", "In Remarks"]
-   # import_unstuffing_summary= ["Agent", "MLO", "Size-Type", "Sound", "Repaired", "Damage", "Wash", "Sweep", "Clean", "Total"]
-   # import_fclout = ["ID", "Container Number", "Size", "Type", "Company", "Agent", "MLO", "Import Vessel", "Rotation #", "Importer", "CNF" "Commodity","Current Depo", "Seal Number", "Amended Seal No","EIR #", "BE #", "BL #", "Line #",  "Location - From", "Depo Loc","Issue Date", "In Date", "Out Date","Out Location", "Container Condition","Damage Area", "Damage Part", "Damage Description","Total Lot", "Total Weight", "Out Transport", "Out Remarks"]
-   # import_fclout_summary= ["Agent", "MLO", "Size-Type", "Sound", "Repaired", "Damage", "Wash", "Sweep", "Clean", "Total"]
-   # import_ladenstock = ["ID", "Container Number", "Size", "Type", "Company", "Agent", "MLO", "Import Vessel", "Rotation #", "Importer", "Container Condition","Damage Area", "Damage Part", "Damage Description","CNF", "Commodity","Seal Number", "Amended Seal No", "EIR #", "Issue Date", "In Date","Location - From", "Depo Loc","BE #", "BL #", "Line #","Trailer #","In Transport", "In Remarks"]
-   # import_ladenstock_summary= ["Agent", "MLO", "Size-Type", "Sound", "Repaired", "Damage", "Wash", "Sweep", "Clean", "Total"]
-   # import_issuebalance = ["ID", "Container Number", "Size", "Type", "Height","Company", "Agent", "MLO", "Vessel", "Rotation #",  "Line #", "BE #", "BL #","Importer", "CNF", "EIR #","Location - From", "Depo Loc","Seal Number", "Amended Seal No", "Issue Date"]
-   # import_issuebalance_summary= ["Agent", "MLO", "Size-Type", "Sound", "Repaired", "Damage", "Wash", "Sweep", "Clean", "Total"]
-   
 
     Axlsx::Package.new do |p|
       wb = p.workbook
+      wb.styles.fonts.first.name = 'Calibri'
          wb.styles do |s| 
              heading = s.add_style :fg_color=> "004586", :b => true,  :bg_color => "FFFFFF", :sz => 12, 
                             :border => { :style => :thin, :color => "00" },
@@ -81,15 +71,9 @@ class CreateImportContainerReportXls < CreateExcelTemplate
         end 
         p.use_shared_strings = true
         p.serialize(options[:filename])
-
         Rails.logger.info '########  Storing mail info at db ######' 
         EmailService.create_email options
         true
     end
-    
   end 
-
-    
-    
-
 end

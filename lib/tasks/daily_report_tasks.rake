@@ -31,3 +31,9 @@ task set_schedule_dym: :environment do
      SetSchedule.set_send_containers_reports
 end
 
+
+
+desc 'Send Test Mail'
+task send_test_mail: :environment do   
+     SendTestMailJob.perform_later
+end

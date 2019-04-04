@@ -4,18 +4,14 @@ class ReportMailer < ApplicationMailer
    @queue='saplmailer'
 
   def  daily_email_update(options={}) 
-    attachments[options[:attachment_name]] =  File.read(options[:filename]) if File.exist? (options[:filename])
-    mail(to: options[:recipents], cc: options[:cc], subject: options[:subject], body: options[:body])
-
-    # mail = Mail.new do 
-    #   from     'sapl.mailer@gmail.com'
-    #   to        options[:recipents]
-    #   subject  'New Stock Report'
-    #   body     'Sample body'
-    #   add_file :filename => options[:filename], :content => File.read(options[:filename])
-    # end
-    #  return mail
-    
+    if options[:attachment_name].present?
+     attachments[options[:attachment_name]] = File.read(options[:filename]) if  File.exist? (options[:filename])
+    end
+    mail(to: options[:recipents], 
+         cc: options[:cc], 
+         subject: options[:subject],
+         body: options[:body]
+         )
   end
   
   def self.perform(options={})
