@@ -9,8 +9,10 @@ class CreateExcelTemplate
     def self.prepare_workbook(sheet, data, style_info, hidden=true) 
              keys = data.first.keys.select{|k| k.to_s.match(/id|Id|currentDepotUnit/)}
              h = data.first.keys - keys
-           # h = data.first.delete_if { |key, value| !key.to_s.match(/Id/) }
+           
            damage_details = [:damageAreaName, :damagePartName, :damageDescription, :damageComponent, :damageType, :repairType]
+           date_fields = h.select { |item| item.to_s.downcase.include? "date" }
+
            if data.blank? or !data.first.include?:containerNumber or data.first[:id] == 0
              sheet.add_row [""], style: style_info[:heading], height: 16   
            else
@@ -20,12 +22,14 @@ class CreateExcelTemplate
            sheet.add_row ["SL #"].push(h.map(&:to_s).map(&:titleize)).flatten, style: style_info[:heading]  
           if data.first[:id] != 0
             sl = 1
+            
             data.each_with_index do |info, index|
                a = h #info.keys 
               if index > 0 and info.include?:containerNumber and data[index][:containerNumber] == data[index-1][:containerNumber]
                  sheet.add_row  [" "].push(a.map{|item| (damage_details.include? item ) ? info[item] : nil}).flatten
               else
-                sheet.add_row    [sl].push(a.map{|item| info[item]}).flatten
+                sheet.add_row    [sl].push(a.map{|item|  ( !(info[item].nil? or info[item].blank?) and date_fields.include? item ) ? Date.parse(info[item]).to_s : info[item]}).flatten
+               #sheet.add_row    [sl].push(a.map{|item| info[item]}).flatten
                sl +=1
               end
 
@@ -38,11 +42,11 @@ class CreateExcelTemplate
     end
 
     def self.format_workbook(sheet, data, style_info) 
-      keys = data.select{|k| k.to_s.match(/id|Id|currentDepotUnit/)}
-      h = data - keys    
-      h.each_with_index do |item, index|  
-        sheet.col_style index+1, style_info[:date_format], :row_offset => 5 if item.to_s.downcase.include?  "date" 
-      end
+      # keys = data.select{|k| k.to_s.match(/id|Id|currentDepotUnit/)}
+      # h = data - keys    
+      # h.each_with_index do |item, index|  
+      #   sheet.col_style index+1, style_info[:date_format], :row_offset => 5 if item.to_s.downcase.include?  "date" 
+      # end
 
       sheet.merge_cells("A1:AG1")
       sheet.merge_cells("A2:AG2")
@@ -50,4 +54,5 @@ class CreateExcelTemplate
       sheet.merge_cells("A4:AG4")
       sheet.column_info.first.width = 5
     end
+
 end

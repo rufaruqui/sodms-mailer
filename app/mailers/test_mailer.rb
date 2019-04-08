@@ -17,7 +17,7 @@ class TestMailer < ApplicationMailer
             content_type 'text/html; charset=UTF-8'
              body '<h1>This is HTML</h1>'
     end
-    @mail.attachments[options[:attachment_name]] = { mime_type:'multipart/mixed', content_type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', content: File.read(options[:filename]) } if File.exist?  (options[:filename])
+    #@mail.attachments[options[:attachment_name]] = { mime_type:'multipart/mixed', content_type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', content: File.read(options[:filename]) } if File.exist?  (options[:filename])
   
   end
 

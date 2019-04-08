@@ -9,7 +9,7 @@ class CreateClientContainerReportEmail
        h = {:mailDeliverySettingsId=> info[:id]} 
        containerinfo = RetrieveClientContainerData.perform(h) 
        info[:summary] =  report_summary containerinfo
-
+       puts info[:summary]
        # ap containerinfo
        if !containerinfo.blank?
               options[:mail_delivery_setting_id] = info[:id]
@@ -22,26 +22,26 @@ class CreateClientContainerReportEmail
               options[:client_name] = info[:clientName]
               options[:client_code] = info[:clientCode]
               options[:permitted_depo_name] = info[:permittedDepotName]  
-            if !empty_report? info[:summary]
-              Rails.logger.info '######## Nothing to send  ##########' 
-              options[:body] = EmailService.container_report_email_body(info)
-              EmailService.create_email options
-            else
+            # if empty_report? info[:summary]
+            #   Rails.logger.info '######## Nothing to send  ##########' 
+            #   options[:body] = EmailService.container_report_email_body(info)
+            #   EmailService.create_email options
+            # else
               Rails.logger.info '########  Generate Excel Sheet                  ##########' 
               options[:containerinfo] = containerinfo
               options[:body] = EmailService.container_report_email_body(info)
               options[:attachment_name]=[info[:permittedDepotCode], info[:clientCode], 'ContainerMovementReport', Time.now.to_date.to_s].join('_')+'.xlsx'
               options[:filename]  = ['./reports/',info[:permittedDepotCode], info[:clientCode], 'ContainerMovementReport', Time.now.to_date.to_s, info[:id],'.xlsx'].join('_')
               CreateClientContainerReportXls.perform(options)
-            end  unless (recipents.blank? or recipents.nil?) and (cc.blank? or cc.nil?)
+           # end   
       end 
   end
 
-  def self.empty_report? response
+  def self.empty_report? response 
     response.each do |k, v|
-         return v > 0
+         return !(v > 0)
     end
-    return false
+    return true
   end
 
   def self.report_summary container_data
@@ -53,3 +53,4 @@ class CreateClientContainerReportEmail
       return summary
   end
 end
+ 

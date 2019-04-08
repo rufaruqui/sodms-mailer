@@ -13,7 +13,7 @@ class CreateImportContainerReportEmail
       
       containerinfo = RetrieveImportContainerData.perform(h)
       info[:summary] =  report_summary containerinfo
-
+      puts info[:summary]
         if !containerinfo.blank?
           Rails.logger.info '########  Generate Excel Sheet                  ##########' 
               options[:mail_delivery_setting_id] = info[:id]
@@ -26,24 +26,24 @@ class CreateImportContainerReportEmail
               options[:client_name] = info[:clientName]
               options[:client_code] = info[:clientCode]
               options[:permitted_depo_name] = info[:permittedDepotName]
-            if !empty_report? info[:summary]
-              options[:body] = EmailService.import_container_report_email_body(info)
-              EmailService.create_email options
-            else
+            # if empty_report? info[:summary]
+            #   options[:body] = EmailService.import_container_report_email_body(info)
+            #   EmailService.create_email options
+            # else
               options[:attachment_name]=[info[:permittedDepotCode], info[:clientCode], 'Import ContainerMovementReport', Time.now.to_date.to_s].join('_') + '.xlsx'
               options[:containerinfo] = containerinfo
               options[:body] = EmailService.import_container_report_email_body(info)
               options[:filename]  = ['./reports/',info[:permittedDepotCode], info[:clientCode], 'ImportContainerMovementReport', Time.now.to_date.to_s, info[:id],'.xlsx'].join('_')
               CreateImportContainerReportXls.perform(options)
-            end  unless (recipents.blank? or recipents.nil?) and (cc.blank? or cc.nil?)
+         #   end   
         end
   end
 
-  def self.empty_report? response
+   def self.empty_report? response 
     response.each do |k, v|
-         return v > 0
+         return !(v > 0)
     end
-    return false
+    return true
   end
 
   def self.report_summary container_data

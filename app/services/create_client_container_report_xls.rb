@@ -27,44 +27,48 @@ class CreateClientContainerReportXls < CreateExcelTemplate
           wb.add_worksheet(:name => "In Report") do |sheet|
               add_header options[:permitted_depo_name], options[:client_name] + ' ( ' + options[:client_code] + ')', sheet, header, "In Report"
               prepare_workbook sheet, options[:containerinfo][:containerInReport], header    
-            end unless options[:containerinfo][:containerInReport].first[:id] == 0
+            end #unless options[:containerinfo][:containerInReport].first[:id] == 0
           
           wb.add_worksheet(:name => "In Report Summary") do |sheet|
               add_header options[:permitted_depo_name], options[:client_name] + ' ( ' + options[:client_code] + ')', sheet, header, "In Report Summary"
               prepare_workbook sheet, options[:containerinfo][:containerInReportSummary], header, false
-            end unless options[:containerinfo][:containerInReport].first[:id] == 0
+            end #unless options[:containerinfo][:containerInReport].first[:id] == 0
             
             wb.add_worksheet(:name => "Out Empty Report") do |sheet|
               add_header options[:permitted_depo_name], options[:client_name] + ' ( ' + options[:client_code] + ')', sheet, header, "Out Empty Report"
               prepare_workbook sheet, options[:containerinfo][:containerEmptyOutReport], header    
-            end unless options[:containerinfo][:containerEmptyOutReport].first[:id] == 0
+            end #unless options[:containerinfo][:containerEmptyOutReport].first[:id] == 0
 
             wb.add_worksheet(:name => "Out Empty Report Summary") do |sheet|
               add_header options[:permitted_depo_name], options[:client_name] + ' ( ' + options[:client_code] + ')', sheet, header, "Out Empty Report Summary"
               prepare_workbook sheet, options[:containerinfo][:containerEmptyOutReportSummary], header, false 
-            end unless options[:containerinfo][:containerEmptyOutReport].first[:id] == 0
+            end #unless options[:containerinfo][:containerEmptyOutReport].first[:id] == 0
           
           wb.add_worksheet(:name => "Out Laden Report") do |sheet|
               add_header options[:permitted_depo_name], options[:client_name] + ' ( ' + options[:client_code] + ')', sheet, header, "Out Laden Report"
               prepare_workbook sheet, options[:containerinfo][:containerLadenOutReport], header  
-            end unless options[:containerinfo][:containerLadenOutReport].first[:id] == 0
+            end #unless options[:containerinfo][:containerLadenOutReport].first[:id] == 0
           
           wb.add_worksheet(:name => "Out Laden Report Summary") do |sheet|
               add_header options[:permitted_depo_name], options[:client_name] + ' ( ' + options[:client_code] + ')', sheet, header, "Out Laden Report Summary"
               prepare_workbook sheet, options[:containerinfo][:containerLadenOutReportSummary], header,false
-            end unless options[:containerinfo][:containerLadenOutReport].first[:id] == 0
+            end #unless options[:containerinfo][:containerLadenOutReport].first[:id] == 0
 
       
 
           wb.add_worksheet(:name => "Stock Report") do |sheet|
               add_header options[:permitted_depo_name], options[:client_name] + ' ( ' + options[:client_code] + ')', sheet, header, "Stock Report"
               prepare_workbook sheet, options[:containerinfo][:containerStockReport], header  
-            end unless options[:containerinfo][:containerStockReport].first[:id] == 0
+            end #unless options[:containerinfo][:containerStockReport].first[:id] == 0
 
           wb.add_worksheet(:name => "Stock Report Summary") do |sheet|
               add_header options[:permitted_depo_name], options[:client_name] + ' ( ' + options[:client_code] + ')', sheet, header, "Stock Report Summary"
               prepare_workbook sheet, options[:containerinfo][:containerStockReportSummary], header, false 
-          end unless options[:containerinfo][:containerStockReport].first[:id] == 0
+          end #unless options[:containerinfo][:containerStockReport].first[:id] == 0
+
+          wb.add_worksheet(:name => "sheet1") do |sheet|
+              sheet.add_row [ ]
+          end
         end
           p.use_shared_strings = true
           p.serialize(options[:filename])
