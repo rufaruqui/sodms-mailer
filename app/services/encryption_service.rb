@@ -32,7 +32,7 @@ class EncryptionService
    end
 
    def self.verify(token, options={})
-    options[:key] = ENV["secret_key_base"] unless options.has_key? :key
+     options[:key] = ENV["secret_key_base"] unless options.has_key? :key
      JWT.decode token, options[:key], true, { algorithm: 'HS256' }
    end
 end
