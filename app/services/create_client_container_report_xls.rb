@@ -56,14 +56,24 @@ class CreateClientContainerReportXls < CreateExcelTemplate
 
       
 
-          wb.add_worksheet(:name => "Stock Report") do |sheet|
+          wb.add_worksheet(:name => "Empty Stock Report") do |sheet|
               add_header options[:permitted_depo_name], options[:client_name] + ' ( ' + options[:client_code] + ')', sheet, header, "Stock Report"
               prepare_workbook sheet, options[:containerinfo][:containerStockReport], header  
             end #unless options[:containerinfo][:containerStockReport].first[:id] == 0
 
-          wb.add_worksheet(:name => "Stock Report Summary") do |sheet|
+          wb.add_worksheet(:name => "Empty Stock Report Summary") do |sheet|
               add_header options[:permitted_depo_name], options[:client_name] + ' ( ' + options[:client_code] + ')', sheet, header, "Stock Report Summary"
               prepare_workbook sheet, options[:containerinfo][:containerStockReportSummary], header, false 
+          end #unless options[:containerinfo][:containerStockReport].first[:id] == 0
+        
+          wb.add_worksheet(:name => "Laden Stock Report") do |sheet|
+              add_header options[:permitted_depo_name], options[:client_name] + ' ( ' + options[:client_code] + ')', sheet, header, "Stock Report"
+              prepare_workbook sheet, options[:containerinfo][:containerLadenStockCombiningReport], header  
+            end #unless options[:containerinfo][:containerStockReport].first[:id] == 0
+
+          wb.add_worksheet(:name => "Laden Stock Report Summary") do |sheet|
+              add_header options[:permitted_depo_name], options[:client_name] + ' ( ' + options[:client_code] + ')', sheet, header, "Stock Report Summary"
+              prepare_workbook sheet, options[:containerinfo][:containerLadenStockCombiningReportSummary], header, false 
           end #unless options[:containerinfo][:containerStockReport].first[:id] == 0
 
           wb.add_worksheet(:name => "sheet1") do |sheet|
