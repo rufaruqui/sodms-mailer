@@ -9610,3 +9610,39 @@ and the repository exists.
 
 Please make sure you have the correct access rights
 and the repository exists.
+  INFO ---------------------------------------------------------------------------
+  INFO START 2019-06-17 14:24:56 +0600 cap production deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [bd38fcbd] Running [ -d ~/.rvm ] as mailadmin@203.202.249.99
+ DEBUG [bd38fcbd] Command: [ -d ~/.rvm ]
+ DEBUG [bd38fcbd] Finished in 5.711 seconds with exit status 1 (failed).
+ DEBUG [0062e2c1] Running [ -d /usr/local/rvm ] as mailadmin@203.202.249.99
+ DEBUG [0062e2c1] Command: [ -d /usr/local/rvm ]
+ DEBUG [0062e2c1] Finished in 0.063 seconds with exit status 0 (successful).
+ DEBUG [a1bf0728] Running /usr/local/rvm/bin/rvm version as mailadmin@203.202.249.99
+ DEBUG [a1bf0728] Command: /usr/local/rvm/bin/rvm version
+ DEBUG [a1bf0728] 	rvm 1.29.7 (latest) by Michal Papis, Piotr Kuczynski, Wayne E. Seguin [https://rvm.io]
+ DEBUG [a1bf0728] Finished in 0.420 seconds with exit status 0 (successful).
+ DEBUG [304ecd87] Running /usr/local/rvm/bin/rvm current as mailadmin@203.202.249.99
+ DEBUG [304ecd87] Command: /usr/local/rvm/bin/rvm current
+ DEBUG [304ecd87] 	ruby-2.3.3
+ DEBUG [304ecd87] Finished in 0.394 seconds with exit status 0 (successful).
+ DEBUG [d041178a] Running /usr/local/rvm/bin/rvm 2.3.3 do ruby --version as mailadmin@203.202.249.99
+ DEBUG [d041178a] Command: /usr/local/rvm/bin/rvm 2.3.3 do ruby --version
+ DEBUG [d041178a] 	ruby 2.3.3p222 (2016-11-21 revision 56859) [x86_64-linux]
+ DEBUG [d041178a] Finished in 0.627 seconds with exit status 0 (successful).
+  INFO [4e7c4ef6] Running /usr/bin/env mkdir -p /tmp as mailadmin@203.202.249.99
+ DEBUG [4e7c4ef6] Command: /usr/bin/env mkdir -p /tmp
+  INFO [4e7c4ef6] Finished in 0.083 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-sodmsmailer-production-rufaruqui.sh 0.0%
+  INFO Uploading /tmp/git-ssh-sodmsmailer-production-rufaruqui.sh 100.0%
+  INFO [245c5277] Running /usr/bin/env chmod 700 /tmp/git-ssh-sodmsmailer-production-rufaruqui.sh as mailadmin@203.202.249.99
+ DEBUG [245c5277] Command: /usr/bin/env chmod 700 /tmp/git-ssh-sodmsmailer-production-rufaruqui.sh
+  INFO [245c5277] Finished in 0.071 seconds with exit status 0 (successful).
+  INFO [91513ab0] Running /usr/bin/env git ls-remote ssh://git@203.202.249.100:7990/sod/sodmsmailer.git HEAD as mailadmin@203.202.249.99
+ DEBUG [91513ab0] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-sodmsmailer-production-rufaruqui.sh" ; /usr/bin/env git ls-remote ssh://git@203.202.249.100:7990/sod/sodmsmailer.git HEAD )
+ DEBUG [91513ab0] 	ssh_exchange_identification: Connection closed by remote host
+ DEBUG [91513ab0] 	fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
