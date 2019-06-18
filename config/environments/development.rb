@@ -69,10 +69,10 @@ Rails.application.configure do
   config.action_mailer.default_options = {from: 'reporting@saplbd.com'}
   
    config.action_mailer.smtp_settings = {
-      :address => "smtp.office365.com",
-      :port => 587,
-      :domain => 'saplbd.com',
-      :user_name => "reporting@saplbd.com",
+       :address => ENV['SMPT_SERVER'],
+      :port => ENV['PORT'],
+      :domain => ENV['DOMAIN'],
+      :user_name => ENV['USERNAME'], 
       :password => "passwordnai", #"it@sapl$9904",
       :authentication => :login,
       :enable_starttls_auto => true

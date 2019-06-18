@@ -99,11 +99,11 @@ Rails.application.configure do
   #     :enable_starttls_auto => true
   # }
   config.action_mailer.smtp_settings = {
-      :address => "smtp.office365.com",
-      :port => 587,
-      :domain => 'isatlbd.com',
-      :user_name => "reporting@isatlbd.com",
-      :password => "25846@#isatl",
+      :address => ENV['SMPT_SERVER'],
+      :port => ENV['PORT'].to_i,
+      :domain => ENV['DOMAIN'],
+      :user_name => ENV['USERNAME'],
+      :password => ENV['PASSWORD'],
       :authentication => :login,
       :enable_starttls_auto => true
   }
