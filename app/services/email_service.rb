@@ -66,8 +66,10 @@ class EmailService
                    4. Out Empty Summary
                    5. Out Laden Report   #{ '[' + info[:summary][:outLadenReport].to_s + ' of container(s) ]' if info[:summary][:inReport] > 0 }
                    6. Out Laden Summary
-                   7. Stock Report       #{ '[' + info[:summary][:stockReport].to_s + ' of container(s) )' if info[:summary][:inReport] > 0 }
-                   8. Stock Summary 
+                   7. Empty Stock Report       #{ '[' + info[:summary][:stockReport].to_s + ' of container(s) )' if info[:summary][:inReport] > 0 }
+                   8. Empty Stock Summary 
+                   9. Laden Stock Report       #{ '[' + info[:summary][:ladenStockReport].to_s + ' of container(s) )' if info[:summary][:inReport] > 0 }
+                  10. Laden Stock Summary 
               
 
              System will not include excel attachment if there are no container to show. 

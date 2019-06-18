@@ -46,10 +46,11 @@ class CreateClientContainerReportEmail
 
   def self.report_summary container_data
       summary = Hash.new
-      summary[:inReport] = container_data[:containerInReport].first[:id] == 0 ? 0 : container_data[:containerInReport].pluck(:containerNumber).uniq.count
-      summary[:outEmptyReport] = container_data[:containerEmptyOutReport].first[:id] == 0 ? 0 : container_data[:containerEmptyOutReport].pluck(:containerNumber).uniq.count
-      summary[:outLadenReport] = container_data[:containerLadenOutReport].first[:id] == 0 ? 0 : container_data[:containerLadenOutReport].pluck(:containerNumber).uniq.count
-      summary[:stockReport] =    container_data[:containerStockReport].first[:id] == 0 ? 0 : container_data[:containerStockReport].pluck(:containerNumber).uniq.count
+      summary[:inReport]         = container_data[:containerInReport].first[:id] == 0 ? 0 : container_data[:containerInReport].pluck(:containerNumber).uniq.count
+      summary[:outEmptyReport]   = container_data[:containerEmptyOutReport].first[:id] == 0 ? 0 : container_data[:containerEmptyOutReport].pluck(:containerNumber).uniq.count
+      summary[:outLadenReport]   = container_data[:containerLadenOutReport].first[:id] == 0 ? 0 : container_data[:containerLadenOutReport].pluck(:containerNumber).uniq.count
+      summary[:stockReport]      =    container_data[:containerStockReport].first[:id] == 0 ? 0 : container_data[:containerStockReport].pluck(:containerNumber).uniq.count
+      summary[:ladenStockReport] = container_data[:containerLadenStockCombiningReport].first[:id] == 0 ? 0 : container_data[:containerLadenStockCombiningReport].pluck(:containerNumber).uniq.count
       return summary
   end
 end
