@@ -11,3 +11,4 @@ tmp/
 log/capistrano.log
 reports/*.xlsx
 log/capistrano.log
+log/capistrano.log
