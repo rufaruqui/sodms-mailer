@@ -21,7 +21,7 @@ set :repo_url, "ssh://git@203.202.249.100:7999/sodms/sodmsmailer.git"
 # set :pty, true
 
 # Default value for :linked_files is []
- append :linked_files, "config/database.yml", "config/secrets.yml"
+ append :linked_files, "config/database.yml", "config/secrets.yml", "config/local_env.yml"
 
 # Default value for linked_dirs is []
  append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
