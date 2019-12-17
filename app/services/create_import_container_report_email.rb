@@ -12,8 +12,9 @@ class CreateImportContainerReportEmail
       h = {:mailDeliverySettingsId=> info[:id]}   
       
       containerinfo = RetrieveImportContainerData.perform(h)
-      info[:summary] =  report_summary containerinfo
-      puts info[:summary]
+      puts containerinfo
+      info[:summary] =  report_summary containerinfo unless containerinfo.blank?
+     puts info[:summary]
         if !containerinfo.blank?
           Rails.logger.info '########  Generate Excel Sheet                  ##########' 
               options[:mail_delivery_setting_id] = info[:id]
@@ -48,11 +49,11 @@ class CreateImportContainerReportEmail
 
   def self.report_summary container_data
       summary = Hash.new
-      summary[:importInReport] =         container_data[:importInReport].first[:id] == 0 ? 0 : container_data[:importInReport].pluck(:containerNumber).uniq.count
-      summary[:importUnstuffingReport] = container_data[:importUnstuffingReport].first[:id] == 0 ? 0 : container_data[:importUnstuffingReport].pluck(:containerNumber).uniq.count
-      summary[:importFclOutReport] =     container_data[:importFclOutReport].first[:id] == 0 ? 0 : container_data[:importFclOutReport].pluck(:containerNumber).uniq.count
-      summary[:importLadenStockReport] = container_data[:importLadenStockReport].first[:id] == 0 ? 0 : container_data[:importLadenStockReport].pluck(:containerNumber).uniq.count
-      summary[:issueBalanceReport] =     container_data[:issueBalanceReport].first[:id] == 0 ? 0 : container_data[:issueBalanceReport].pluck(:containerNumber).uniq.count 
+      summary[:importInReport] =         container_data[:importInReport].blank? ? 0 : container_data[:importInReport].pluck(:containerNumber).uniq.count  
+      summary[:importUnstuffingReport] = container_data[:importUnstuffingReport].blank? ? 0 : container_data[:importUnstuffingReport].pluck(:containerNumber).uniq.count unless container_data[:importUnstuffingReport].nil?
+      summary[:importFclOutReport] =     container_data[:importFclOutReport].blank? ? 0 : container_data[:importFclOutReport].pluck(:containerNumber).uniq.count unless container_data[:importFclOutReport].nil?
+      summary[:importLadenStockReport] = container_data[:importLadenStockReport].blank? ? 0 : container_data[:importLadenStockReport].pluck(:containerNumber).uniq.count unless container_data[:importLadenStockReport].nil?
+      summary[:issueBalanceReport] =     container_data[:issueBalanceReport].blank? ? 0 : container_data[:issueBalanceReport].pluck(:containerNumber).uniq.count unless container_data[:issueBalanceReport].nil?
       return summary
   end
 end

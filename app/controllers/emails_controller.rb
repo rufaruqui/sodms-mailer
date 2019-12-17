@@ -1,5 +1,5 @@
 class EmailsController < ApplicationController
-    before_action :authenticate
+    #before_action :authenticate
     before_action :set_email, only: [:show, :edit, :update, :destroy, :resend_email]
 
   # GET /emails
@@ -22,8 +22,8 @@ class EmailsController < ApplicationController
                  } unless @emails.nil? or @emails.blank?
         
     @payload = EncryptionService.sign :emails=> @emails.to_json, :summary=>@summary
-    @eamils = nil
-    @summary = nil
+    #@eamils = nil
+    #@summary = nil
   end
 
   # GET /emails/1

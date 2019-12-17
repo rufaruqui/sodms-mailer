@@ -1,7 +1,7 @@
 class EmailService
     def self.create_email(options)
         options[:attachment_name] = options[:attachment_name].present? ? options[:attachment_name] : nil; 
-     Email.create(:recipients=>options[:recipents], 
+     Email.create(   :recipients=>options[:recipents], 
                      :subject=>options[:subject], 
                      :attachment=>options[:filename], 
                      :body=>options[:body], 
@@ -16,7 +16,6 @@ class EmailService
                      :cc=>options[:cc]
                      )
     end
-
     def self.import_container_report_email_body (info)
           <<-EOF 
              Dear #{info[:clientName]},
@@ -48,7 +47,7 @@ class EmailService
              #{info[:permittedDepotName]}
          EOF
 
-        end
+    end
     def self.container_report_email_body (info)
           <<-EOF 
              Dear #{info[:clientName]},
@@ -81,8 +80,7 @@ class EmailService
              #{info[:permittedDepotName]}
          EOF
 
-        end
-
+    end
     def self.cargo_report_email_body (info)
           <<-EOF 
             Dear #{info[:clientName]},
@@ -101,6 +99,5 @@ class EmailService
             #{info[:permittedDepotName]}
          EOF
 
-        end
-
+    end
 end
