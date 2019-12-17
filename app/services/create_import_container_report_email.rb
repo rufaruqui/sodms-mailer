@@ -27,16 +27,16 @@ class CreateImportContainerReportEmail
               options[:client_name] = info[:clientName]
               options[:client_code] = info[:clientCode]
               options[:permitted_depo_name] = info[:permittedDepotName]
-            # if empty_report? info[:summary]
-            #   options[:body] = EmailService.import_container_report_email_body(info)
-            #   EmailService.create_email options
-            # else
+            if info[:summary].values.sum  == 0
+               options[:body] = EmailService.import_container_report_email_body(info)
+               EmailService.create_email options
+             else
               options[:attachment_name]=[info[:permittedDepotCode], info[:clientCode], 'Import ContainerMovementReport', Time.now.to_date.to_s].join('_') + '.xlsx'
               options[:containerinfo] = containerinfo
               options[:body] = EmailService.import_container_report_email_body(info)
               options[:filename]  = ['./reports/',info[:permittedDepotCode], info[:clientCode], 'ImportContainerMovementReport', Time.now.to_date.to_s, info[:id],'.xlsx'].join('_')
               CreateImportContainerReportXls.perform(options)
-         #   end   
+           end   
         end
   end
 
@@ -50,10 +50,11 @@ class CreateImportContainerReportEmail
   def self.report_summary container_data
       summary = Hash.new
       summary[:importInReport] =         container_data[:importInReport].blank? ? 0 : container_data[:importInReport].pluck(:containerNumber).uniq.count  
-      summary[:importUnstuffingReport] = container_data[:importUnstuffingReport].blank? ? 0 : container_data[:importUnstuffingReport].pluck(:containerNumber).uniq.count unless container_data[:importUnstuffingReport].nil?
-      summary[:importFclOutReport] =     container_data[:importFclOutReport].blank? ? 0 : container_data[:importFclOutReport].pluck(:containerNumber).uniq.count unless container_data[:importFclOutReport].nil?
-      summary[:importLadenStockReport] = container_data[:importLadenStockReport].blank? ? 0 : container_data[:importLadenStockReport].pluck(:containerNumber).uniq.count unless container_data[:importLadenStockReport].nil?
-      summary[:issueBalanceReport] =     container_data[:issueBalanceReport].blank? ? 0 : container_data[:issueBalanceReport].pluck(:containerNumber).uniq.count unless container_data[:issueBalanceReport].nil?
+      summary[:importUnstuffingReport] = container_data[:importUnstuffingReport].blank? ? 0 : container_data[:importUnstuffingReport].pluck(:containerNumber).uniq.count  
+      summary[:importFclOutReport] =     container_data[:importFclOutReport].blank? ? 0 : container_data[:importFclOutReport].pluck(:containerNumber).uniq.count  
+      summary[:importLadenStockReport] = container_data[:importLadenStockReport].blank? ? 0 : container_data[:importLadenStockReport].pluck(:containerNumber).uniq.count  
+      summary[:issueBalanceReport] =     container_data[:issueBalanceReport].blank? ? 0 : container_data[:issueBalanceReport].pluck(:containerNumber).uniq.count  
+
       return summary
   end
 end

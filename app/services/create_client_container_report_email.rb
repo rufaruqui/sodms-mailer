@@ -22,18 +22,18 @@ class CreateClientContainerReportEmail
               options[:client_name] = info[:clientName]
               options[:client_code] = info[:clientCode]
               options[:permitted_depo_name] = info[:permittedDepotName]  
-            # if empty_report? info[:summary]
-            #   Rails.logger.info '######## Nothing to send  ##########' 
-            #   options[:body] = EmailService.container_report_email_body(info)
-            #   EmailService.create_email options
-            # else
+            if info[:summary].values.sum  == 0
+              Rails.logger.info '######## Nothing to send  ##########' 
+              options[:body] = EmailService.container_report_email_body(info)
+              EmailService.create_email options
+            else
               Rails.logger.info '########  Generate Excel Sheet                  ##########' 
               options[:containerinfo] = containerinfo
               options[:body] = EmailService.container_report_email_body(info)
               options[:attachment_name]=[info[:permittedDepotCode], info[:clientCode], 'ContainerMovementReport', Time.now.to_date.to_s].join('_')+'.xlsx'
               options[:filename]  = ['./reports/',info[:permittedDepotCode], info[:clientCode], 'ContainerMovementReport', Time.now.to_date.to_s, info[:id],'.xlsx'].join('_')
               CreateClientContainerReportXls.perform(options)
-           # end   
+            end   
       end 
   end
 
@@ -46,11 +46,11 @@ class CreateClientContainerReportEmail
 
   def self.report_summary container_data
       summary = Hash.new
-      summary[:inReport]         = container_data[:containerInReport].first[:id] == 0 ? 0 : container_data[:containerInReport].pluck(:containerNumber).uniq.count
-      summary[:outEmptyReport]   = container_data[:containerEmptyOutReport].first[:id] == 0 ? 0 : container_data[:containerEmptyOutReport].pluck(:containerNumber).uniq.count
-      summary[:outLadenReport]   = container_data[:containerLadenOutReport].first[:id] == 0 ? 0 : container_data[:containerLadenOutReport].pluck(:containerNumber).uniq.count
-      summary[:stockReport]      =    container_data[:containerStockReport].first[:id] == 0 ? 0 : container_data[:containerStockReport].pluck(:containerNumber).uniq.count
-      summary[:ladenStockReport] = container_data[:containerLadenStockCombiningReport].first[:id] == 0 ? 0 : container_data[:containerLadenStockCombiningReport].pluck(:containerNumber).uniq.count
+      summary[:inReport]         = container_data[:containerInReport].blank? ? 0 : container_data[:containerInReport].pluck(:containerNumber).uniq.count
+      summary[:outEmptyReport]   = container_data[:containerEmptyOutReport].blank? ? 0 : container_data[:containerEmptyOutReport].pluck(:containerNumber).uniq.count
+      summary[:outLadenReport]   = container_data[:containerLadenOutReport].blank? ? 0 : container_data[:containerLadenOutReport].pluck(:containerNumber).uniq.count
+      summary[:stockReport]      = container_data[:containerStockReport].blank? ? 0 : container_data[:containerStockReport].pluck(:containerNumber).uniq.count
+      summary[:ladenStockReport] = container_data[:containerLadenStockCombiningReport].blank? ? 0 : container_data[:containerLadenStockCombiningReport].pluck(:containerNumber).uniq.count
       return summary
   end
 end

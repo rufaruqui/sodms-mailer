@@ -7,6 +7,8 @@ class CreateExcelTemplate
     end
    
     def self.prepare_workbook(sheet, data, style_info, hidden=true) 
+           # return true if data.first.nil?
+
              keys = data.first.keys.select{|k| k.to_s.match(/id|Id|currentDepotUnit/)}
              h = data.first.keys - keys
            

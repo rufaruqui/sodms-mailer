@@ -1,11 +1,11 @@
 class EmailService
     def self.create_email(options)
         options[:attachment_name] = options[:attachment_name].present? ? options[:attachment_name] : nil; 
-     Email.create(   :recipients=>options[:recipents], 
+    email = Email.new(   :recipients=>options[:recipents], 
                      :subject=>options[:subject], 
                      :attachment=>options[:filename], 
                      :body=>options[:body], 
-                     :attachment_name=>options[:attachment_name], 
+                   #  :attachment_name=>nil, 
                      :mail_type=>options[:mail_type], 
                      :state=>0, 
                      :clientid=>options[:clientid], 
@@ -15,6 +15,8 @@ class EmailService
                      :mail_delivery_setting_id=>options[:mail_delivery_setting_id],
                      :cc=>options[:cc]
                      )
+        email.attachment_name =options[:attachment_name] if options[:attachment_name].present?
+        email.save
     end
     def self.import_container_report_email_body (info)
           <<-EOF 
