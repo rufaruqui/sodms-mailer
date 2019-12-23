@@ -26,9 +26,9 @@
 # role :db,  %w{103.4.65.211 175.29.189.243}, user: 'mailadmin'
 
 
-# role :app, %w{203.202.249.99}, user: 'mailadmin'
-# role :web, %w{203.202.249.99}, user: 'mailadmin'
-# role :db,  %w{203.202.249.99}, user: 'mailadmin'
+# role :app, %w{203.202.249.99}, user: 'mailadmin', port: 24420
+# role :web, %w{203.202.249.99}, user: 'mailadmin', port: 24420
+# role :db,  %w{203.202.249.99}, user: 'mailadmin', port: 24420
 
 
 role :app, %w{ 103.4.65.211}, user: 'mailadmin', port: 24420
