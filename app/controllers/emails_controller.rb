@@ -93,6 +93,13 @@ class EmailsController < ApplicationController
     # sent_email emails unless emails.blank?
     options = Hash.new
     options[:state] = params[:state]
+    options[:fromDate] = params[:fromDate].to_i / 1000
+    options[:toDate] = params[:toDate].to_i / 1000
+    
+    fromDate = DateTime.strptime(fromDate.to_s,'%s')
+    toDate = DateTime.strptime(toDate.to_s,'%s')
+     
+    @emails = Email.where(created_at:fromDate..toDate)
     SendContainerReportsJob.perform_later options
     render json: { :message=>"email queued for delivery", status: :ok, :errors=>nil} 
   end 
