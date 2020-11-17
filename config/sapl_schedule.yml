@@ -10,10 +10,6 @@ send_import_container_reports:
   description: "Sending daily import container reports"
 send_import_container_reports_1:
   cron: "16 18 * * *"
-  # you can use rufus-scheduler "every" syntax in place of cron if you prefer
-  # every: 1h
-  # By default the job name (hash key) will be taken as worker class name.
-  # If you want to have a different job name and class name, provide the 'class' option
   class: "ImportContainerReportEmailJob"
   queue: high
   args:
@@ -22,10 +18,6 @@ send_import_container_reports_1:
   
 send_daily_reports:
   cron: "9 45 * * *"
-  # you can use rufus-scheduler "every" syntax in place of cron if you prefer
-  # every: 1h
-  # By default the job name (hash key) will be taken as worker class name.
-  # If you want to have a different job name and class name, provide the 'class' option
   class: "TestMailer"
   queue: high
   args:

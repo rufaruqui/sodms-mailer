@@ -1,5 +1,4 @@
- 
-class CreateImportContainerReportEmail
+ßclass CreateImportContainerReportEmail
 
   def self.perform(info)  
       options={}
@@ -11,10 +10,8 @@ class CreateImportContainerReportEmail
       h = Hash.new 
       h = {:mailDeliverySettingsId=> info[:id]}   
       
-      containerinfo = RetrieveImportContainerData.perform(h)
-      puts containerinfo
+      containerinfo = RetrieveImportContainerData.perform(h) 
       info[:summary] =  report_summary containerinfo unless containerinfo.blank?
-     puts info[:summary]
         if !containerinfo.blank?
           Rails.logger.info '########  Generate Excel Sheet                  ##########' 
               options[:mail_delivery_setting_id] = info[:id]

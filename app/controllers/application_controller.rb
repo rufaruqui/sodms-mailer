@@ -12,7 +12,7 @@ class ApplicationController < ActionController::API
            decoded_token = EncryptionService.verify token, options
             t = decoded_token[0].symbolize_keys 
             #  if decoded_token[0]
-                        puts decoded_token[0]
+                        #puts decoded_token[0]
                         if decoded_token[0]["payload"] == ENV["TOKEN"]
                             return true
                         else

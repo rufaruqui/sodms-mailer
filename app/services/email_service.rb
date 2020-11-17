@@ -63,13 +63,13 @@ class EmailService
              
                    1. In Report          #{ '[' + info[:summary][:inReport].to_s + ' of container(s) ]' if info[:summary][:inReport] > 0 }
                    2. In Summary
-                   3. Out Empty Report   #{ '[' + info[:summary][:outEmptyReport].to_s + ' of container(s) ]' if info[:summary][:inReport] > 0 }
+                   3. Out Empty Report   #{ '[' + info[:summary][:outEmptyReport].to_s + ' of container(s) ]' if info[:summary][:outEmptyReport] > 0 }
                    4. Out Empty Summary
-                   5. Out Laden Report   #{ '[' + info[:summary][:outLadenReport].to_s + ' of container(s) ]' if info[:summary][:inReport] > 0 }
+                   5. Out Laden Report   #{ '[' + info[:summary][:outLadenReport].to_s + ' of container(s) ]' if info[:summary][:outLadenReport] > 0 }
                    6. Out Laden Summary
-                   7. Empty Stock Report       #{ '[' + info[:summary][:stockReport].to_s + ' of container(s) )' if info[:summary][:inReport] > 0 }
+                   7. Empty Stock Report       #{ '[' + info[:summary][:stockReport].to_s + ' of container(s) )' if info[:summary][:stockReport] > 0 }
                    8. Empty Stock Summary 
-                   9. Laden Stock Report       #{ '[' + info[:summary][:ladenStockReport].to_s + ' of container(s) )' if info[:summary][:inReport] > 0 }
+                   9. Laden Stock Report       #{ '[' + info[:summary][:ladenStockReport].to_s + ' of container(s) )' if info[:summary][:ladenStockReport] > 0 }
                   10. Laden Stock Summary 
               
 

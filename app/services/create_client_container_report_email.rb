@@ -1,5 +1,4 @@
- 
-class CreateClientContainerReportEmail
+ßclass CreateClientContainerReportEmail
   def self.perform(info)  
        options = {} 
        recipents = info[:mailDeliveryContacts].pluck(:contactEmail).join(';')
@@ -9,8 +8,7 @@ class CreateClientContainerReportEmail
        h = {:mailDeliverySettingsId=> info[:id]} 
        containerinfo = RetrieveClientContainerData.perform(h) 
        info[:summary] =  report_summary containerinfo
-       puts info[:summary]
-       # ap containerinfo
+   
        if !containerinfo.blank?
               options[:mail_delivery_setting_id] = info[:id]
               options[:mail_type] = info[:mailReportType]
