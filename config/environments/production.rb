@@ -85,34 +85,17 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.raise_delivery_errors = false
-   config.action_mailer.default_options = {from: 'reporting@saplbd.com'}
-  # config.action_mailer.default_options = {from: 'reporting@isatlbd.com'}
+  config.action_mailer.default_options = {from: 'reporting@saplbd.com'} 
   
 
   config.action_mailer.smtp_settings = {
-      :address => "smtp.office365.com",
-      :port => 587,
-      :domain => 'saplbd.com',
-      :user_name => "reporting@saplbd.com",
-      :password => "it@sapl$9904",
-      :authentication => :login,
-      :enable_starttls_auto => true
-  }
-  # config.action_mailer.smtp_settings = {
-  #     :address => "smtp.office365.com",
-  #     :port => 587,
-  #     :domain => 'isatlbd.com',
-  #     :user_name => "reporting@isatlbd.com",
-  #     :password => "25846@#isatl",
-  #     :authentication => :login,
-  #     :enable_starttls_auto => true
-  # }
-  # config.action_mailer.smtp_settings = {
-  #     :address => "smtp.gmail.com",
-  #     :port => 587,
-  #     :user_name => "sapl.mailer@gmail.com",
-  #     :password => "saplsapl@ict",
-  #     :authentication => :plain,
-  #     :enable_starttls_auto => true
-  # }
+    :address => ENV['SMTP_HOST'],
+    :port => ENV['SMTP_PORT'].to_i,
+    :domain => ENV['SMTP_DOMAIN'],
+    :user_name => ENV['SMTP_USERNAME'],
+    :password =>  ENV['SMTP_PASSWORD'], 
+    :authentication => :login,
+    :enable_starttls_auto => true 
+ }
+   
 end
