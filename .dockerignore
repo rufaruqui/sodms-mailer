@@ -1,0 +1,58 @@
+# Git
+.git
+.gitignore
+
+# Documentation
+README.md
+CLAUDE.md
+docs/
+
+# Logs
+log/*
+*.log
+
+# Temporary files
+tmp/*
+!tmp/.keep
+
+# Database
+*.sqlite3
+*.sqlite3-journal
+db/*.sqlite3
+
+# Environment files
+.env
+.env.local
+config/local_env.yml
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Reports (will be generated at runtime)
+reports/*
+!reports/.keep
+
+# Vendor bundles (will be installed in container)
+vendor/bundle
+.bundle
+
+# Node modules
+node_modules/
+
+# Coverage
+coverage/
+
+# Test files
+test/
+spec/
+
+# Development files
+ext_resources/

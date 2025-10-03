@@ -10,9 +10,9 @@ development:
    adapter: mysql2
    database: sapl_mailer_dev
    username: root
-   password: password 
-   host: localhost
-   socket: /tmp/mysql.sock
+   password: password
+   host: <%= ENV.fetch('DATABASE_HOST', 'localhost') %>
+   port: 3306
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -21,9 +21,9 @@ test:
    adapter: mysql2
    database: sapl_mailer_test1
    username: root
-   password: password 
-   host: localhost
-   socket: /tmp/mysql.sock
+   password: password
+   host: <%= ENV.fetch('DATABASE_HOST', 'localhost') %>
+   port: 3306
 
 
 # production:

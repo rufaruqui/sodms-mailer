@@ -1,0 +1,92 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: sapl_mailer_dev
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-ppassword"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:3-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  web:
+    build: .
+    command: bundle exec rails server -b 0.0.0.0
+    volumes:
+      - .:/app
+      - bundle_cache:/usr/local/bundle
+    ports:
+      - "3000:3000"
+    environment:
+      RAILS_ENV: development
+      DATABASE_HOST: db
+      REDIS_URL: redis://redis:6379/0
+      LOCAL_BACKEND_BASE: ${LOCAL_BACKEND_BASE:-http://localhost:5000}
+      SODMS_BACKEND_BASE: ${SODMS_BACKEND_BASE:-http://203.202.249.100:8070}
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    stdin_open: true
+    tty: true
+
+  worker:
+    build: .
+    command: bundle exec rake environment resque:work QUEUE=*
+    volumes:
+      - .:/app
+      - bundle_cache:/usr/local/bundle
+    environment:
+      RAILS_ENV: development
+      DATABASE_HOST: db
+      REDIS_URL: redis://redis:6379/0
+      LOCAL_BACKEND_BASE: ${LOCAL_BACKEND_BASE:-http://localhost:5000}
+      SODMS_BACKEND_BASE: ${SODMS_BACKEND_BASE:-http://203.202.249.100:8070}
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  scheduler:
+    build: .
+    command: bundle exec rake resque:scheduler
+    volumes:
+      - .:/app
+      - bundle_cache:/usr/local/bundle
+    environment:
+      RAILS_ENV: development
+      DATABASE_HOST: db
+      REDIS_URL: redis://redis:6379/0
+      LOCAL_BACKEND_BASE: ${LOCAL_BACKEND_BASE:-http://localhost:5000}
+      SODMS_BACKEND_BASE: ${SODMS_BACKEND_BASE:-http://203.202.249.100:8070}
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+volumes:
+  mysql_data:
+  redis_data:
+  bundle_cache:
