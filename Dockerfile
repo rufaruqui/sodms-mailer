@@ -1,12 +1,13 @@
 FROM ruby:2.3.3
 
 # Fix Debian Jessie archived repositories
-RUN echo "deb http://archive.debian.org/debian/ jessie main" > /etc/apt/sources.list && \
-    echo "deb http://archive.debian.org/debian-security/ jessie/updates main" >> /etc/apt/sources.list && \
-    echo 'Acquire::Check-Valid-Until "false";' > /etc/apt/apt.conf.d/99no-check-valid-until
+RUN echo "deb [trusted=yes] http://archive.debian.org/debian/ jessie main" > /etc/apt/sources.list && \
+    echo "deb [trusted=yes] http://archive.debian.org/debian-security/ jessie/updates main" >> /etc/apt/sources.list && \
+    echo 'Acquire::Check-Valid-Until "false";' > /etc/apt/apt.conf.d/99no-check-valid-until && \
+    echo 'APT::Get::AllowUnauthenticated "true";' >> /etc/apt/apt.conf.d/99no-check-valid-until
 
 # Install dependencies
-RUN apt-get update -qq && apt-get install -y \
+RUN apt-get update -qq && apt-get install -y --allow-unauthenticated \
     build-essential \
     libpq-dev \
     nodejs \
