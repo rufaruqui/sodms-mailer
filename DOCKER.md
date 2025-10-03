@@ -23,7 +23,7 @@ This application uses Ruby 2.3.3 which runs on Debian Jessie (archived). The Doc
 
 3. **Build and start all services**
    ```bash
-   docker-compose up
+   docker compose up
    ```
 
    The first time you run this, it will:
@@ -38,7 +38,7 @@ This application uses Ruby 2.3.3 which runs on Debian Jessie (archived). The Doc
 
 ## Services
 
-The `docker-compose.yml` defines the following services:
+The `docker compose.yml` defines the following services:
 
 | Service | Description | Port |
 |---------|-------------|------|
@@ -54,67 +54,67 @@ The `docker-compose.yml` defines the following services:
 
 ```bash
 # Start all services in foreground
-docker-compose up
+docker compose up
 
 # Start all services in background
-docker-compose up -d
+docker compose up -d
 
 # Start specific service
-docker-compose up web
+docker compose up web
 ```
 
 ### Viewing Logs
 
 ```bash
 # View all logs
-docker-compose logs -f
+docker compose logs -f
 
 # View specific service logs
-docker-compose logs -f web
-docker-compose logs -f worker
-docker-compose logs -f scheduler
+docker compose logs -f web
+docker compose logs -f worker
+docker compose logs -f scheduler
 ```
 
 ### Running Commands
 
 ```bash
 # Access Rails console
-docker-compose exec web bundle exec rails console
+docker compose exec web bundle exec rails console
 
 # Run rake tasks
-docker-compose exec web rake prepare_container_reports
-docker-compose exec web rake send_container_reports
-docker-compose exec web rake check_undelivered_emails
-docker-compose exec web rake send_test_mail
+docker compose exec web rake prepare_container_reports
+docker compose exec web rake send_container_reports
+docker compose exec web rake check_undelivered_emails
+docker compose exec web rake send_test_mail
 
 # Run database migrations
-docker-compose exec web rake db:migrate
+docker compose exec web rake db:migrate
 
 # Access MySQL database
-docker-compose exec db mysql -u root -ppassword sapl_mailer_dev
+docker compose exec db mysql -u root -ppassword sapl_mailer_dev
 ```
 
 ### Stopping Services
 
 ```bash
 # Stop all services
-docker-compose down
+docker compose down
 
 # Stop and remove volumes (WARNING: deletes all data)
-docker-compose down -v
+docker compose down -v
 ```
 
 ### Rebuilding
 
 ```bash
 # Rebuild images
-docker-compose build
+docker compose build
 
 # Rebuild specific service
-docker-compose build web
+docker compose build web
 
 # Rebuild and restart
-docker-compose up --build
+docker compose up --build
 ```
 
 ## Development Workflow
@@ -123,17 +123,17 @@ docker-compose up --build
 
 2. **Restart web server** if needed:
    ```bash
-   docker-compose restart web
+   docker compose restart web
    ```
 
 3. **View logs** to debug:
    ```bash
-   docker-compose logs -f web
+   docker compose logs -f web
    ```
 
 4. **Run tests** (when test suite is configured):
    ```bash
-   docker-compose exec web bundle exec rails test
+   docker compose exec web bundle exec rails test
    ```
 
 ## Environment Variables
@@ -162,7 +162,7 @@ Persistent data is stored in Docker volumes:
 
 To remove all volumes and start fresh:
 ```bash
-docker-compose down -v
+docker compose down -v
 ```
 
 ## Troubleshooting
@@ -170,26 +170,26 @@ docker-compose down -v
 ### Database connection errors
 ```bash
 # Check if database is running
-docker-compose ps db
+docker compose ps db
 
 # Check database logs
-docker-compose logs db
+docker compose logs db
 
 # Manually create database
-docker-compose exec web rake db:create
+docker compose exec web rake db:create
 ```
 
 ### Redis connection errors
 ```bash
 # Check if Redis is running
-docker-compose ps redis
+docker compose ps redis
 
 # Check Redis logs
-docker-compose logs redis
+docker compose logs redis
 ```
 
 ### Port already in use
-If port 3000 is already in use, edit `docker-compose.yml`:
+If port 3000 is already in use, edit `docker compose.yml`:
 ```yaml
 web:
   ports:
@@ -199,19 +199,19 @@ web:
 ### Code changes not reflected
 ```bash
 # Restart the web service
-docker-compose restart web
+docker compose restart web
 
 # If still not working, rebuild
-docker-compose up --build web
+docker compose up --build web
 ```
 
 ### Worker not processing jobs
 ```bash
 # Check worker logs
-docker-compose logs -f worker
+docker compose logs -f worker
 
 # Restart worker
-docker-compose restart worker
+docker compose restart worker
 
 # Check Resque Web UI
 # http://localhost:3000/resque_web
@@ -222,7 +222,7 @@ docker-compose restart worker
 This Docker setup is configured for **development only**. For production:
 
 1. Use the existing Capistrano deployment process
-2. Or create a separate `docker-compose.prod.yml` with:
+2. Or create a separate `docker compose.prod.yml` with:
    - PostgreSQL instead of MySQL
    - Production environment variables
    - Proper secret management
