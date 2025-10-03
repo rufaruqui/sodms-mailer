@@ -1,4 +1,4 @@
-ßclass CreateClientContainerReportEmail
+class CreateClientContainerReportEmail
   def self.perform(info)  
        options = {} 
        recipents = info[:mailDeliveryContacts].pluck(:contactEmail).join(';')
