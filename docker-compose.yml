@@ -4,11 +4,10 @@ services:
   db:
     image: mysql:5.7
     container_name: sodms-mailer-db
-    environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: sapl_mailer_dev
+    env_file:
+      - .env
     # ports:
-    #   - "3306:3306"
+    #   - "3306:3306" 
     volumes:
       - mysql_data:/var/lib/mysql
     healthcheck:
@@ -20,9 +19,9 @@ services:
       - sodms-net
   redis:
     image: redis:3-alpine
-    container_name: sodms-mailer-redis
+    container_name: sodms-mailer-redis 
     # ports:
-    #   - "6379:6379"
+    #   - "6379:6379" 
     volumes:
       - redis_data:/data
     healthcheck:
@@ -42,12 +41,8 @@ services:
       - bundle_cache:/usr/local/bundle
     ports:
       - "3000:3000"
-    environment:
-      RAILS_ENV: development
-      DATABASE_HOST: db
-      REDIS_URL: redis://redis:6379/0
-      LOCAL_BACKEND_BASE: ${LOCAL_BACKEND_BASE:-http://localhost:5000}
-      SODMS_BACKEND_BASE: ${SODMS_BACKEND_BASE:-http://203.202.249.100:8070}
+    env_file:
+      - .env
     depends_on:
       db:
         condition: service_healthy
@@ -65,12 +60,8 @@ services:
     volumes:
       - .:/app
       - bundle_cache:/usr/local/bundle
-    environment:
-      RAILS_ENV: development
-      DATABASE_HOST: db
-      REDIS_URL: redis://redis:6379/0
-      LOCAL_BACKEND_BASE: ${LOCAL_BACKEND_BASE:-http://localhost:5000}
-      SODMS_BACKEND_BASE: ${SODMS_BACKEND_BASE:-http://203.202.249.100:8070}
+    env_file:
+      - .env
     depends_on:
       db:
         condition: service_healthy
@@ -86,12 +77,8 @@ services:
     volumes:
       - .:/app
       - bundle_cache:/usr/local/bundle
-    environment:
-      RAILS_ENV: development
-      DATABASE_HOST: db
-      REDIS_URL: redis://redis:6379/0
-      LOCAL_BACKEND_BASE: ${LOCAL_BACKEND_BASE:-http://localhost:5000}
-      SODMS_BACKEND_BASE: ${SODMS_BACKEND_BASE:-http://203.202.249.100:8070}
+    env_file:
+      - .env
     depends_on:
       db:
         condition: service_healthy
