@@ -27,12 +27,12 @@ class EncryptionService
 
 
     def self.sign(payload, options={})
-     options[:key] = ENV["SECRET_KEY_BASE"] unless options.has_key? :key
+     options[:key] = ENV["secret_key_base"] unless options.has_key? :key
      JWT.encode payload, options[:key], 'HS256'
    end
 
    def self.verify(token, options={})
-     options[:key] = ENV["SECRET_KEY_BASE"] unless options.has_key? :key
+     options[:key] = ENV["secret_key_base"] unless options.has_key? :key
      JWT.decode token, options[:key], true, { algorithm: 'HS256' }
    end
 end

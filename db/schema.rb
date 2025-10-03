@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20190402061632) do
 
-  create_table "emails", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "emails", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "creatorid"
     t.string   "subject"
     t.text     "body",                     limit: 65535
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20190402061632) do
     t.string   "client_code"
   end
 
-  create_table "mail_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "mail_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "name"
     t.string   "description"
     t.datetime "schedule"
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20190402061632) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "schedulers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "schedulers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "task_name"
     t.string   "execution_time"
     t.datetime "created_at",     null: false

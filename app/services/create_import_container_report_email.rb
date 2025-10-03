@@ -1,4 +1,4 @@
-ßclass CreateImportContainerReportEmail
+class CreateImportContainerReportEmail
 
   def self.perform(info)  
       options={}
