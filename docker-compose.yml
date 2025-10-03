@@ -1,8 +1,9 @@
-version: '3.8'
+version: 'sodms-mailer'
 
 services:
   db:
     image: mysql:5.7
+    container_name: sodms-mailer-db
     environment:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: sapl_mailer_dev
@@ -18,6 +19,7 @@ services:
 
   redis:
     image: redis:3-alpine
+    container_name: sodms-mailer-redis
     ports:
       - "6379:6379"
     volumes:
@@ -31,6 +33,7 @@ services:
   web:
     build: .
     command: bundle exec rails server -b 0.0.0.0
+    container_name: sodms-mailer-web
     volumes:
       - .:/app
       - bundle_cache:/usr/local/bundle
@@ -52,6 +55,7 @@ services:
 
   worker:
     build: .
+    container_name: sodms-mailer-worker
     command: bundle exec rake environment resque:work QUEUE=*
     volumes:
       - .:/app
@@ -70,6 +74,7 @@ services:
 
   scheduler:
     build: .
+    container_name: sodms-mailer-scheduler
     command: bundle exec rake resque:scheduler
     volumes:
       - .:/app
