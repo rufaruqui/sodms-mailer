@@ -1,11 +1,11 @@
-version: '3.8'
+version: 'sodms-mailer'
 
 services:
   db:
     image: mysql:5.7
-    environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: sapl_mailer_dev
+    container_name: sodms-mailer-db
+    env_file:
+      - .env
     ports:
       - "3306:3306"
     volumes:
@@ -19,6 +19,7 @@ services:
       - sodms-net
   redis:
     image: redis:3-alpine
+    container_name: sodms-mailer-redis
     ports:
       - "6379:6379"
     volumes:
@@ -34,17 +35,14 @@ services:
   web:
     build: .
     command: bundle exec rails server -b 0.0.0.0
+    container_name: sodms-mailer-web
     volumes:
       - .:/app
       - bundle_cache:/usr/local/bundle
     ports:
       - "3000:3000"
-    environment:
-      RAILS_ENV: development
-      DATABASE_HOST: db
-      REDIS_URL: redis://redis:6379/0
-      LOCAL_BACKEND_BASE: ${LOCAL_BACKEND_BASE:-http://localhost:5000}
-      SODMS_BACKEND_BASE: ${SODMS_BACKEND_BASE:-http://203.202.249.100:8070}
+    env_file:
+      - .env
     depends_on:
       db:
         condition: service_healthy
@@ -57,16 +55,13 @@ services:
 
   worker:
     build: .
+    container_name: sodms-mailer-worker
     command: bundle exec rake environment resque:work QUEUE=*
     volumes:
       - .:/app
       - bundle_cache:/usr/local/bundle
-    environment:
-      RAILS_ENV: development
-      DATABASE_HOST: db
-      REDIS_URL: redis://redis:6379/0
-      LOCAL_BACKEND_BASE: ${LOCAL_BACKEND_BASE:-http://localhost:5000}
-      SODMS_BACKEND_BASE: ${SODMS_BACKEND_BASE:-http://203.202.249.100:8070}
+    env_file:
+      - .env
     depends_on:
       db:
         condition: service_healthy
@@ -77,16 +72,13 @@ services:
 
   scheduler:
     build: .
+    container_name: sodms-mailer-scheduler
     command: bundle exec rake resque:scheduler
     volumes:
       - .:/app
       - bundle_cache:/usr/local/bundle
-    environment:
-      RAILS_ENV: development
-      DATABASE_HOST: db
-      REDIS_URL: redis://redis:6379/0
-      LOCAL_BACKEND_BASE: ${LOCAL_BACKEND_BASE:-http://localhost:5000}
-      SODMS_BACKEND_BASE: ${SODMS_BACKEND_BASE:-http://203.202.249.100:8070}
+    env_file:
+      - .env
     depends_on:
       db:
         condition: service_healthy
