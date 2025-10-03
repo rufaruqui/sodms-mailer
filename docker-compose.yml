@@ -16,7 +16,8 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
-
+    networks:
+      - sodms-net
   redis:
     image: redis:3-alpine
     container_name: sodms-mailer-redis
@@ -29,6 +30,8 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+    networks:
+      - sodms-net
 
   web:
     build: .
@@ -52,6 +55,8 @@ services:
         condition: service_healthy
     stdin_open: true
     tty: true
+    networks:
+      - sodms-net
 
   worker:
     build: .
@@ -71,6 +76,8 @@ services:
         condition: service_healthy
       redis:
         condition: service_healthy
+    networks:
+      - sodms-net
 
   scheduler:
     build: .
@@ -90,8 +97,14 @@ services:
         condition: service_healthy
       redis:
         condition: service_healthy
+    networks:
+      - sodms-net
 
 volumes:
   mysql_data:
   redis_data:
   bundle_cache:
+
+networks:
+  sodms-net:
+    external: true
