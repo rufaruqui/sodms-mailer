@@ -7,6 +7,10 @@ This guide will help you run the SODMS Mailer application using Docker.
 - Docker Engine 20.10+
 - Docker Compose 1.29+
 
+## Important Note
+
+This application uses Ruby 2.3.3 which runs on Debian Jessie (archived). The Dockerfile automatically configures archived repositories to ensure packages can be installed.
+
 ## Quick Start
 
 1. **Clone the repository** (if not already done)
