@@ -156,7 +156,9 @@ StopWhenUnneeded=true
 [Service]
 User=${DEPLOY_USER}
 WorkingDirectory=${APP_DIR}/current
-ExecStart=/bin/bash -lc 'source /usr/local/rvm/scripts/rvm && rvm use ${RUBY_VERSION}@${GEMSET_NAME} && bundle exec sidekiq -C config/sidekiq.yml >> ${APP_DIR}/shared/log/sidekiq.log 2>&1'
+Environment=QUEUE=saplmailer
+Environment=RAILS_ENV=production
+ExecStart=/bin/bash -lc 'source /usr/local/rvm/scripts/rvm && rvm use ${RUBY_VERSION}@${GEMSET_NAME} && bundle exec rake environment resque:work >> ${APP_DIR}/shared/log/worker.log 2>&1'
 Restart=always
 StandardInput=null
 StandardOutput=journal
@@ -178,7 +180,8 @@ StopWhenUnneeded=true
 [Service]
 User=${DEPLOY_USER}
 WorkingDirectory=${APP_DIR}/current
-ExecStart=/bin/bash -lc 'source /usr/local/rvm/scripts/rvm && rvm use ${RUBY_VERSION}@${GEMSET_NAME} && bundle exec clockwork config/clock.rb >> ${APP_DIR}/shared/log/scheduler.log 2>&1'
+Environment=RAILS_ENV=production
+ExecStart=/bin/bash -lc 'source /usr/local/rvm/scripts/rvm && rvm use ${RUBY_VERSION}@${GEMSET_NAME} && bundle exec rake resque:scheduler >> ${APP_DIR}/shared/log/scheduler.log 2>&1'
 Restart=always
 StandardInput=null
 StandardOutput=journal

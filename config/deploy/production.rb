@@ -30,9 +30,9 @@
 # role :web, %w{203.202.249.99}, user: 'mailadmin', port: 24420
 # role :db,  %w{203.202.249.99}, user: 'mailadmin', port: 24420
 
-role :app, %w{192.168.0.24}, user: 'mailadmin', port: 22
-role :web, %w{192.168.0.24}, user: 'mailadmin', port: 22
-role :db,  %w{192.168.0.24}, user: 'mailadmin', port: 22
+role :app, %w{192.168.0.24}, user: 'mailer', port: 22
+role :web, %w{192.168.0.24}, user: 'mailer', port: 22
+role :db,  %w{192.168.0.24}, user: 'mailer', port: 22
 
 
 # role :app, %w{ 103.4.65.211}, user: 'mailadmin', port: 24420
