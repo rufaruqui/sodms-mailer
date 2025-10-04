@@ -2,7 +2,8 @@
 lock "~> 3.10.1"
 
 set :application, "sodmsmailer"
-set :repo_url, "ssh://git@203.202.249.100:7999/sodms/sodmsmailer.git"
+#set :repo_url, "ssh://git@203.202.249.100:7999/sodms/sodmsmailer.git"
+set :repo_url, "ssh://git@192.168.100.3:7999/sodms/sodmsmailer.git"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp

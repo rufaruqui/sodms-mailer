@@ -51,7 +51,9 @@ sudo ln -sf /usr/bin/nodejs /usr/local/bin/node
 
 # Step 4: Install RVM and Ruby
 echo_info "Step 4: Installing RVM and Ruby ${RUBY_VERSION}..."
-sudo gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB || echo_warn "GPG key import failed, continuing..."
+echo_info "Importing RVM GPG keys..."
+curl -sSL https://rvm.io/mpapis.asc | sudo gpg --import -
+curl -sSL https://rvm.io/pkuczynski.asc | sudo gpg --import -
 curl -sSL https://get.rvm.io | sudo bash -s stable
 sudo usermod -a -G rvm `whoami`
 
@@ -62,17 +64,22 @@ source /usr/local/rvm/scripts/rvm
 rvm install ${RUBY_VERSION}
 rvm --default use ${RUBY_VERSION}
 
-# Install Bundler
-gem install bundler --no-rdoc --no-ri
+# Install Bundler (compatible version for Ruby 2.3.3)
+gem install bundler -v 1.17.3 --no-rdoc --no-ri
 
-# Step 5: Create deployment user
-echo_info "Step 5: Creating deployment user '${DEPLOY_USER}'..."
-if id "${DEPLOY_USER}" &>/dev/null; then
-    echo_warn "User ${DEPLOY_USER} already exists, skipping..."
-else
-    sudo adduser --disabled-password --gecos "" ${DEPLOY_USER}
-    echo "${DEPLOY_USER}:${DEPLOY_PASSWORD}" | sudo chpasswd
-fi
+# Add RVM and gem bin directories to PATH
+echo 'source /usr/local/rvm/scripts/rvm' >> ~/.bashrc
+echo 'export PATH="$PATH:$GEM_HOME/bin"' >> ~/.bashrc
+source ~/.bashrc
+
+# # Step 5: Create deployment user
+# echo_info "Step 5: Creating deployment user '${DEPLOY_USER}'..."
+# if id "${DEPLOY_USER}" &>/dev/null; then
+#     echo_warn "User ${DEPLOY_USER} already exists, skipping..."
+# else
+#     sudo adduser --disabled-password --gecos "" ${DEPLOY_USER}
+#     echo "${DEPLOY_USER}:${DEPLOY_PASSWORD}" | sudo chpasswd
+# fi
 
 # Step 6: Setup SSH for deployment user
 echo_info "Step 6: Setting up SSH for deployment user..."
@@ -127,11 +134,11 @@ StopWhenUnneeded=true
 User=${DEPLOY_USER}
 WorkingDirectory=${APP_DIR}/current
 Environment=PORT=7000
-ExecStart=/bin/bash -lc 'bundle exec puma -S ~/puma -C config/puma.rb'
+ExecStart=/bin/bash -lc 'source /usr/local/rvm/scripts/rvm && rvm use ${RUBY_VERSION}@${GEMSET_NAME} && bundle exec puma -S ~/puma -C config/puma.rb >> ${APP_DIR}/shared/log/production.log 2>&1'
 Restart=always
 StandardInput=null
-StandardOutput=${APP_DIR}/shared/log/production.log
-StandardError=${APP_DIR}/shared/log/production.log
+StandardOutput=journal
+StandardError=journal
 SyslogIdentifier=%n
 KillMode=process
 
@@ -149,11 +156,11 @@ StopWhenUnneeded=true
 [Service]
 User=${DEPLOY_USER}
 WorkingDirectory=${APP_DIR}/current
-ExecStart=/bin/bash -lc 'bundle exec sidekiq -C config/sidekiq.yml'
+ExecStart=/bin/bash -lc 'source /usr/local/rvm/scripts/rvm && rvm use ${RUBY_VERSION}@${GEMSET_NAME} && bundle exec sidekiq -C config/sidekiq.yml >> ${APP_DIR}/shared/log/sidekiq.log 2>&1'
 Restart=always
 StandardInput=null
-StandardOutput=${APP_DIR}/shared/log/sidekiq.log
-StandardError=${APP_DIR}/shared/log/sidekiq.log
+StandardOutput=journal
+StandardError=journal
 SyslogIdentifier=%n
 KillMode=process
 
@@ -171,11 +178,11 @@ StopWhenUnneeded=true
 [Service]
 User=${DEPLOY_USER}
 WorkingDirectory=${APP_DIR}/current
-ExecStart=/bin/bash -lc 'bundle exec clockwork config/clock.rb'
+ExecStart=/bin/bash -lc 'source /usr/local/rvm/scripts/rvm && rvm use ${RUBY_VERSION}@${GEMSET_NAME} && bundle exec clockwork config/clock.rb >> ${APP_DIR}/shared/log/scheduler.log 2>&1'
 Restart=always
 StandardInput=null
-StandardOutput=${APP_DIR}/shared/log/scheduler.log
-StandardError=${APP_DIR}/shared/log/scheduler.log
+StandardOutput=journal
+StandardError=journal
 SyslogIdentifier=%n
 KillMode=process
 
